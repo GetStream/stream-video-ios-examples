@@ -33,7 +33,6 @@
 		84CBBDD7292237D900D0DA61 /* VideoWithChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWithChatApp.swift; sourceTree = "<group>"; };
 		84CBBDDB292237DC00D0DA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		84CBBDE5292237FB00D0DA61 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../stream-video-swift"; sourceTree = "<group>"; };
 		84CBBDE72922391800D0DA61 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		84CBBDE82922391800D0DA61 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84CBBDE92922391800D0DA61 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		84CBBE05292274B000D0DA61 /* StreamWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWrapper.swift; sourceTree = "<group>"; };
 		84D6CA292922A2950022AA96 /* ChatViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewFactory.swift; sourceTree = "<group>"; };
 		84D6CA2B2923837A0022AA96 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
+		84D6CA2D2923A9B80022AA96 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../../stream-video-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 		84CBBDCB292237D900D0DA61 = {
 			isa = PBXGroup;
 			children = (
-				84CBBDE5292237FB00D0DA61 /* stream-video-swift */,
+				84D6CA2D2923A9B80022AA96 /* stream-video-swift */,
 				84CBBDD6292237D900D0DA61 /* VideoWithChat */,
 				84CBBDD5292237D900D0DA61 /* Products */,
 				84CBBDF9292239A400D0DA61 /* Frameworks */,
