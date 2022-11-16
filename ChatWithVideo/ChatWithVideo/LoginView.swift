@@ -26,6 +26,7 @@ struct LoginView: View {
                     viewModel.login(user: user, completion: completion)
                 } label: {
                     Text(user.user.name)
+                        .foregroundColor(.primary)
                 }
                 .padding(.all, 8)
             }
