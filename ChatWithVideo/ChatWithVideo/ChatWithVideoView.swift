@@ -9,6 +9,7 @@ import StreamChat
 import StreamChatSwiftUI
 import struct StreamVideoSwiftUI.CallModifier
 import class StreamVideo.CallViewModel
+import struct StreamVideoSwiftUI.MinimizedCallView
 import SwiftUI
 
 struct ChatWithVideoView<Factory: ViewFactory>: View {
@@ -25,7 +26,6 @@ struct ChatWithVideoView<Factory: ViewFactory>: View {
             messageController: nil,
             scrollToMessage: scrollToMessage
         )
-        .modifier(CallModifier(viewModel: callViewModel))
         .navigationBarHidden(callViewModel.callingState != .idle)
     }
 }

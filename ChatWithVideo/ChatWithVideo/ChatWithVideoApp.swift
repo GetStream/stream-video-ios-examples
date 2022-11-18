@@ -28,6 +28,7 @@ struct ChatWithVideoApp: App {
             ZStack {
                 if appState.userState == .loggedIn {
                     ChatChannelListView(viewFactory: ChatViewFactory.shared)
+                        .modifier(CallModifier(viewModel: ChatViewFactory.shared.callViewModel))
                 } else {
                     LoginView() { user in
                         handleSelectedUser(user)
