@@ -26,6 +26,42 @@ struct ChatWithVideoView<Factory: ViewFactory>: View {
             messageController: nil,
             scrollToMessage: scrollToMessage
         )
+        .overlay(
+            callViewModel.callingState == .inCall ? InCallView(callViewModel: callViewModel) : nil
+        )
         .navigationBarHidden(callViewModel.callingState != .idle)
     }
+}
+
+struct InCallView: View {
+    
+    @StateObject var callViewModel: CallViewModel
+    
+    var body: some View {
+        VStack {
+            Button {
+                callViewModel.isMinimized = false
+            } label: {
+                HStack {
+                    Text("Video call ongoing")
+                        .font(.headline)
+                    Spacer()
+                    HStack {
+                        Image(systemName: "video.fill")
+                        Text("Open")
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(16)
+                }
+            }
+            .padding()
+            .background(Color.green)
+            .foregroundColor(.primary)
+
+            Spacer()
+        }
+
+    }
+    
 }
