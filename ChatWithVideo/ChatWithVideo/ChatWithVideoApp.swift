@@ -60,7 +60,11 @@ struct ChatWithVideoApp: App {
         streamWrapper = StreamWrapper(
             chatApiKey: "zcgvnykxsfm8",
             videoApiKey: "key10",
-            userCredentials: user
+            userCredentials: user,
+            tokenProvider: { result in
+                //TODO: fix this
+                result(.success(user.videoTokenValue))
+            }
         )
         appState.streamWrapper = streamWrapper
     }

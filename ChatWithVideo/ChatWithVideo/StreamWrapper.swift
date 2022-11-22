@@ -11,19 +11,24 @@ import StreamChatSwiftUI
 import StreamVideo
 import StreamVideoSwiftUI
 
+typealias StreamTokenProvider = (@escaping (Result<String, Error>) -> Void) -> Void
+
 class StreamWrapper {
     let chatClient: ChatClient
     let streamChatUI: StreamChat
     let streamVideo: StreamVideo
     let streamVideoUI: StreamVideoUI
+    var tokenProvider: StreamTokenProvider
     
     init(
         chatApiKey: String,
         videoApiKey: String,
-        userCredentials: UserCredentials
+        userCredentials: UserCredentials,
+        tokenProvider: @escaping StreamTokenProvider
     ) {
         chatClient = ChatClient(config: .init(apiKeyString: chatApiKey))
         streamChatUI = StreamChat(chatClient: chatClient)
+        self.tokenProvider = tokenProvider
         let token = userCredentials.videoToken
         streamVideo = StreamVideo(
             apiKey: videoApiKey,
@@ -34,8 +39,19 @@ class StreamWrapper {
                 ringingTimeout: 0
             ),
             tokenProvider: { result in
-                //TODO: figure out the token renewal.
-                result(.success(token))
+                tokenProvider { tokenResult in
+                    switch tokenResult {
+                    case .success(let rawValue):
+                        do {
+                            let updatedToken = try UserToken(rawValue: rawValue)
+                            result(.success(updatedToken))
+                        } catch {
+                            result(.failure(error))
+                        }
+                    case .failure(let error):
+                        result(.failure(error))
+                    }
+                }
             }
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
