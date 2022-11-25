@@ -19,9 +19,7 @@ class ChannelListViewController: ChatChannelListVC {
     let callViewModel = CallViewModel()
     
     private var cancellables = Set<AnyCancellable>()
-    
-    var callView: UIView?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         listenToIncomingCalls()
@@ -32,14 +30,9 @@ class ChannelListViewController: ChatChannelListVC {
             guard let self = self else { return }
             if case .incoming(_) = newState, self == self.navigationController?.topViewController {
                 let next = CallViewController.make(with: self.callViewModel)
-                self.callView = next.view
-                self.callView?.isOpaque = false
-                self.callView?.backgroundColor = UIColor.clear
-                let window = UIApplication.shared.keyWindow!
-                window.addSubview(self.callView!)
+                CallViewHelper.shared.add(callView: next.view)
             } else if newState == .idle {
-                self.callView?.removeFromSuperview()
-                self.callView = nil
+                CallViewHelper.shared.removeCallView()
             }
         }
         .store(in: &cancellables)

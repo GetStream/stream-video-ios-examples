@@ -14,6 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let scene = scene as? UIWindowScene else { return }
+        self.window = UIWindow(windowScene: scene)
         /// user id and token for the user
         let userId = "tommaso"
         let user = User(
@@ -35,13 +37,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             result(.success(userCredentials.videoTokenValue))
         })        
         
-        /// Step 3: create the ChannelList view controller
         let channelList = ChannelListViewController()
         let query = ChannelListQuery(filter: .containMembers(userIds: [userId]))
         channelList.controller = StreamWrapper.shared.chatClient.channelListController(query: query)
         
-        /// Step 4: similar to embedding with a navigation controller using Storyboard
         window?.rootViewController = UINavigationController(rootViewController: channelList)
+        window?.makeKeyAndVisible()
     }
     
 }

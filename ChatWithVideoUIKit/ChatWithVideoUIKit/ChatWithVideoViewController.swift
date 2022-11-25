@@ -16,7 +16,6 @@ class ChatWithVideoViewController: ChatChannelVC {
     var cancellables = Set<AnyCancellable>()
     
     var callViewModel: CallViewModel!
-    var callView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +42,7 @@ class ChatWithVideoViewController: ChatChannelVC {
             participants: participants
         )
         let next = CallViewController.make(with: self.callViewModel)
-        self.callView = next.view
-        self.view.embed(self.callView!)
+        CallViewHelper.shared.add(callView: next.view)
     }
     
     private func listenToIncomingCalls() {
@@ -52,11 +50,9 @@ class ChatWithVideoViewController: ChatChannelVC {
             guard let self = self else { return }
             if case .incoming(_) = newState, self == self.navigationController?.topViewController {
                 let next = CallViewController.make(with: self.callViewModel)
-                self.callView = next.view
-                self.self.view.embed(self.callView!)
+                CallViewHelper.shared.add(callView: next.view)
             } else if newState == .idle {
-                self.callView?.removeFromSuperview()
-                self.callView = nil
+                CallViewHelper.shared.removeCallView()
             }
         }
         .store(in: &cancellables)
