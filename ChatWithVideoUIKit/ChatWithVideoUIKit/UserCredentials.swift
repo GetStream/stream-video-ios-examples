@@ -13,12 +13,11 @@ struct UserCredentials: Identifiable, Codable {
         user.id
     }
     let user: User
-    let videoTokenValue: String
-    let chatTokenValue: String
+    let tokenValue: String
 }
 
 extension UserCredentials {
     var videoToken: UserToken {
-        try! UserToken(rawValue: videoTokenValue)
+        try! UserToken(rawValue: tokenValue)
     }
 }

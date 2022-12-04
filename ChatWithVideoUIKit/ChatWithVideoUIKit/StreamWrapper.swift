@@ -21,17 +21,16 @@ class StreamWrapper {
     var tokenProvider: StreamTokenProvider
     
     init(
-        chatApiKey: String,
-        videoApiKey: String,
+        apiKey: String,
         userCredentials: UserCredentials,
         tokenProvider: @escaping StreamTokenProvider
     ) {
         Self.applyChatCustomizations()
-        chatClient = ChatClient(config: .init(apiKeyString: chatApiKey))
+        chatClient = ChatClient(config: .init(apiKeyString: apiKey))
         self.tokenProvider = tokenProvider
         let token = userCredentials.videoToken
         streamVideo = StreamVideo(
-            apiKey: videoApiKey,
+            apiKey: apiKey,
             user: userCredentials.user,
             token: token,
             videoConfig: VideoConfig(
@@ -55,14 +54,27 @@ class StreamWrapper {
             }
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
-        let chatToken = try! Token(rawValue: userCredentials.chatTokenValue)
         let userInfo = UserInfo.init(
             id: userCredentials.user.id,
             name: userCredentials.user.name,
             imageURL: userCredentials.user.imageURL,
             extraData: [:]
         )
-        chatClient.connectUser(userInfo: userInfo, token: chatToken)
+        chatClient.connectUser(userInfo: userInfo) { result in
+            tokenProvider { tokenResult in
+                switch tokenResult {
+                case .success(let rawValue):
+                    do {
+                        let updatedToken = try Token(rawValue: rawValue)
+                        result(.success(updatedToken))
+                    } catch {
+                        result(.failure(error))
+                    }
+                case .failure(let error):
+                    result(.failure(error))
+                }
+            }
+        }
     }
     
     static func applyChatCustomizations() {

@@ -25,16 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             extraData: [:])
         let userCredentials = UserCredentials(
             user: user,
-            videoTokenValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdHJlYW0tdmlkZW8tanNAdjAuMC4wIiwic3ViIjoidXNlci90b21tYXNvIiwiaWF0IjoxNjY4MDc4MDEsInVzZXJfaWQiOiJ0b21tYXNvIn0.lOzf0aZ80tKR438N6H5usitSJoWNy97zY1mT8xcXujc",
-            chatTokenValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidG9tbWFzbyJ9.BR8YNU3H-l19anEPyqOV_-QMjuiHuHrTlSxURuhhUww"
+            tokenValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdHJlYW0tdmlkZW8tZ29AdjAuMS4wIiwic3ViIjoidXNlci90b21tYXNvIiwiaWF0IjoxNjcwMTg5MDQ4LCJ1c2VyX2lkIjoidG9tbWFzbyJ9.kKv0Mmz9i_30z2JnjOaz2qEMsUgDVJvSzRK5LRJqg_Q"
         )
         
         StreamWrapper.shared = StreamWrapper(
-            chatApiKey: "zcgvnykxsfm8",
-            videoApiKey: "key10",
+            apiKey: "us83cfwuhy8n",
             userCredentials: userCredentials,
             tokenProvider: { result in
-            result(.success(userCredentials.videoTokenValue))
+            result(.success(userCredentials.tokenValue))
         })        
         
         let channelList = ChannelListViewController()
