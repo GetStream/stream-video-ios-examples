@@ -58,12 +58,11 @@ struct ChatWithVideoApp: App {
     
     private func handleSelectedUser(_ user: UserCredentials, callId: String? = nil) {
         streamWrapper = StreamWrapper(
-            chatApiKey: "zcgvnykxsfm8",
-            videoApiKey: "key10",
+            apiKey: "us83cfwuhy8n",
             userCredentials: user,
             tokenProvider: { result in
-                //TODO: fix this
-                result(.success(user.videoTokenValue))
+                //TODO: Provide token here.
+                result(.success(user.tokenValue))
             }
         )
         appState.streamWrapper = streamWrapper

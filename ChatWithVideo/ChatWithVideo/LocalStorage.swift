@@ -40,8 +40,7 @@ class UnsecureUserRepository: UserRepository, VoipTokenHandler {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(user.user) {
             defaults.set(encoded, forKey: userKey)
-            defaults.set(user.videoTokenValue, forKey: tokenKey)
-            defaults.set(user.chatTokenValue, forKey: chatTokenKey)
+            defaults.set(user.tokenValue, forKey: tokenKey)
         }
     }
     
@@ -50,11 +49,10 @@ class UnsecureUserRepository: UserRepository, VoipTokenHandler {
             let decoder = JSONDecoder()
             do {
                 let loadedUser = try decoder.decode(User.self, from: savedUser)
-                guard let tokenValue = defaults.value(forKey: tokenKey) as? String,
-                        let chatTokenValue = defaults.value(forKey: chatTokenKey) as? String else {
+                guard let tokenValue = defaults.value(forKey: tokenKey) as? String else {
                     throw ClientError.Unexpected()
                 }
-                return UserCredentials(user: loadedUser, videoTokenValue: tokenValue, chatTokenValue: chatTokenValue)
+                return UserCredentials(user: loadedUser, tokenValue: tokenValue)
             } catch {
                 log.error("Error while decoding user: \(String(describing: error))")
             }
