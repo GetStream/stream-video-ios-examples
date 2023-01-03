@@ -26,6 +26,7 @@
 		84CBBE06292274B000D0DA61 /* StreamWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBE05292274B000D0DA61 /* StreamWrapper.swift */; };
 		84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA292922A2950022AA96 /* ChatViewFactory.swift */; };
 		84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA2B2923837A0022AA96 /* ChatHelper.swift */; };
+		84F0867D296398AD0099907A /* FiltersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0867C296398AD0099907A /* FiltersService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		84D6CA292922A2950022AA96 /* ChatViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewFactory.swift; sourceTree = "<group>"; };
 		84D6CA2B2923837A0022AA96 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
 		84D6CA2D2923A9B80022AA96 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../../stream-video-swift"; sourceTree = "<group>"; };
+		84F0867C296398AD0099907A /* FiltersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				84CBBE0329223F1D00D0DA61 /* ChatCallControls.swift */,
 				84D6CA292922A2950022AA96 /* ChatViewFactory.swift */,
 				84D6CA2B2923837A0022AA96 /* ChatHelper.swift */,
+				84F0867C296398AD0099907A /* FiltersService.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				84CBBE0429223F1D00D0DA61 /* ChatCallControls.swift in Sources */,
 				84CBBDF22922391900D0DA61 /* LocalStorage.swift in Sources */,
 				84CBBE06292274B000D0DA61 /* StreamWrapper.swift in Sources */,
+				84F0867D296398AD0099907A /* FiltersService.swift in Sources */,
 				84CBBDF42922391900D0DA61 /* AppState.swift in Sources */,
 				84CBBDF02922391900D0DA61 /* HomeView.swift in Sources */,
 				84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */,
@@ -355,8 +359,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,8 +390,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,59 +1,79 @@
 {
-  "pins" : [
-    {
-      "identity" : "difference",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Difference.git",
-      "state" : {
-        "revision" : "02fe1111edc8318c4f8a0da96336fcbcc201f38b",
-        "version" : "1.0.1"
+  "object": {
+    "pins": [
+      {
+        "package": "Difference",
+        "repositoryURL": "https://github.com/krzysztofzablocki/Difference.git",
+        "state": {
+          "branch": null,
+          "revision": "02fe1111edc8318c4f8a0da96336fcbcc201f38b",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "93c8dc78fbc0aa3538a0db460eb389d4180af242",
+          "version": "11.3.1"
+        }
+      },
+      {
+        "package": "WebRTC",
+        "repositoryURL": "https://github.com/webrtc-sdk/Specs.git",
+        "state": {
+          "branch": null,
+          "revision": "3490cea839a8526733be6ad3de4f0ae04e192b0f",
+          "version": "104.5112.6"
+        }
+      },
+      {
+        "package": "StreamChat",
+        "repositoryURL": "https://github.com/GetStream/stream-chat-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "30caff3f680abcda3226a0776c85c5c9de023130",
+          "version": "4.24.1"
+        }
+      },
+      {
+        "package": "StreamChatTestHelpers",
+        "repositoryURL": "https://github.com/GetStream/stream-chat-swift-test-helpers.git",
+        "state": {
+          "branch": null,
+          "revision": "237da98e4946ed8e2dac51d9e82e713b0d47a298",
+          "version": "0.2.5"
+        }
+      },
+      {
+        "package": "StreamChatSwiftUI",
+        "repositoryURL": "https://github.com/GetStream/stream-chat-swiftui.git",
+        "state": {
+          "branch": "main",
+          "revision": "dcecafc343b755c31f5911e11d29aec209440b8a",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftProtobuf",
+        "repositoryURL": "https://github.com/apple/swift-protobuf.git",
+        "state": {
+          "branch": null,
+          "revision": "ab3a58b7209a17d781c0d1dbb3e1ff3da306bae8",
+          "version": "1.20.3"
+        }
+      },
+      {
+        "package": "Swifter",
+        "repositoryURL": "https://github.com/httpswift/swifter",
+        "state": {
+          "branch": null,
+          "revision": "9483a5d459b45c3ffd059f7b55f9638e268632fd",
+          "version": "1.5.0"
+        }
       }
-    },
-    {
-      "identity" : "nuke",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kean/Nuke.git",
-      "state" : {
-        "revision" : "93c8dc78fbc0aa3538a0db460eb389d4180af242",
-        "version" : "11.3.1"
-      }
-    },
-    {
-      "identity" : "stream-chat-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/GetStream/stream-chat-swift.git",
-      "state" : {
-        "revision" : "30caff3f680abcda3226a0776c85c5c9de023130",
-        "version" : "4.24.1"
-      }
-    },
-    {
-      "identity" : "stream-chat-swift-test-helpers",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/GetStream/stream-chat-swift-test-helpers.git",
-      "state" : {
-        "revision" : "237da98e4946ed8e2dac51d9e82e713b0d47a298",
-        "version" : "0.2.5"
-      }
-    },
-    {
-      "identity" : "stream-chat-swiftui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/GetStream/stream-chat-swiftui.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "dcecafc343b755c31f5911e11d29aec209440b8a"
-      }
-    },
-    {
-      "identity" : "swifter",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/httpswift/swifter",
-      "state" : {
-        "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
-        "version" : "1.5.0"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

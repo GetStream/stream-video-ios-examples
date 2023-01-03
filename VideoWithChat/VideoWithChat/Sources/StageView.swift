@@ -28,5 +28,8 @@ struct StageView: View {
                     appState.activeCallController = nil
                 }
             }
+            .onAppear {
+                viewModel.videoOptions = VideoOptions(preferredDimensions: .half)
+            }
     }
 }

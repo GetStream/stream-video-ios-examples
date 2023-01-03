@@ -20,6 +20,7 @@ struct ChatCallControls: View {
     @ObservedObject var viewModel: CallViewModel
     
     @StateObject private var chatHelper = ChatHelper()
+    @StateObject private var filtersService = FiltersService()
     
     @Injected(\.images) var images
     @Injected(\.colors) var colors
@@ -50,6 +51,21 @@ struct ChatCallControls: View {
                                         UnreadIndicatorView(unreadCount: chatHelper.unreadCount)
                                     })
                                 : nil
+                            )
+                        }
+                    )),
+                AnyView(
+                    Button(
+                        action: {
+                            withAnimation {
+                                filtersService.filtersShown.toggle()
+                            }
+                        },
+                        label: {
+                            CallIconView(
+                                icon: Image(systemName: "camera.filters"),
+                                size: size,
+                                iconStyle: filtersService.filtersShown ? .primary : .transparent
                             )
                         }
                     )),
@@ -115,9 +131,34 @@ struct ChatCallControls: View {
                     Spacer()
                 }
             }
+            
+            if filtersService.filtersShown {
+                HStack(spacing: 16) {
+                    ForEach(FiltersService.supportedFilters) { filter in
+                        Button {
+                            withAnimation {
+                                if filtersService.selectedFilter == filter {
+                                    filtersService.selectedFilter = nil
+                                } else {
+                                    filtersService.selectedFilter = filter
+                                }
+                                viewModel.setVideoFilter(filtersService.selectedFilter)
+                            }
+                        } label: {
+                            Text(filter.name)
+                                .padding(.horizontal)
+                                .padding(.vertical, 4)
+                                .background(filtersService.selectedFilter == filter ? Color.blue : Color.gray)
+                                .foregroundColor(.white)
+                                .cornerRadius(16)
+                        }
+
+                    }
+                }
+            }
         }
         .frame(maxWidth: .infinity)
-        .frame(height: chatHelper.chatShown ? chatHeight + 100 : 100)
+        .frame(height: chatHelper.chatShown ? chatHeight + 120 : 120)
         .background(
             colors.callControlsBackground
                 .cornerRadius(16)

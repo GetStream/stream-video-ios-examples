@@ -58,6 +58,7 @@ struct VideoWithChatApp: App {
         streamWrapper = StreamWrapper(
             apiKey: "us83cfwuhy8n",
             userCredentials: user,
+            videoFilters: FiltersService.supportedFilters,
             tokenProvider: { result in
                 //TODO: Provide token here.
                 result(.success(user.tokenValue))

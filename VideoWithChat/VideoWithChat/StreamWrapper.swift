@@ -23,6 +23,7 @@ class StreamWrapper {
     init(
         apiKey: String,
         userCredentials: UserCredentials,
+        videoFilters: [VideoFilter] = [],
         tokenProvider: @escaping StreamTokenProvider
     ) {
         chatClient = ChatClient(config: .init(apiKeyString: apiKey))
@@ -33,7 +34,10 @@ class StreamWrapper {
             apiKey: apiKey,
             user: userCredentials.user,
             token: token,
-            videoConfig: VideoConfig(joinVideoCallInstantly: true),
+            videoConfig: VideoConfig(
+                joinVideoCallInstantly: true,
+                videoFilters: videoFilters
+            ),
             tokenProvider: { result in
                 tokenProvider { tokenResult in
                     switch tokenResult {
