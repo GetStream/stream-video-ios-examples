@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8439424E2979916D00531972 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 8439424D2979916D00531972 /* StreamVideo */; };
+		843942502979916D00531972 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8439424F2979916D00531972 /* StreamVideoSwiftUI */; };
 		84521A702924D6240074E136 /* ChatWithVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521A6F2924D6240074E136 /* ChatWithVideoView.swift */; };
 		8459B7522923D5F8004CD989 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 8459B7512923D5F8004CD989 /* StreamVideo */; };
 		8459B7542923D5F8004CD989 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8459B7532923D5F8004CD989 /* StreamVideoSwiftUI */; };
@@ -31,7 +33,6 @@
 		845E28BE2923D1DD00110209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		845E28C02923D1DF00110209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E28C32923D1DF00110209 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		845E28CD2923D3FD00110209 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../../stream-video-swift"; sourceTree = "<group>"; };
 		84E880CF2923D6A3004B0436 /* StreamWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWrapper.swift; sourceTree = "<group>"; };
 		84E880D52923D720004B0436 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		84E880D62923D720004B0436 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -48,6 +49,8 @@
 			files = (
 				8459B7542923D5F8004CD989 /* StreamVideoSwiftUI in Frameworks */,
 				8459B7522923D5F8004CD989 /* StreamVideo in Frameworks */,
+				8439424E2979916D00531972 /* StreamVideo in Frameworks */,
+				843942502979916D00531972 /* StreamVideoSwiftUI in Frameworks */,
 				845E28CC2923D25A00110209 /* StreamChatSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,7 +68,6 @@
 		845E28B02923D1DD00110209 = {
 			isa = PBXGroup;
 			children = (
-				845E28CD2923D3FD00110209 /* stream-video-swift */,
 				845E28BB2923D1DD00110209 /* ChatWithVideo */,
 				845E28BA2923D1DD00110209 /* Products */,
 				8459B7502923D5F8004CD989 /* Frameworks */,
@@ -127,6 +129,8 @@
 				845E28CB2923D25A00110209 /* StreamChatSwiftUI */,
 				8459B7512923D5F8004CD989 /* StreamVideo */,
 				8459B7532923D5F8004CD989 /* StreamVideoSwiftUI */,
+				8439424D2979916D00531972 /* StreamVideo */,
+				8439424F2979916D00531972 /* StreamVideoSwiftUI */,
 			);
 			productName = ChatWithVideo;
 			productReference = 845E28B92923D1DD00110209 /* ChatWithVideo.app */;
@@ -158,6 +162,7 @@
 			mainGroup = 845E28B02923D1DD00110209;
 			packageReferences = (
 				845E28CA2923D25A00110209 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */,
+				8439424C2979916D00531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
 			);
 			productRefGroup = 845E28BA2923D1DD00110209 /* Products */;
 			projectDirPath = "";
@@ -403,6 +408,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8439424C2979916D00531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		845E28CA2923D25A00110209 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GetStream/stream-chat-swiftui.git";
@@ -414,6 +427,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8439424D2979916D00531972 /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8439424C2979916D00531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		8439424F2979916D00531972 /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8439424C2979916D00531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
+		};
 		8459B7512923D5F8004CD989 /* StreamVideo */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StreamVideo;
