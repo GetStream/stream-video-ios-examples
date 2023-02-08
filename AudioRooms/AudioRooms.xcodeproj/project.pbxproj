@@ -82,17 +82,14 @@
 		84A9B2BD298434C000F96E01 /* AudioRooms */ = {
 			isa = PBXGroup;
 			children = (
-				AC791B9D2993A1660072AD3C /* Helpers */,
-				AC791B972993A09A0072AD3C /* Features */,
-				84AD51D02989468F0057F1A5 /* Info.plist */,
-				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,
-				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
-				84A9B2C4298434C200F96E01 /* Preview Content */,
-				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
-				84AA6EB529882534005732EF /* LoginView.swift */,
-				84AA6EB629882534005732EF /* UserCredentials.swift */,
 				84AA6EBA2988254E005732EF /* AppState.swift */,
-				84AA6EBC2988256F005732EF /* LocalStorage.swift */,
+				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
+				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,
+				AC791B972993A09A0072AD3C /* Features */,
+				AC791B9D2993A1660072AD3C /* Helpers */,
+				84AD51D02989468F0057F1A5 /* Info.plist */,
+				AC791BA92993A73A0072AD3C /* Model */,
+				84A9B2C4298434C200F96E01 /* Preview Content */,
 			);
 			path = AudioRooms;
 			sourceTree = "<group>";
@@ -108,6 +105,7 @@
 		AC791B972993A09A0072AD3C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AC791BA72993A72C0072AD3C /* Login */,
 				AC791BA02993A55D0072AD3C /* AudioRoom */,
 				AC791B982993A09F0072AD3C /* AudioRooms */,
 			);
@@ -144,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */,
+				84AA6EBC2988256F005732EF /* LocalStorage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -173,6 +172,31 @@
 				84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC791BA72993A72C0072AD3C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC791BA82993A7310072AD3C /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AC791BA82993A7310072AD3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84AA6EB529882534005732EF /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC791BA92993A73A0072AD3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
+				84AA6EB629882534005732EF /* UserCredentials.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
