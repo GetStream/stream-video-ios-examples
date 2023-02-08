@@ -14,15 +14,17 @@
 		84A9B2D02984360C00F96E01 /* AudioRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2CF2984360C00F96E01 /* AudioRoom.swift */; };
 		84A9B2D2298438A000F96E01 /* AudioRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */; };
 		84A9B2D4298438AF00F96E01 /* AudioRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */; };
-		84AA6EAD29881952005732EF /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 84AA6EAC29881952005732EF /* Nuke */; };
-		84AA6EAF29881952005732EF /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 84AA6EAE29881952005732EF /* NukeUI */; };
 		84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB029881D17005732EF /* AudioRoomView.swift */; };
 		84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */; };
-		84AA6EB729882534005732EF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB429882534005732EF /* LoginViewModel.swift */; };
 		84AA6EB829882534005732EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB529882534005732EF /* LoginView.swift */; };
 		84AA6EB929882534005732EF /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB629882534005732EF /* UserCredentials.swift */; };
 		84AA6EBB2988254E005732EF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBA2988254E005732EF /* AppState.swift */; };
 		84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBC2988256F005732EF /* LocalStorage.swift */; };
+		AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */; };
+		AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */; };
+		AC791BA42993A5FD0072AD3C /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */; };
+		AC791BA62993A6B60072AD3C /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BA52993A6B60072AD3C /* IconView.swift */; };
+		AC791BAB2993EB2A0072AD3C /* ImageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,12 +37,16 @@
 		84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsViewModel.swift; sourceTree = "<group>"; };
 		84AA6EB029881D17005732EF /* AudioRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomView.swift; sourceTree = "<group>"; };
 		84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomViewModel.swift; sourceTree = "<group>"; };
-		84AA6EB429882534005732EF /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84AA6EB529882534005732EF /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		84AA6EB629882534005732EF /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		84AA6EBA2988254E005732EF /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		84AA6EBC2988256F005732EF /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		84AD51D02989468F0057F1A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomCell.swift; sourceTree = "<group>"; };
+		AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+BackgroundColor.swift"; sourceTree = "<group>"; };
+		AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
+		AC791BA52993A6B60072AD3C /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,9 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AA6EAF29881952005732EF /* NukeUI in Frameworks */,
 				84A9B2CE298435AD00F96E01 /* StreamVideo in Frameworks */,
-				84AA6EAD29881952005732EF /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,20 +80,14 @@
 		84A9B2BD298434C000F96E01 /* AudioRooms */ = {
 			isa = PBXGroup;
 			children = (
-				84AD51D02989468F0057F1A5 /* Info.plist */,
-				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,
-				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
-				84A9B2C4298434C200F96E01 /* Preview Content */,
-				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
-				84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */,
-				84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */,
-				84AA6EB029881D17005732EF /* AudioRoomView.swift */,
-				84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */,
-				84AA6EB529882534005732EF /* LoginView.swift */,
-				84AA6EB429882534005732EF /* LoginViewModel.swift */,
-				84AA6EB629882534005732EF /* UserCredentials.swift */,
 				84AA6EBA2988254E005732EF /* AppState.swift */,
-				84AA6EBC2988256F005732EF /* LocalStorage.swift */,
+				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
+				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,
+				AC791B972993A09A0072AD3C /* Features */,
+				AC791B9D2993A1660072AD3C /* Helpers */,
+				84AD51D02989468F0057F1A5 /* Info.plist */,
+				AC791BA92993A73A0072AD3C /* Model */,
+				84A9B2C4298434C200F96E01 /* Preview Content */,
 			);
 			path = AudioRooms;
 			sourceTree = "<group>";
@@ -100,6 +98,104 @@
 				84A9B2C5298434C200F96E01 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC791B972993A09A0072AD3C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AC791BA72993A72C0072AD3C /* Login */,
+				AC791BA02993A55D0072AD3C /* AudioRoom */,
+				AC791B982993A09F0072AD3C /* AudioRooms */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AC791B982993A09F0072AD3C /* AudioRooms */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B9A2993A0AD0072AD3C /* ViewModel */,
+				AC791B992993A0A80072AD3C /* View */,
+			);
+			path = AudioRooms;
+			sourceTree = "<group>";
+		};
+		AC791B992993A0A80072AD3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */,
+				84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */,
+				AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC791B9A2993A0AD0072AD3C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC791B9D2993A1660072AD3C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */,
+				84AA6EBC2988256F005732EF /* LocalStorage.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AC791BA02993A55D0072AD3C /* AudioRoom */ = {
+			isa = PBXGroup;
+			children = (
+				AC791BA22993A5680072AD3C /* ViewModel */,
+				AC791BA12993A5640072AD3C /* View */,
+			);
+			path = AudioRoom;
+			sourceTree = "<group>";
+		};
+		AC791BA12993A5640072AD3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84AA6EB029881D17005732EF /* AudioRoomView.swift */,
+				AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */,
+				AC791BA52993A6B60072AD3C /* IconView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC791BA22993A5680072AD3C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC791BA72993A72C0072AD3C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC791BA82993A7310072AD3C /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AC791BA82993A7310072AD3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84AA6EB529882534005732EF /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC791BA92993A73A0072AD3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
+				84AA6EB629882534005732EF /* UserCredentials.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,8 +216,6 @@
 			name = AudioRooms;
 			packageProductDependencies = (
 				84A9B2CD298435AD00F96E01 /* StreamVideo */,
-				84AA6EAC29881952005732EF /* Nuke */,
-				84AA6EAE29881952005732EF /* NukeUI */,
 			);
 			productName = AudioRooms;
 			productReference = 84A9B2BB298434C000F96E01 /* AudioRooms.app */;
@@ -153,7 +247,6 @@
 			mainGroup = 84A9B2B2298434C000F96E01;
 			packageReferences = (
 				84A9B2CC298435AD00F96E01 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
-				84AA6EAB29881952005732EF /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 84A9B2BC298434C000F96E01 /* Products */;
 			projectDirPath = "";
@@ -181,17 +274,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC791BAB2993EB2A0072AD3C /* ImageFromUrl.swift in Sources */,
 				84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */,
+				AC791BA62993A6B60072AD3C /* IconView.swift in Sources */,
 				84A9B2D2298438A000F96E01 /* AudioRoomsView.swift in Sources */,
 				84AA6EBB2988254E005732EF /* AppState.swift in Sources */,
 				84A9B2D02984360C00F96E01 /* AudioRoom.swift in Sources */,
+				AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */,
 				84A9B2D4298438AF00F96E01 /* AudioRoomsViewModel.swift in Sources */,
 				84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */,
+				AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */,
+				AC791BA42993A5FD0072AD3C /* ParticipantsView.swift in Sources */,
 				84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */,
 				84AA6EB929882534005732EF /* UserCredentials.swift in Sources */,
 				84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */,
 				84AA6EB829882534005732EF /* LoginView.swift in Sources */,
-				84AA6EB729882534005732EF /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -302,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -320,7 +417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms/Preview Content\"";
-				DEVELOPMENT_TEAM = UAM22JDBB2;
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioRooms/Info.plist;
@@ -350,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms/Preview Content\"";
-				DEVELOPMENT_TEAM = UAM22JDBB2;
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioRooms/Info.plist;
@@ -404,14 +501,6 @@
 				kind = branch;
 			};
 		};
-		84AA6EAB29881952005732EF /* XCRemoteSwiftPackageReference "Nuke" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/Nuke.git";
-			requirement = {
-				kind = exactVersion;
-				version = 11.3.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -419,16 +508,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84A9B2CC298435AD00F96E01 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideo;
-		};
-		84AA6EAC29881952005732EF /* Nuke */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84AA6EAB29881952005732EF /* XCRemoteSwiftPackageReference "Nuke" */;
-			productName = Nuke;
-		};
-		84AA6EAE29881952005732EF /* NukeUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84AA6EAB29881952005732EF /* XCRemoteSwiftPackageReference "Nuke" */;
-			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
