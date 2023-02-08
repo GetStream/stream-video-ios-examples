@@ -15,7 +15,9 @@ class AudioRoomsViewModel: ObservableObject {
     @Published var selectedAudioRoom: AudioRoom?
 
     init() {
-        self.audioRooms = DemoAudioRoomRepository.loadAudioRooms()
+        Task {
+            self.audioRooms = await DemoAudioRoomRepository().loadAudioRooms()
+        }
     }
 }
 

@@ -16,24 +16,32 @@ struct AudioRoom: Identifiable {
 }
 
 extension AudioRoom {
-    static var preview: AudioRoom = DemoAudioRoomRepository.loadAudioRooms().first!
+    static var preview: AudioRoom = AudioRoom(
+        id: "audioroom1",
+        title: "The football room",
+        subtitle: "All about the beautiful game",
+        hosts: [
+            UserCredentials.builtInUsersByID(id: "martin")!.userInfo,
+            UserCredentials.builtInUsersByID(id: "thierry")!.userInfo
+        ]
+    )
 }
 
 protocol AudioRoomRepository {
     
-    static func loadAudioRooms() -> [AudioRoom]
+    func loadAudioRooms() async -> [AudioRoom]
     
 }
 
 class DemoAudioRoomRepository: AudioRoomRepository {
     
-    private static let martin = UserCredentials.builtInUsersByID(id: "martin")!.userInfo
-    private static let tommaso = UserCredentials.builtInUsersByID(id: "tommaso")!.userInfo
-    private static let thierry = UserCredentials.builtInUsersByID(id: "thierry")!.userInfo
-    private static let filip = UserCredentials.builtInUsersByID(id: "filip")!.userInfo
-    private static let marcelo = UserCredentials.builtInUsersByID(id: "marcelo")!.userInfo
+    private let martin = UserCredentials.builtInUsersByID(id: "martin")!.userInfo
+    private let tommaso = UserCredentials.builtInUsersByID(id: "tommaso")!.userInfo
+    private let thierry = UserCredentials.builtInUsersByID(id: "thierry")!.userInfo
+    private let filip = UserCredentials.builtInUsersByID(id: "filip")!.userInfo
+    private let marcelo = UserCredentials.builtInUsersByID(id: "marcelo")!.userInfo
     
-    static func loadAudioRooms() -> [AudioRoom] {
+    func loadAudioRooms() async -> [AudioRoom] {
         let footballRoom = AudioRoom(
             id: "audioroom1",
             title: "The football room",
