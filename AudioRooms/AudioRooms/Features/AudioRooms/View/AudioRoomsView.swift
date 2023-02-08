@@ -7,7 +7,6 @@
 
 import StreamVideo
 import SwiftUI
-import NukeUI
 
 struct AudioRoomsView: View {
     
@@ -43,9 +42,10 @@ struct AudioRoomsView: View {
                             Text("Logout")
                                 .foregroundColor(.primary)
                             
-                            LazyImage(url: streamVideo.user.imageURL)
-                                .frame(width: 32, height: 32)
-                                .clipShape(Circle())
+                            ImageFromUrl(
+                                url: streamVideo.user.imageURL!,
+                                size: 32
+                            )
                         }
                         .padding(8)
                         .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))

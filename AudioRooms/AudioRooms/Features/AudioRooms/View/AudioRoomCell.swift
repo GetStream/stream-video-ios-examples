@@ -9,7 +9,6 @@ import SwiftUI
 
 import SwiftUI
 import StreamVideo
-import NukeUI
 
 struct AudioRoomCell: View {
     
@@ -29,14 +28,17 @@ struct AudioRoomCell: View {
                 HStack(spacing: 30) {
                     if audioRoom.hosts.count > 1 {
                         ZStack {
-                            LazyImage(url: audioRoom.hosts[0].imageURL)
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                                .offset(x: -imageOffset, y: -imageOffset)
-                            LazyImage(url: audioRoom.hosts[1].imageURL)
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                                .offset(x: imageOffset, y: imageOffset)
+                            ImageFromUrl(
+                                url: audioRoom.hosts[0].imageURL!,
+                                size: 40,
+                                offset: -imageOffset
+                            )
+                            
+                            ImageFromUrl(
+                                url: audioRoom.hosts[1].imageURL!,
+                                size: 40,
+                                offset: imageOffset
+                            )
                         }
                         .frame(height: 80)
                         .padding(.leading, imageOffset)
