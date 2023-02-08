@@ -17,8 +17,8 @@ struct ParticipantsView: View {
             ForEach(participants) { participant in
                 VStack {
                     AsyncImage(url: participant.profileImageURL!)
-                        .frame(width: 64, height: 64)
                         .clipShape(Circle())
+                        .frame(width: 64, height: 64)
                         .overlay(
                             Circle()
                                 .stroke(

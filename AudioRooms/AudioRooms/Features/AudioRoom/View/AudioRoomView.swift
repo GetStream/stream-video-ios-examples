@@ -45,7 +45,6 @@ struct AudioRoomView: View {
                 .foregroundColor(.gray)
             
             ParticipantsView(participants: viewModel.hosts)
-
             
             if viewModel.otherUsers.count > 0 {
                 Text("Listeners")
