@@ -15,6 +15,8 @@ struct AudioRoomsView: View {
     
     @StateObject var viewModel = AudioRoomsViewModel()
     
+    @ObservedObject var appState: AppState
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -36,9 +38,16 @@ struct AudioRoomsView: View {
                     Button {
                         viewModel.logoutAlertShown = true
                     } label: {
-                        LazyImage(url: streamVideo.user.imageURL)
-                            .frame(width: 44, height: 44)
-                            .clipShape(Circle())
+                        HStack {
+                            Text("Logout")
+                                .foregroundColor(.primary)
+                            
+                            LazyImage(url: streamVideo.user.imageURL)
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                        }
+                        .padding(8)
+                        .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))
                     }
                     .padding()
                 }
@@ -57,8 +66,8 @@ struct AudioRoomsView: View {
                             UnsecureUserRepository.shared.removeCurrentUser()
                             Task {
                                 await streamVideo.disconnect()
-                                AppState.shared.streamVideo = nil
-                                AppState.shared.userState = .notLoggedIn
+                                appState.streamVideo = nil
+                                appState.userState = .notLoggedIn
                             }
                         }
                     },

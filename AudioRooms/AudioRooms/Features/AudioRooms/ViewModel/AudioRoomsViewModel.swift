@@ -10,21 +10,12 @@ import SwiftUI
 
 @MainActor
 class AudioRoomsViewModel: ObservableObject {
-    
+
     @Published var audioRooms = [AudioRoom]()
     @Published var selectedAudioRoom: AudioRoom?
-    @Published var logoutAlertShown = false
-    
-    private let repository: AudioRoomRepository = DemoAudioRoomRepository()
-    
+
     init() {
-        loadAudioRooms()
+        self.audioRooms = DemoAudioRoomRepository.loadAudioRooms()
     }
-    
-    private func loadAudioRooms() {
-        Task {
-            self.audioRooms = await repository.loadAudioRooms()
-        }
-    }
-    
 }
+

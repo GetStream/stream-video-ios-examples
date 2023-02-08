@@ -22,6 +22,8 @@
 		84AA6EB929882534005732EF /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB629882534005732EF /* UserCredentials.swift */; };
 		84AA6EBB2988254E005732EF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBA2988254E005732EF /* AppState.swift */; };
 		84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBC2988256F005732EF /* LocalStorage.swift */; };
+		AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */; };
+		AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		84AA6EBA2988254E005732EF /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		84AA6EBC2988256F005732EF /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		84AD51D02989468F0057F1A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomCell.swift; sourceTree = "<group>"; };
+		AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+BackgroundColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +78,13 @@
 		84A9B2BD298434C000F96E01 /* AudioRooms */ = {
 			isa = PBXGroup;
 			children = (
+				AC791B9D2993A1660072AD3C /* Helpers */,
+				AC791B972993A09A0072AD3C /* Features */,
 				84AD51D02989468F0057F1A5 /* Info.plist */,
 				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,
 				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
 				84A9B2C4298434C200F96E01 /* Preview Content */,
 				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
-				84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */,
-				84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */,
 				84AA6EB029881D17005732EF /* AudioRoomView.swift */,
 				84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */,
 				84AA6EB529882534005732EF /* LoginView.swift */,
@@ -97,6 +101,48 @@
 				84A9B2C5298434C200F96E01 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC791B972993A09A0072AD3C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B982993A09F0072AD3C /* AudioRooms */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AC791B982993A09F0072AD3C /* AudioRooms */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B9A2993A0AD0072AD3C /* ViewModel */,
+				AC791B992993A0A80072AD3C /* View */,
+			);
+			path = AudioRooms;
+			sourceTree = "<group>";
+		};
+		AC791B992993A0A80072AD3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */,
+				84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC791B9A2993A0AD0072AD3C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC791B9D2993A1660072AD3C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,8 +228,10 @@
 				84A9B2D2298438A000F96E01 /* AudioRoomsView.swift in Sources */,
 				84AA6EBB2988254E005732EF /* AppState.swift in Sources */,
 				84A9B2D02984360C00F96E01 /* AudioRoom.swift in Sources */,
+				AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */,
 				84A9B2D4298438AF00F96E01 /* AudioRoomsViewModel.swift in Sources */,
 				84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */,
+				AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */,
 				84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */,
 				84AA6EB929882534005732EF /* UserCredentials.swift in Sources */,
 				84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */,
