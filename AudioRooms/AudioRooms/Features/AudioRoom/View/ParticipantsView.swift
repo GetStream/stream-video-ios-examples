@@ -16,16 +16,24 @@ struct ParticipantsView: View {
         HStack {
             ForEach(participants) { participant in
                 VStack {
-                    AsyncImage(url: participant.profileImageURL!)
-                        .clipShape(Circle())
-                        .frame(width: 64, height: 64)
-                        .overlay(
-                            Circle()
-                                .stroke(
-                                    Color.blue,
-                                    lineWidth: participant.isSpeaking ? 1 : 0
-                                )
-                        )
+                    ZStack(alignment: .bottomTrailing) {
+                        AsyncImage(url: participant.profileImageURL!)
+                            .clipShape(Circle())
+                            .frame(width: 64, height: 64)
+                            .overlay(
+                                Circle()
+                                    .stroke(
+                                        Color.blue,
+                                        lineWidth: participant.isSpeaking ? 1 : 0
+                                    )
+                            )
+                        
+                        if !participant.hasAudio {
+                            IconView(imageName: "mic.slash")
+                                .frame(width: 12, height: 12)
+                        }
+                    }
+                    
                     Text(participant.name)
                 }
             }
