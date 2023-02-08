@@ -6,33 +6,29 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject var viewModel: LoginViewModel
-    var completion: (UserCredentials) -> ()
-    
-    @State var addUserShown = false
-    
-    init(completion: @escaping (UserCredentials) -> ()) {
-        _viewModel = StateObject(wrappedValue: LoginViewModel())
-        self.completion = completion
-    }
+    @ObservedObject var appState: AppState
     
     var body: some View {
         VStack {
             Text("Select a user")
                 .font(.title)
                 .bold()
-            List(viewModel.userCredentials) { user in
+            
+            List(UserCredentials.builtInUsers) { user in
                 Button {
-                    viewModel.login(user: user, completion: completion)
+                    appState.login(user)
                 } label: {
                     Text(user.userInfo.name)
                 }
-                .padding(.all, 8)
+                .padding(8)
             }
         }
         .foregroundColor(.primary)
-        .overlay(
-            viewModel.loading ? ProgressView() : nil
-        )
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView(appState: AppState())
     }
 }

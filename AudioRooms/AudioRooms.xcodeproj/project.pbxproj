@@ -18,7 +18,6 @@
 		84AA6EAF29881952005732EF /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 84AA6EAE29881952005732EF /* NukeUI */; };
 		84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB029881D17005732EF /* AudioRoomView.swift */; };
 		84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */; };
-		84AA6EB729882534005732EF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB429882534005732EF /* LoginViewModel.swift */; };
 		84AA6EB829882534005732EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB529882534005732EF /* LoginView.swift */; };
 		84AA6EB929882534005732EF /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB629882534005732EF /* UserCredentials.swift */; };
 		84AA6EBB2988254E005732EF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBA2988254E005732EF /* AppState.swift */; };
@@ -35,7 +34,6 @@
 		84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsViewModel.swift; sourceTree = "<group>"; };
 		84AA6EB029881D17005732EF /* AudioRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomView.swift; sourceTree = "<group>"; };
 		84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomViewModel.swift; sourceTree = "<group>"; };
-		84AA6EB429882534005732EF /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84AA6EB529882534005732EF /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		84AA6EB629882534005732EF /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		84AA6EBA2988254E005732EF /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				84AA6EB029881D17005732EF /* AudioRoomView.swift */,
 				84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */,
 				84AA6EB529882534005732EF /* LoginView.swift */,
-				84AA6EB429882534005732EF /* LoginViewModel.swift */,
 				84AA6EB629882534005732EF /* UserCredentials.swift */,
 				84AA6EBA2988254E005732EF /* AppState.swift */,
 				84AA6EBC2988256F005732EF /* LocalStorage.swift */,
@@ -191,7 +188,6 @@
 				84AA6EB929882534005732EF /* UserCredentials.swift in Sources */,
 				84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */,
 				84AA6EB829882534005732EF /* LoginView.swift in Sources */,
-				84AA6EB729882534005732EF /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms/Preview Content\"";
-				DEVELOPMENT_TEAM = UAM22JDBB2;
+				DEVELOPMENT_TEAM = JY49624W8T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioRooms/Info.plist;
@@ -350,7 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms/Preview Content\"";
-				DEVELOPMENT_TEAM = UAM22JDBB2;
+				DEVELOPMENT_TEAM = JY49624W8T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioRooms/Info.plist;
