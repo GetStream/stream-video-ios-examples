@@ -5,6 +5,7 @@
 import StreamVideo
 import SwiftUI
 
+@MainActor
 class AppState: ObservableObject {
     
     @Published var userState: UserState = .notLoggedIn
