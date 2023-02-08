@@ -5,7 +5,6 @@
 //  Created by Martin Mitrevski on 27.1.23.
 //
 
-import Foundation
 import SwiftUI
 
 @MainActor
