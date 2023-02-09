@@ -43,13 +43,9 @@ struct AudioRoomsView: View {
                                 .foregroundColor(.primary)
                             
                             ImageFromUrl(
-                                url: streamVideo.user.imageURL!,
+                                url: streamVideo.user.imageURL,
                                 size: 32
-                                )
-                                AsyncImage(url: streamVideo.user.imageURL)
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 32, height: 32)
-                                    .clipShape(Circle())
+                            )
                         }
                         .padding(8)
                         .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))

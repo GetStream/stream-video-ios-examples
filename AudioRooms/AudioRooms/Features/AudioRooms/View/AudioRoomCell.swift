@@ -27,13 +27,13 @@ struct AudioRoomCell: View {
                     if audioRoom.hosts.count > 1 {
                         ZStack {
                             ImageFromUrl(
-                                url: audioRoom.hosts[0].imageURL!,
+                                url: audioRoom.hosts[0].imageURL,
                                 size: 40,
                                 offset: -imageOffset
                             )
                             
                             ImageFromUrl(
-                                url: audioRoom.hosts[1].imageURL!,
+                                url: audioRoom.hosts[1].imageURL,
                                 size: 40,
                                 offset: imageOffset
                             )

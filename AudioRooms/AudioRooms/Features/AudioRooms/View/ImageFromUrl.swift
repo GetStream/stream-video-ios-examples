@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImageFromUrl: View {
     
-    var url: URL
+    var url: URL?
     var size: CGFloat
     var offset: CGFloat?
     
@@ -31,7 +31,7 @@ struct ImageFromUrl: View {
 struct ImageFromUrl_Previews: PreviewProvider {
     static var previews: some View {
         ImageFromUrl(
-            url: URL(string: "https://getstream.io/static/237f45f28690696ad8fff92726f45106/c59de/thierry.webp")!,
+            url: URL(string: "https://getstream.io/static/237f45f28690696ad8fff92726f45106/c59de/thierry.webp"),
             size: 40
         )
     }

@@ -18,7 +18,7 @@ struct ParticipantsView: View {
                 VStack {
                     ZStack(alignment: .bottomTrailing) {
                         ImageFromUrl(
-                            url: participant.profileImageURL!,
+                            url: participant.profileImageURL,
                             size: 64
                         )
                         .overlay(
