@@ -33,27 +33,8 @@ struct ChatCallControls: View {
         VStack {
             EqualSpacingHStack(views: [
                 AnyView(
-                    Button(
-                        action: {
-                            withAnimation {
-                                chatHelper.chatShown.toggle()
-                            }
-                        },
-                        label: {
-                            CallIconView(
-                                icon: Image(systemName: "message"),
-                                size: size,
-                                iconStyle: chatHelper.chatShown ? .primary : .transparent
-                            )
-                            .overlay(
-                                chatHelper.unreadCount > 0 ?
-                                    TopRightView(content: {
-                                        UnreadIndicatorView(unreadCount: chatHelper.unreadCount)
-                                    })
-                                : nil
-                            )
-                        }
-                    )),
+                    ToggleChatButton(chatHelper: chatHelper)
+                ),
                 AnyView(
                     Button(
                         action: {
@@ -175,6 +156,39 @@ struct ChatCallControls: View {
         (UIScreen.main.bounds.height / 3 + 50)
     }
     
+}
+
+struct ToggleChatButton: View {
+
+    @ObservedObject var chatHelper: ChatHelper
+
+    var body: some View {
+        Button {
+            // highlight-next-line
+            // 1. Toggle chat window
+            withAnimation {
+                chatHelper.chatShown.toggle()
+            }
+        }
+        label: {
+            // highlight-next-line
+            // 2. Show button
+            CallIconView(
+                icon: Image(systemName: "message"),
+                size: 50,
+                iconStyle: chatHelper.chatShown ? .primary : .transparent
+            )
+            // highlight-next-line
+            // 3. Overlay unread indicator
+            .overlay(
+                chatHelper.unreadCount > 0 ?
+                TopRightView(content: {
+                    UnreadIndicatorView(unreadCount: chatHelper.unreadCount)
+                })
+                : nil
+            )
+        }
+    }
 }
 
 struct EqualSpacingHStack: View {
