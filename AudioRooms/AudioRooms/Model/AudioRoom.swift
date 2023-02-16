@@ -36,37 +36,51 @@ protocol AudioRoomRepository {
 class DemoAudioRoomRepository: AudioRoomRepository {
     
     private let martin = UserCredentials.builtInUsersByID(id: "martin")!.userInfo
-    private let tommaso = UserCredentials.builtInUsersByID(id: "tommaso")!.userInfo
+    private let tommaso = UserCredentials.builtInUsersByID(id: "oliver.lazoroski@getstream.io")!.userInfo
     private let thierry = UserCredentials.builtInUsersByID(id: "thierry")!.userInfo
     private let filip = UserCredentials.builtInUsersByID(id: "filip")!.userInfo
     private let marcelo = UserCredentials.builtInUsersByID(id: "marcelo")!.userInfo
     
     func loadAudioRooms() async -> [AudioRoom] {
         let footballRoom = AudioRoom(
-            id: "audioroom1",
+            id: "audioroom111111",
             title: "The football room",
             subtitle: "All about the beautiful game",
-            hosts: [martin, thierry]
+            hosts: [martin.asHost, thierry.asHost]
         )
         let iOSRoom = AudioRoom(
-            id: "audioroom2",
+            id: "audioroom111112",
             title: "iOS developers",
             subtitle: "Learn everything about Apple's platforms",
-            hosts: [martin, tommaso]
+            hosts: [martin.asHost, tommaso.asHost]
         )
         let goRoom = AudioRoom(
-            id: "audioroom3",
+            id: "audioroom111113",
             title: "Go developers",
             subtitle: "We love Go",
-            hosts: [marcelo, tommaso]
+            hosts: [marcelo.asHost, tommaso.asHost]
         )
         let balkanPeople = AudioRoom(
-            id: "audioroom4",
+            id: "audioroom111114",
             title: "Balkan people",
             subtitle: "Tales from the crazy region",
-            hosts: [filip, martin]
+            hosts: [filip.asHost, martin.asHost]
         )
         return [balkanPeople, footballRoom, iOSRoom, goRoom]
+    }
+    
+}
+
+extension User {
+    
+    var asHost: User {
+        User(
+            id: id,
+            name: name,
+            imageURL: imageURL,
+            role: "host",
+            extraData: extraData
+        )
     }
     
 }

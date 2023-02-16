@@ -27,6 +27,7 @@ struct AudioRoomView: View {
             HStack {
                 Spacer()
                 Button {
+                    viewModel.leaveCall()
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Leave quitely")
@@ -41,11 +42,23 @@ struct AudioRoomView: View {
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
-            ParticipantsView(participants: viewModel.hosts)
+            ParticipantsView(participants: viewModel.hosts) { participant in
+                viewModel.revokingParticipant = participant
+            }
+            .alert(isPresented: $viewModel.revokePermissionPopupShown) {
+                Alert(
+                    title: Text("Revoke permissions"),
+                    message: Text("Do you want to revoke the permissions of \(viewModel.revokingParticipant?.name ?? "unknown")?"),
+                    primaryButton: .default(Text("Revoke")) {
+                        viewModel.revokePermissions()
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
             
             if viewModel.otherUsers.count > 0 {
                 Text("Listeners")
-                ParticipantsView(participants: viewModel.otherUsers)
+                ParticipantsView(participants: viewModel.otherUsers) { _ in }
             }
         
             Spacer()
@@ -58,7 +71,23 @@ struct AudioRoomView: View {
                     } label: {
                         IconView(imageName: viewModel.isUserMuted ? "mic.slash" : "mic")
                     }
+                } else if viewModel.canAskForAudioPermission() {
+                    Button {
+                        viewModel.raiseHand()
+                    } label: {
+                        IconView(imageName: "hand.raised")
+                    }
                 }
+            }
+            .alert(isPresented: $viewModel.permissionPopupShown) {
+                Alert(
+                    title: Text("Permission request"),
+                    message: Text("\(viewModel.permissionRequest?.user.name ?? "Someone") raised their hand to speak."),
+                    primaryButton: .default(Text("Allow")) {
+                        viewModel.grantUserPermissions()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
         }
         .opacity(viewModel.loading ? 0 : 1)

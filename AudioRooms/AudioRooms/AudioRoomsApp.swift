@@ -13,6 +13,10 @@ struct AudioRoomsApp: App {
     
     @StateObject var appState = AppState()
     
+    init() {
+        LogConfig.level = .debug
+    }
+    
     var body: some Scene {
         WindowGroup {
             ZStack {

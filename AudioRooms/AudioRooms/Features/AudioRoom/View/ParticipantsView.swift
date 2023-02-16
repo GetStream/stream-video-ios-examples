@@ -11,6 +11,7 @@ import StreamVideo
 struct ParticipantsView: View {
     
     var participants: [CallParticipant]
+    var onLongPress: (CallParticipant) -> ()
     
     var body: some View {
         HStack {
@@ -34,16 +35,16 @@ struct ParticipantsView: View {
                                 .frame(width: 12, height: 12)
                         }
                     }
+                    .onLongPressGesture {
+                        onLongPress(participant)
+                    }
                     
                     Text(participant.name)
+                        .lineLimit(1)
+                        .font(.caption)
+                        .frame(maxWidth: 64)
                 }
             }
         }
-    }
-}
-
-struct ParticipantsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ParticipantsView(participants: [])
     }
 }

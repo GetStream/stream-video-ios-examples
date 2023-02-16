@@ -24,14 +24,10 @@ extension AppState {
         
         // initialize StreamVideo
         let streamVideo = StreamVideo(
-            apiKey: "us83cfwuhy8n",
+            apiKey: "w6yaq5388uym",
             user: user.userInfo,
             token: user.token,
-            videoConfig: VideoConfig(
-                videoEnabled: false,
-                persitingSocketConnection: true,
-                joinVideoCallInstantly: true
-            ),
+            videoConfig: VideoConfig(videoEnabled: false),
             tokenProvider: { result in
                 result(.success(user.token))
             }

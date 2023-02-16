@@ -21,7 +21,7 @@ struct ImageFromUrl: View {
                 .clipShape(Circle())
                 .offset(x: offset ?? 0, y: offset ?? 0)
         } placeholder: {
-            ProgressView()
+            Circle().fill(Color.gray)
                 .frame(width: size, height: size)
                 .offset(x: offset ?? 0, y: offset ?? 0)
         }
