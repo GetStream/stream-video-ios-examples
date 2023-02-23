@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8439425A2979929800531972 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 843942592979929800531972 /* StreamVideo */; };
+		8439425C2979929800531972 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8439425B2979929800531972 /* StreamVideoSwiftUI */; };
+		84CBBDD8292237D900D0DA61 /* VideoWithChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDD7292237D900D0DA61 /* VideoWithChatApp.swift */; };
+		84CBBDDC292237DC00D0DA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CBBDDB292237DC00D0DA61 /* Assets.xcassets */; };
+		84CBBDDF292237DC00D0DA61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */; };
+		84CBBDF02922391900D0DA61 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDE72922391800D0DA61 /* HomeView.swift */; };
+		84CBBDF12922391900D0DA61 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDE82922391800D0DA61 /* LoginViewModel.swift */; };
+		84CBBDF22922391900D0DA61 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDE92922391800D0DA61 /* LocalStorage.swift */; };
+		84CBBDF42922391900D0DA61 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDEB2922391800D0DA61 /* AppState.swift */; };
+		84CBBDF52922391900D0DA61 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDEC2922391800D0DA61 /* LoginView.swift */; };
+		84CBBDF62922391900D0DA61 /* MockUserListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDED2922391800D0DA61 /* MockUserListProvider.swift */; };
+		84CBBDF72922391900D0DA61 /* DemoAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDEE2922391800D0DA61 /* DemoAppUtils.swift */; };
+		84CBBDF82922391900D0DA61 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDEF2922391900D0DA61 /* StageView.swift */; };
+		84CBBE0029223A6D00D0DA61 /* StreamChatSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 84CBBDFF29223A6D00D0DA61 /* StreamChatSwiftUI */; };
+		84CBBE0229223EAA00D0DA61 /* VideoWithChatViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBE0129223EAA00D0DA61 /* VideoWithChatViewFactory.swift */; };
+		84CBBE06292274B000D0DA61 /* StreamWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBE05292274B000D0DA61 /* StreamWrapper.swift */; };
+		84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA292922A2950022AA96 /* ChatViewFactory.swift */; };
+		84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA2B2923837A0022AA96 /* ChatHelper.swift */; };
+		84F0867D296398AD0099907A /* FiltersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0867C296398AD0099907A /* FiltersService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		84CBBDD4292237D900D0DA61 /* VideoWithChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoWithChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84CBBDD7292237D900D0DA61 /* VideoWithChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWithChatApp.swift; sourceTree = "<group>"; };
+		84CBBDDB292237DC00D0DA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		84CBBDE72922391800D0DA61 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		84CBBDE82922391800D0DA61 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		84CBBDE92922391800D0DA61 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		84CBBDEB2922391800D0DA61 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		84CBBDEC2922391800D0DA61 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		84CBBDED2922391800D0DA61 /* MockUserListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUserListProvider.swift; sourceTree = "<group>"; };
+		84CBBDEE2922391800D0DA61 /* DemoAppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppUtils.swift; sourceTree = "<group>"; };
+		84CBBDEF2922391900D0DA61 /* StageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
+		84CBBE0129223EAA00D0DA61 /* VideoWithChatViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWithChatViewFactory.swift; sourceTree = "<group>"; };
+		84CBBE05292274B000D0DA61 /* StreamWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWrapper.swift; sourceTree = "<group>"; };
+		84D6CA292922A2950022AA96 /* ChatViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewFactory.swift; sourceTree = "<group>"; };
+		84D6CA2B2923837A0022AA96 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
+		84F0867C296398AD0099907A /* FiltersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84CBBDD1292237D900D0DA61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8439425C2979929800531972 /* StreamVideoSwiftUI in Frameworks */,
+				8439425A2979929800531972 /* StreamVideo in Frameworks */,
+				84CBBE0029223A6D00D0DA61 /* StreamChatSwiftUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84CBBDCB292237D900D0DA61 = {
+			isa = PBXGroup;
+			children = (
+				84CBBDD6292237D900D0DA61 /* VideoWithChat */,
+				84CBBDD5292237D900D0DA61 /* Products */,
+				84CBBDF9292239A400D0DA61 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84CBBDD5292237D900D0DA61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84CBBDD4292237D900D0DA61 /* VideoWithChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84CBBDD6292237D900D0DA61 /* VideoWithChat */ = {
+			isa = PBXGroup;
+			children = (
+				84CBBDE62922390B00D0DA61 /* Sources */,
+				84CBBDD7292237D900D0DA61 /* VideoWithChatApp.swift */,
+				84CBBDDB292237DC00D0DA61 /* Assets.xcassets */,
+				84CBBDDD292237DC00D0DA61 /* Preview Content */,
+				84CBBE05292274B000D0DA61 /* StreamWrapper.swift */,
+			);
+			path = VideoWithChat;
+			sourceTree = "<group>";
+		};
+		84CBBDDD292237DC00D0DA61 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84CBBDE62922390B00D0DA61 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				84CBBDEB2922391800D0DA61 /* AppState.swift */,
+				84CBBDEF2922391900D0DA61 /* StageView.swift */,
+				84CBBDEE2922391800D0DA61 /* DemoAppUtils.swift */,
+				84CBBDE72922391800D0DA61 /* HomeView.swift */,
+				84CBBDE92922391800D0DA61 /* LocalStorage.swift */,
+				84CBBDEC2922391800D0DA61 /* LoginView.swift */,
+				84CBBDE82922391800D0DA61 /* LoginViewModel.swift */,
+				84CBBDED2922391800D0DA61 /* MockUserListProvider.swift */,
+				84CBBE0129223EAA00D0DA61 /* VideoWithChatViewFactory.swift */,
+				84D6CA292922A2950022AA96 /* ChatViewFactory.swift */,
+				84D6CA2B2923837A0022AA96 /* ChatHelper.swift */,
+				84F0867C296398AD0099907A /* FiltersService.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		84CBBDF9292239A400D0DA61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84CBBDD3292237D900D0DA61 /* VideoWithChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84CBBDE2292237DC00D0DA61 /* Build configuration list for PBXNativeTarget "VideoWithChat" */;
+			buildPhases = (
+				84CBBDD0292237D900D0DA61 /* Sources */,
+				84CBBDD1292237D900D0DA61 /* Frameworks */,
+				84CBBDD2292237D900D0DA61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoWithChat;
+			packageProductDependencies = (
+				84CBBDFF29223A6D00D0DA61 /* StreamChatSwiftUI */,
+				843942592979929800531972 /* StreamVideo */,
+				8439425B2979929800531972 /* StreamVideoSwiftUI */,
+			);
+			productName = VideoWithChat;
+			productReference = 84CBBDD4292237D900D0DA61 /* VideoWithChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84CBBDCC292237D900D0DA61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					84CBBDD3292237D900D0DA61 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 84CBBDCF292237D900D0DA61 /* Build configuration list for PBXProject "VideoWithChat" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84CBBDCB292237D900D0DA61;
+			packageReferences = (
+				84CBBDFE29223A6D00D0DA61 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */,
+				843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+			);
+			productRefGroup = 84CBBDD5292237D900D0DA61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84CBBDD3292237D900D0DA61 /* VideoWithChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84CBBDD2292237D900D0DA61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CBBDDF292237DC00D0DA61 /* Preview Assets.xcassets in Resources */,
+				84CBBDDC292237DC00D0DA61 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84CBBDD0292237D900D0DA61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CBBDF12922391900D0DA61 /* LoginViewModel.swift in Sources */,
+				84CBBDF22922391900D0DA61 /* LocalStorage.swift in Sources */,
+				84CBBE06292274B000D0DA61 /* StreamWrapper.swift in Sources */,
+				84F0867D296398AD0099907A /* FiltersService.swift in Sources */,
+				84CBBDF42922391900D0DA61 /* AppState.swift in Sources */,
+				84CBBDF02922391900D0DA61 /* HomeView.swift in Sources */,
+				84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */,
+				84CBBDF72922391900D0DA61 /* DemoAppUtils.swift in Sources */,
+				84CBBDD8292237D900D0DA61 /* VideoWithChatApp.swift in Sources */,
+				84CBBDF82922391900D0DA61 /* StageView.swift in Sources */,
+				84CBBE0229223EAA00D0DA61 /* VideoWithChatViewFactory.swift in Sources */,
+				84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */,
+				84CBBDF62922391900D0DA61 /* MockUserListProvider.swift in Sources */,
+				84CBBDF52922391900D0DA61 /* LoginView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		84CBBDE0292237DC00D0DA61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84CBBDE1292237DC00D0DA61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84CBBDE3292237DC00D0DA61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VideoWithChat/Preview Content\"";
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "DemoApp requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DemoApp requires microphone access in order to capture and transmit audio";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.VideoWithChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84CBBDE4292237DC00D0DA61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VideoWithChat/Preview Content\"";
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "DemoApp requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DemoApp requires microphone access in order to capture and transmit audio";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.VideoWithChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84CBBDCF292237D900D0DA61 /* Build configuration list for PBXProject "VideoWithChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84CBBDE0292237DC00D0DA61 /* Debug */,
+				84CBBDE1292237DC00D0DA61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84CBBDE2292237DC00D0DA61 /* Build configuration list for PBXNativeTarget "VideoWithChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84CBBDE3292237DC00D0DA61 /* Debug */,
+				84CBBDE4292237DC00D0DA61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		84CBBDFE29223A6D00D0DA61 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-chat-swiftui.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		843942592979929800531972 /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		8439425B2979929800531972 /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
+		};
+		84CBBDFF29223A6D00D0DA61 /* StreamChatSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84CBBDFE29223A6D00D0DA61 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */;
+			productName = StreamChatSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 84CBBDCC292237D900D0DA61 /* Project object */;
+}
