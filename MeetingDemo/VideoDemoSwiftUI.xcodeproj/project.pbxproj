@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8412F2A32976F0CD000D7150 /* VideoDemoSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412F2A22976F0CD000D7150 /* VideoDemoSwiftUIApp.swift */; };
-		8412F2A52976F0CD000D7150 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412F2A42976F0CD000D7150 /* ContentView.swift */; };
 		8412F2A72976F0CF000D7150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8412F2A62976F0CF000D7150 /* Assets.xcassets */; };
 		8412F2AA2976F0CF000D7150 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8412F2A92976F0CF000D7150 /* Preview Assets.xcassets */; };
 		8412F2B22976F513000D7150 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 8412F2B12976F513000D7150 /* StreamVideo */; };
@@ -16,23 +15,29 @@
 		8439423D297827CE00531972 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439423C297827CE00531972 /* Meeting.swift */; };
 		8439423F297828FA00531972 /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439423E297828FA00531972 /* MeetingViewModel.swift */; };
 		843942412978294B00531972 /* MeetingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843942402978294B00531972 /* MeetingsView.swift */; };
-		8439424329783A9B00531972 /* PreJoiningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439424229783A9A00531972 /* PreJoiningView.swift */; };
-		8439424529784B5800531972 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439424429784B5700531972 /* Camera.swift */; };
-		8439424729784BF400531972 /* PreJoiningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439424629784BF400531972 /* PreJoiningViewModel.swift */; };
+		8491C50B29A36A9D00761B21 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491C50A29A36A9D00761B21 /* CustomViews.swift */; };
+		8491C50D29A3855200761B21 /* cheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8491C50C29A3855200761B21 /* cheer.mp3 */; };
+		84A8418F29A51C69009E1261 /* PermissionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8418E29A51C69009E1261 /* PermissionsHelper.swift */; };
+		84A88207299F952700EA22ED /* MeetingViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A88206299F952700EA22ED /* MeetingViewFactory.swift */; };
+		84A88209299F954E00EA22ED /* CustomCallControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A88208299F954E00EA22ED /* CustomCallControls.swift */; };
+		84A8820B299F96B100EA22ED /* ReactionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8820A299F96B100EA22ED /* ReactionsHelper.swift */; };
+		84A8820E299FAA3400EA22ED /* EffectsLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 84A8820D299FAA3400EA22ED /* EffectsLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8412F29F2976F0CD000D7150 /* VideoDemoSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDemoSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8412F2A22976F0CD000D7150 /* VideoDemoSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDemoSwiftUIApp.swift; sourceTree = "<group>"; };
-		8412F2A42976F0CD000D7150 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8412F2A62976F0CF000D7150 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8412F2A92976F0CF000D7150 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8439423C297827CE00531972 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		8439423E297828FA00531972 /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
 		843942402978294B00531972 /* MeetingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsView.swift; sourceTree = "<group>"; };
-		8439424229783A9A00531972 /* PreJoiningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreJoiningView.swift; sourceTree = "<group>"; };
-		8439424429784B5700531972 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		8439424629784BF400531972 /* PreJoiningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreJoiningViewModel.swift; sourceTree = "<group>"; };
+		8491C50A29A36A9D00761B21 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		8491C50C29A3855200761B21 /* cheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheer.mp3; sourceTree = "<group>"; };
+		84A8418E29A51C69009E1261 /* PermissionsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsHelper.swift; sourceTree = "<group>"; };
+		84A88206299F952700EA22ED /* MeetingViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewFactory.swift; sourceTree = "<group>"; };
+		84A88208299F954E00EA22ED /* CustomCallControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallControls.swift; sourceTree = "<group>"; };
+		84A8820A299F96B100EA22ED /* ReactionsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +47,7 @@
 			files = (
 				8412F2B42976F513000D7150 /* StreamVideoSwiftUI in Frameworks */,
 				8412F2B22976F513000D7150 /* StreamVideo in Frameworks */,
+				84A8820E299FAA3400EA22ED /* EffectsLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,10 +77,12 @@
 				8439423C297827CE00531972 /* Meeting.swift */,
 				843942402978294B00531972 /* MeetingsView.swift */,
 				8439423E297828FA00531972 /* MeetingViewModel.swift */,
-				8439424229783A9A00531972 /* PreJoiningView.swift */,
-				8439424629784BF400531972 /* PreJoiningViewModel.swift */,
-				8439424429784B5700531972 /* Camera.swift */,
-				8412F2A42976F0CD000D7150 /* ContentView.swift */,
+				84A88206299F952700EA22ED /* MeetingViewFactory.swift */,
+				84A88208299F954E00EA22ED /* CustomCallControls.swift */,
+				84A8820A299F96B100EA22ED /* ReactionsHelper.swift */,
+				84A8418E29A51C69009E1261 /* PermissionsHelper.swift */,
+				8491C50A29A36A9D00761B21 /* CustomViews.swift */,
+				8491C50C29A3855200761B21 /* cheer.mp3 */,
 				8412F2A62976F0CF000D7150 /* Assets.xcassets */,
 				8412F2A82976F0CF000D7150 /* Preview Content */,
 			);
@@ -108,6 +116,7 @@
 			packageProductDependencies = (
 				8412F2B12976F513000D7150 /* StreamVideo */,
 				8412F2B32976F513000D7150 /* StreamVideoSwiftUI */,
+				84A8820D299FAA3400EA22ED /* EffectsLibrary */,
 			);
 			productName = VideoDemoSwiftUI;
 			productReference = 8412F29F2976F0CD000D7150 /* VideoDemoSwiftUI.app */;
@@ -139,6 +148,7 @@
 			mainGroup = 8412F2962976F0CD000D7150;
 			packageReferences = (
 				8412F2B02976F513000D7150 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+				84A8820C299FAA3400EA22ED /* XCRemoteSwiftPackageReference "effects-library" */,
 			);
 			productRefGroup = 8412F2A02976F0CD000D7150 /* Products */;
 			projectDirPath = "";
@@ -154,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8491C50D29A3855200761B21 /* cheer.mp3 in Resources */,
 				8412F2AA2976F0CF000D7150 /* Preview Assets.xcassets in Resources */,
 				8412F2A72976F0CF000D7150 /* Assets.xcassets in Resources */,
 			);
@@ -166,13 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8412F2A52976F0CD000D7150 /* ContentView.swift in Sources */,
 				8439423D297827CE00531972 /* Meeting.swift in Sources */,
 				8439423F297828FA00531972 /* MeetingViewModel.swift in Sources */,
-				8439424329783A9B00531972 /* PreJoiningView.swift in Sources */,
 				8412F2A32976F0CD000D7150 /* VideoDemoSwiftUIApp.swift in Sources */,
-				8439424729784BF400531972 /* PreJoiningViewModel.swift in Sources */,
-				8439424529784B5800531972 /* Camera.swift in Sources */,
+				84A8820B299F96B100EA22ED /* ReactionsHelper.swift in Sources */,
+				84A8418F29A51C69009E1261 /* PermissionsHelper.swift in Sources */,
+				84A88207299F952700EA22ED /* MeetingViewFactory.swift in Sources */,
+				8491C50B29A36A9D00761B21 /* CustomViews.swift in Sources */,
+				84A88209299F954E00EA22ED /* CustomCallControls.swift in Sources */,
 				843942412978294B00531972 /* MeetingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,8 +322,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -343,8 +355,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,6 +404,14 @@
 				kind = branch;
 			};
 		};
+		84A8820C299FAA3400EA22ED /* XCRemoteSwiftPackageReference "effects-library" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DaemonLoki/effects-library.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -404,6 +424,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8412F2B02976F513000D7150 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideoSwiftUI;
+		};
+		84A8820D299FAA3400EA22ED /* EffectsLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84A8820C299FAA3400EA22ED /* XCRemoteSwiftPackageReference "effects-library" */;
+			productName = EffectsLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

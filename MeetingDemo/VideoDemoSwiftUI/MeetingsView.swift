@@ -20,7 +20,7 @@ struct MeetingsView: View {
                 LazyVStack {
                     ForEach(viewModel.meetings) { meeting in
                         Button {
-                            viewModel.selectedMeeting = meeting
+                            callViewModel.enterLobby(callId: meeting.id, participants: meeting.participants)
                         } label: {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -42,13 +42,7 @@ struct MeetingsView: View {
                     }
                 }
             }
-            .overlay(
-                viewModel.selectedMeeting != nil ? PreJoiningView(
-                    callViewModel: callViewModel,
-                    meeting: $viewModel.selectedMeeting
-                ) : nil
-            )
-            .modifier(CallModifier(viewModel: callViewModel))
+            .modifier(CallModifier(viewFactory: MeetingViewFactory.shared, viewModel: callViewModel))
             .navigationTitle("Meetings")
             .navigationBarHidden(
                 viewModel.selectedMeeting != nil || callViewModel.callingState != .idle

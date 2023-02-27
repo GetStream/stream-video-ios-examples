@@ -497,7 +497,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
 			requirement = {
-				branch = "new-coordinator";
+				branch = main;
 				kind = branch;
 			};
 		};

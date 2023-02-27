@@ -34,7 +34,6 @@ class StreamWrapper {
             user: userCredentials.user,
             token: token,
             videoConfig: VideoConfig(
-                joinVideoCallInstantly: false,
                 ringingTimeout: 0
             ),
             tokenProvider: { result in

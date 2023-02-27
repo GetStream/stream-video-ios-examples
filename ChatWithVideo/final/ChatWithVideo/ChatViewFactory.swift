@@ -20,7 +20,7 @@ class ChatViewFactory: ViewFactory {
     
     static let shared = ChatViewFactory()
     
-    @MainActor var callViewModel = CallViewModel()
+    @MainActor var callViewModel = CallViewModel(listenToRingingEvents: true)
     
     func makeChannelListHeaderViewModifier(title: String) -> some ChannelListHeaderViewModifier {
         CustomChannelModifier(title: title)

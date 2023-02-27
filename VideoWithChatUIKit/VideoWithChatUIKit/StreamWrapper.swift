@@ -33,7 +33,7 @@ class StreamWrapper {
             apiKey: apiKey,
             user: userCredentials.user,
             token: token,
-            videoConfig: VideoConfig(joinVideoCallInstantly: true),
+            videoConfig: VideoConfig(),
             tokenProvider: { result in
                 tokenProvider { tokenResult in
                     switch tokenResult {
