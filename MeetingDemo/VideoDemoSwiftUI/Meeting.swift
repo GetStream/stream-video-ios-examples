@@ -33,31 +33,31 @@ class MeetingsRepositoryMock: MeetingsRepository {
     func loadAllMeetings() async -> [Meeting] {
         return [
             Meeting(
-                id: "testMeeting1",
+                id: "sampleMeeting1",
                 name: "Daily Standup",
                 timeDisplay: "Every day, 09:15",
                 participants: [martin, oliver]
             ),
             Meeting(
-                id: "testMeeting2",
+                id: "sampleMeeting2",
                 name: "Sprint Planning",
                 timeDisplay: "Every second Monday, 11:00",
                 participants: [martin, marcelo, filip, tommaso, thierry]
             ),
             Meeting(
-                id: "testMeeting3",
+                id: "sampleMeeting3",
                 name: "Sprint Retro",
                 timeDisplay: "Every second Friday, 11:00",
                 participants: [martin, marcelo, filip, tommaso, thierry]
             ),
             Meeting(
-                id: "testMeeting4",
+                id: "sampleMeeting4",
                 name: "Backlog refinement",
                 timeDisplay: "Every second Tuesday, 11:00",
                 participants: [martin, tommaso, thierry]
             ),
             Meeting(
-                id: "testMeeting5",
+                id: "sampleMeeting5",
                 name: "One on one",
                 timeDisplay: "Every Wednesday, 14:00",
                 participants: [martin, filip]

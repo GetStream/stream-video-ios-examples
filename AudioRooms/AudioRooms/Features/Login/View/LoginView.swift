@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import StreamVideo
 
 struct LoginView: View {
     
@@ -14,11 +15,13 @@ struct LoginView: View {
                 .font(.title)
                 .bold()
             
-            List(UserCredentials.builtInUsers) { user in
+            List(User.builtInUsers) { user in
                 Button {
-                    appState.login(user)
+                    Task {
+                        try await appState.login(user)
+                    }
                 } label: {
-                    Text(user.userInfo.name)
+                    Text(user.name)
                 }
                 .padding(8)
             }

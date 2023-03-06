@@ -8,6 +8,8 @@ import SwiftUI
 @MainActor
 class AppState: ObservableObject {
     
+    let tokenService = TokenService.shared
+    
     @Published var userState: UserState = .notLoggedIn
     
     var currentUser: User?
@@ -17,19 +19,28 @@ class AppState: ObservableObject {
 
 /* Login-related functionality */
 extension AppState {
-    func login(_ user: UserCredentials) {
+    func login(_ user: User) async throws {
+        let token = try await self.tokenService.fetchToken(for: user.id)
+        let credentials = UserCredentials(userInfo: user, token: token)
         // save the selected user
-        UnsecureUserRepository.shared.save(user: user)
-        currentUser = user.userInfo
+        UnsecureUserRepository.shared.save(user: credentials)
+        currentUser = user
         
         // initialize StreamVideo
         let streamVideo = StreamVideo(
-            apiKey: "w6yaq5388uym",
-            user: user.userInfo,
-            token: user.token,
+            apiKey: Config.apiKey,
+            user: user,
+            token: token,
             videoConfig: VideoConfig(videoEnabled: false),
             tokenProvider: { result in
-                result(.success(user.token))
+                Task {
+                    do {
+                        let token = try await TokenService.shared.fetchToken(for: user.id)
+                        result(.success(token))
+                    } catch {
+                        result(.failure(error))
+                    }
+                }
             }
         )
         self.streamVideo = streamVideo
@@ -40,7 +51,9 @@ extension AppState {
     
     func checkLoggedInUser() {
         if let user = UnsecureUserRepository.shared.loadCurrentUser() {
-            login(user)
+            Task {
+                try await login(user.userInfo)
+            }
         }
     }
     

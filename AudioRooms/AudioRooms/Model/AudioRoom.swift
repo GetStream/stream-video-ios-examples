@@ -17,12 +17,12 @@ struct AudioRoom: Identifiable {
 
 extension AudioRoom {
     static var preview: AudioRoom = AudioRoom(
-        id: "audioroom1",
+        id: "sampleAudioRoom1",
         title: "The football room",
         subtitle: "All about the beautiful game",
         hosts: [
-            UserCredentials.builtInUsersByID(id: "martin")!.userInfo,
-            UserCredentials.builtInUsersByID(id: "thierry")!.userInfo
+            User.builtInUsersByID(id: "martin")!,
+            User.builtInUsersByID(id: "thierry")!
         ]
     )
 }
@@ -35,33 +35,33 @@ protocol AudioRoomRepository {
 
 class DemoAudioRoomRepository: AudioRoomRepository {
     
-    private let martin = UserCredentials.builtInUsersByID(id: "martin")!.userInfo
-    private let tommaso = UserCredentials.builtInUsersByID(id: "oliver.lazoroski@getstream.io")!.userInfo
-    private let thierry = UserCredentials.builtInUsersByID(id: "thierry")!.userInfo
-    private let filip = UserCredentials.builtInUsersByID(id: "filip")!.userInfo
-    private let marcelo = UserCredentials.builtInUsersByID(id: "marcelo")!.userInfo
+    private let martin = User.builtInUsersByID(id: "martin")!
+    private let tommaso = User.builtInUsersByID(id: "oliver.lazoroski@getstream.io")!
+    private let thierry = User.builtInUsersByID(id: "thierry")!
+    private let filip = User.builtInUsersByID(id: "filip")!
+    private let marcelo = User.builtInUsersByID(id: "marcelo")!
     
     func loadAudioRooms() async -> [AudioRoom] {
         let footballRoom = AudioRoom(
-            id: "audioroom111111",
+            id: "sampleAudioRoom1",
             title: "The football room",
             subtitle: "All about the beautiful game",
             hosts: [martin.asHost, thierry.asHost]
         )
         let iOSRoom = AudioRoom(
-            id: "audioroom111112",
+            id: "sampleAudioRoom2",
             title: "iOS developers",
             subtitle: "Learn everything about Apple's platforms",
             hosts: [martin.asHost, tommaso.asHost]
         )
         let goRoom = AudioRoom(
-            id: "audioroom111113",
+            id: "sampleAudioRoom3",
             title: "Go developers",
             subtitle: "We love Go",
             hosts: [marcelo.asHost, tommaso.asHost]
         )
         let balkanPeople = AudioRoom(
-            id: "audioroom111114",
+            id: "sampleAudioRoom4",
             title: "Balkan people",
             subtitle: "Tales from the crazy region",
             hosts: [filip.asHost, martin.asHost]

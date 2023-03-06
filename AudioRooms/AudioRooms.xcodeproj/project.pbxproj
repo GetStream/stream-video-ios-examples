@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844CF22A29B5DA6C00389DBD /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CF22829B5DA6C00389DBD /* HTTPClient.swift */; };
+		844CF22B29B5DA6C00389DBD /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CF22929B5DA6C00389DBD /* TokenService.swift */; };
 		84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */; };
 		84A9B2C3298434C200F96E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A9B2C2298434C200F96E01 /* Assets.xcassets */; };
 		84A9B2C6298434C200F96E01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A9B2C5298434C200F96E01 /* Preview Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		844CF22829B5DA6C00389DBD /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		844CF22929B5DA6C00389DBD /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		84A9B2BB298434C000F96E01 /* AudioRooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsApp.swift; sourceTree = "<group>"; };
 		84A9B2C2298434C200F96E01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		AC791BA72993A72C0072AD3C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				844CF22829B5DA6C00389DBD /* HTTPClient.swift */,
+				844CF22929B5DA6C00389DBD /* TokenService.swift */,
 				AC791BA82993A7310072AD3C /* View */,
 			);
 			path = Login;
@@ -284,7 +290,9 @@
 				84A9B2D4298438AF00F96E01 /* AudioRoomsViewModel.swift in Sources */,
 				84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */,
 				AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */,
+				844CF22A29B5DA6C00389DBD /* HTTPClient.swift in Sources */,
 				AC791BA42993A5FD0072AD3C /* ParticipantsView.swift in Sources */,
+				844CF22B29B5DA6C00389DBD /* TokenService.swift in Sources */,
 				84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */,
 				84AA6EB929882534005732EF /* UserCredentials.swift in Sources */,
 				84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */,
