@@ -25,6 +25,20 @@ struct AudioRoomView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
+                if viewModel.showGoLiveButton {
+                    Button {
+                        viewModel.goLive()
+                    } label: {
+                        Text("Go live")
+                    }
+                }
+                if viewModel.showStopLiveButton {
+                    Button {
+                        viewModel.stopLive()
+                    } label: {
+                        Text("Stop live")
+                    }
+                }
                 Spacer()
                 Button {
                     viewModel.leaveCall()
@@ -92,7 +106,15 @@ struct AudioRoomView: View {
         }
         .opacity(viewModel.loading ? 0 : 1)
         .overlay(
-            viewModel.loading ? ProgressView() : nil
+            ZStack {
+                if viewModel.loading {
+                    if viewModel.callEnded {
+                        Text("Call ended")
+                    } else {
+                        ProgressView()
+                    }
+                }
+            }
         )
         .padding()
     }

@@ -30,6 +30,8 @@ class AudioRoomViewModel: ObservableObject {
                 || isCurrentUserHost
         }
     }
+    @Published var isCallLive = false
+    @Published var callEnded = false
     var revokingParticipant: CallParticipant? {
         didSet {
             if revokingParticipant != nil {
@@ -47,7 +49,7 @@ class AudioRoomViewModel: ObservableObject {
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
     private var permissionsController: PermissionsController!
-    private let callType = "livestream"
+    private let callType = "audio_room"
     
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
@@ -61,7 +63,6 @@ class AudioRoomViewModel: ObservableObject {
         subscribeForParticipantChanges()
         subscribeForAudioChanges()
         subscribeForCallStateChanges()
-        subscribeForAudioChanges()
         subscribeForPermissionsRequests()
         subscribeForPermissionUpdates()
     }
@@ -121,16 +122,38 @@ class AudioRoomViewModel: ObservableObject {
         callViewModel.toggleMicrophoneEnabled()
     }
     
-    private func checkAudioSettings() {
-        hasPermissionsToSpeak = isCurrentUserHost
-        isUserMuted = !isCurrentUserHost
-        callViewModel.callSettings = CallSettings(audioOn: isCurrentUserHost, videoOn: false)
+    func goLive() {
+        Task {
+            try await permissionsController.goLive(callId: audioRoom.id, callType: callType)
+        }
     }
+    
+    func stopLive() {
+        Task {
+            try await permissionsController.stopLive(callId: audioRoom.id, callType: callType)
+        }
+    }
+    
+    var showGoLiveButton: Bool {
+        permissionsController.currentUserHasCapability(.updateCall) && !isCallLive
+    }
+    
+    var showStopLiveButton: Bool {
+        permissionsController.currentUserHasCapability(.updateCall) && isCallLive
+    }
+    
+    //MARK: - private
     
     private var isCurrentUserHost: Bool {
         let hostIds = self.audioRoom.hosts.map { $0.id }
         let isCurrentUserHost = hostIds.contains(streamVideo.user.id)
         return isCurrentUserHost
+    }
+    
+    private func checkAudioSettings() {
+        hasPermissionsToSpeak = isCurrentUserHost
+        isUserMuted = !isCurrentUserHost
+        callViewModel.callSettings = CallSettings(audioOn: isCurrentUserHost, videoOn: false)
     }
     
     private func subscribeForParticipantChanges() {
@@ -188,6 +211,10 @@ class AudioRoomViewModel: ObservableObject {
         callViewModel.$callingState.sink { [weak self] callState in
             guard let self = self else { return }
             self.loading = callState != .inCall
+            if callState == .inCall {
+                self.isCallLive = self.callViewModel.call?.callInfo.backstage == false
+                self.subscribeForCallUpdates()
+            }
         }
         .store(in: &cancellables)
     }
@@ -213,6 +240,19 @@ class AudioRoomViewModel: ObservableObject {
                 self.update(participants: callViewModel.callParticipants)
             }
         }
+    }
+    
+    private func subscribeForCallUpdates() {
+        callViewModel.call?.$callInfo.sink { call in
+            DispatchQueue.main.async {
+                self.isCallLive = call.backstage == false
+                if !self.isCallLive && !self.permissionsController.currentUserHasCapability(.updateCall) {
+                    self.leaveCall()
+                    self.callEnded = true
+                }
+            }
+        }
+        .store(in: &cancellables)
     }
     
 }
