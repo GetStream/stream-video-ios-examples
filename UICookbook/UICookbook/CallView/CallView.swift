@@ -16,18 +16,18 @@ struct CallView: View {
     
     @ObservedObject var viewModel: CallViewModel
     
+    var participants: [CallParticipant] {
+        viewModel.callParticipants
+            .map(\.value)
+            .sorted(by: { $0.name < $1.name })
+    }
+    
     var dominantSpeaker: CallParticipant? {
-        (viewModel.callParticipants.first { key, value in
-            value.isSpeaking == true
-        } ?? viewModel.callParticipants.first)
-        .map(\.value)
+        (participants.first { $0.isSpeaking } ?? participants.first)
     }
     
     var otherParticipants: [CallParticipant] {
-        viewModel.callParticipants.filter { key, value in
-            key != dominantSpeaker?.id
-        }
-        .map(\.value)
+        participants.filter { $0.id != dominantSpeaker?.id }
     }
     
     var body: some View {
