@@ -12,6 +12,8 @@ import NukeUI
 
 struct CallView: View {
     
+    @Injected(\.streamVideo) var streamVideo
+    
     @ObservedObject var viewModel: CallViewModel
     
     var dominantSpeaker: CallParticipant? {
@@ -66,6 +68,9 @@ struct CallView: View {
             .frame(maxWidth: .infinity)
         }
         .background(Color.black)
+        .onAppear {
+            viewModel.startCapturingLocalVideo()
+        }
     }
 }
 

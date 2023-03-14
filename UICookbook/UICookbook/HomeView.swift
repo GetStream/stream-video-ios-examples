@@ -36,6 +36,7 @@ struct JoinCallView: View {
         VStack {
             TextField("Insert call id", text: $callId)
             Button {
+                resignFirstResponder()
                 viewModel.startCall(callId: callId, participants: [])
             } label: {
                 Text("Join call")
@@ -45,4 +46,13 @@ struct JoinCallView: View {
         .padding()
     }
     
+}
+
+public func resignFirstResponder() {
+    UIApplication.shared.sendAction(
+        #selector(UIResponder.resignFirstResponder),
+        to: nil,
+        from: nil,
+        for: nil
+    )
 }

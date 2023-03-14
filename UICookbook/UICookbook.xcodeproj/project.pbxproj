@@ -37,6 +37,8 @@
 		8469596C29BFC35F00134EA0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8469596F29BFC5C100134EA0 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		8469597129BFC99100134EA0 /* CallControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallControlsView.swift; sourceTree = "<group>"; };
+		8479F83029C08266009ECE37 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../../stream-video-swift"; sourceTree = "<group>"; };
+		8479F83229C09591009ECE37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		8469593F29BFC0B300134EA0 = {
 			isa = PBXGroup;
 			children = (
+				8479F83029C08266009ECE37 /* stream-video-swift */,
 				8469594A29BFC0B400134EA0 /* UICookbook */,
 				8469594929BFC0B400134EA0 /* Products */,
 			);
@@ -71,6 +74,7 @@
 		8469594A29BFC0B400134EA0 /* UICookbook */ = {
 			isa = PBXGroup;
 			children = (
+				8479F83229C09591009ECE37 /* Info.plist */,
 				8469596E29BFC49300134EA0 /* CallView */,
 				8469595B29BFC22800134EA0 /* Login */,
 				8469594B29BFC0B400134EA0 /* UICookbookApp.swift */,
@@ -332,12 +336,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UICookbook/Preview Content\"";
 				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UICookbook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "UI Cookbook";
+				INFOPLIST_KEY_NSCameraUsageDescription = "UI Cookbook requires camera access in order to capture video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access needed for the audio in calls.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -350,6 +359,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.UICookbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,12 +371,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UICookbook/Preview Content\"";
 				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UICookbook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "UI Cookbook";
+				INFOPLIST_KEY_NSCameraUsageDescription = "UI Cookbook requires camera access in order to capture video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access needed for the audio in calls.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -379,6 +394,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.UICookbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

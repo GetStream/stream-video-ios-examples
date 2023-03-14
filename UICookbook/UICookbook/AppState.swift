@@ -31,7 +31,7 @@ extension AppState {
             apiKey: Config.apiKey,
             user: user,
             token: token,
-            videoConfig: VideoConfig(videoEnabled: false),
+            videoConfig: VideoConfig(),
             tokenProvider: { result in
                 Task {
                     do {
