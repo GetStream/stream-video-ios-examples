@@ -79,9 +79,7 @@ struct BottomParticipantView: View {
     var participant: CallParticipant
     
     var body: some View {
-        LazyImage(url: participant.profileImageURL)
-            .frame(width: 80, height: 80)
-            .clipShape(Circle())
+        UserAvatar(imageURL: participant.profileImageURL, size: 80)
             .overlay(
                 !participant.hasAudio ?
                     BottomRightView {
