@@ -37,7 +37,7 @@ struct JoinCallView: View {
             TextField("Insert call id", text: $callId)
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, participants: [])
+                viewModel.startCall(callId: callId, type: "default", participants: [])
             } label: {
                 Text("Join call")
             }

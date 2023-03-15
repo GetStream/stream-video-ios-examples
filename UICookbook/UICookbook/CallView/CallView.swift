@@ -11,9 +11,7 @@ import StreamVideoSwiftUI
 import NukeUI
 
 struct CallView: View {
-    
-    @Injected(\.streamVideo) var streamVideo
-    
+        
     @ObservedObject var viewModel: CallViewModel
     
     var participants: [CallParticipant] {
