@@ -15,15 +15,16 @@ import SwiftUI
 class ChatViewFactory: ViewFactory {
     
     @Injected(\.chatClient) var chatClient: ChatClient
+    @ObservedObject var appState: AppState
     
-    private init() {}
-    
-    static let shared = ChatViewFactory()
+    init(appState: AppState) {
+        _appState = ObservedObject(wrappedValue: appState)
+    }
     
     @MainActor var callViewModel = CallViewModel(listenToRingingEvents: true)
     
     func makeChannelListHeaderViewModifier(title: String) -> some ChannelListHeaderViewModifier {
-        CustomChannelModifier(title: title)
+        CustomChannelModifier(appState: appState, title: title)
     }
     
     @MainActor
@@ -63,6 +64,8 @@ struct CustomChannelModifier: ChannelListHeaderViewModifier {
     
     @Injected(\.chatClient) var chatClient
     
+    @ObservedObject var appState: AppState
+    
     var title: String
     
     @State var isNewChatShown = false
@@ -83,10 +86,7 @@ struct CustomChannelModifier: ChannelListHeaderViewModifier {
                     title: Text("Sign out"),
                     message: Text("Are you sure you want to sign out?"),
                     primaryButton: .destructive(Text("Sign out")) {
-                        withAnimation {
-                            chatClient.disconnect()
-                            AppState.shared.userState = .notLoggedIn
-                        }
+                        appState.logout()
                     },
                     secondaryButton: .cancel()
                 )
