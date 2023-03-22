@@ -12,14 +12,11 @@ import StreamVideoSwiftUI
 
 @main
 struct ChatWithVideoApp: App {
-    private let userRepository: UserRepository = UnsecureUserRepository.shared
     
-    @State var streamWrapper: StreamWrapper?
-    
-    @ObservedObject var appState = AppState.shared
+    @StateObject var appState = AppState()
+    var chatViewFactory: ChatViewFactory?
         
     init() {
-        checkLoggedInUser()
         LogConfig.level = .debug
     }
     
@@ -27,13 +24,15 @@ struct ChatWithVideoApp: App {
         WindowGroup {
             ZStack {
                 if appState.userState == .loggedIn {
-                    ChatChannelListView(viewFactory: ChatViewFactory.shared)
-                        .modifier(CallModifier(viewModel: ChatViewFactory.shared.callViewModel))
+                    let chatViewFactory = ChatViewFactory(appState: appState)
+                    ChatChannelListView(viewFactory: chatViewFactory)
+                        .modifier(CallModifier(viewModel: chatViewFactory.callViewModel))
                 } else {
-                    LoginView() { user in
-                        handleSelectedUser(user)
-                    }
+                    LoginView(appState: appState)
                 }
+            }
+            .onAppear {
+                appState.checkLoggedInUser()
             }
             .onOpenURL { url in
                 handle(url: url)
@@ -43,7 +42,7 @@ struct ChatWithVideoApp: App {
     
     private func handle(url: URL) {
         let queryParams = url.queryParameters
-        let users = UserCredentials.builtInUsers
+        let users = User.builtInUsers
         guard let userId = queryParams["user_id"],
               let callId = queryParams["call_id"] else {
             return
@@ -51,28 +50,9 @@ struct ChatWithVideoApp: App {
         let user = users.filter { $0.id == userId }.first
         if let user = user {
             appState.deeplinkCallId = callId
-            appState.userState = .loggedIn
-            handleSelectedUser(user, callId: callId)
-        }
-    }
-    
-    private func handleSelectedUser(_ user: UserCredentials, callId: String? = nil) {
-        streamWrapper = StreamWrapper(
-            apiKey: "us83cfwuhy8n",
-            userCredentials: user,
-            tokenProvider: { result in
-                //TODO: Provide token here.
-                result(.success(user.tokenValue))
+            Task {
+                try await appState.login(user)
             }
-        )
-        appState.streamWrapper = streamWrapper
-    }
-    
-    private func checkLoggedInUser() {
-        if let user = userRepository.loadCurrentUser() {
-            appState.currentUser = user.user
-            appState.userState = .loggedIn
-            handleSelectedUser(user)
         }
     }
 
