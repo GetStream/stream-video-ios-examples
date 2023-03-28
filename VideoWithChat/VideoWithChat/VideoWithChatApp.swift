@@ -11,14 +11,10 @@ import StreamVideoSwiftUI
 
 @main
 struct VideoWithChatApp: App {
-    private let userRepository: UserRepository = UnsecureUserRepository.shared
     
-    @State var streamWrapper: StreamWrapper?
-    
-    @ObservedObject var appState = AppState.shared
+    @StateObject var appState = AppState()
         
     init() {
-        checkLoggedInUser()
         LogConfig.level = .debug
     }
     
@@ -26,12 +22,13 @@ struct VideoWithChatApp: App {
         WindowGroup {
             ZStack {
                 if appState.userState == .loggedIn {
-                    StageView(callId: appState.deeplinkCallId)
+                    StageView(appState: appState, callId: appState.deeplinkCallId)
                 } else {
-                    LoginView() { user in
-                        handleSelectedUser(user)
-                    }
+                    LoginView(appState: appState)
                 }
+            }
+            .onAppear {
+                appState.checkLoggedInUser()
             }
             .onOpenURL { url in
                 handle(url: url)
@@ -41,7 +38,7 @@ struct VideoWithChatApp: App {
     
     private func handle(url: URL) {
         let queryParams = url.queryParameters
-        let users = UserCredentials.builtInUsers
+        let users = User.builtInUsers
         guard let userId = queryParams["user_id"],
               let callId = queryParams["call_id"] else {
             return
@@ -49,29 +46,9 @@ struct VideoWithChatApp: App {
         let user = users.filter { $0.id == userId }.first
         if let user = user {
             appState.deeplinkCallId = callId
-            appState.userState = .loggedIn
-            handleSelectedUser(user, callId: callId)
-        }
-    }
-    
-    private func handleSelectedUser(_ user: UserCredentials, callId: String? = nil) {
-        streamWrapper = StreamWrapper(
-            apiKey: "us83cfwuhy8n",
-            userCredentials: user,
-            videoFilters: FiltersService.supportedFilters,
-            tokenProvider: { result in
-                //TODO: Provide token here.
-                result(.success(user.tokenValue))
+            Task {
+                try await appState.login(user)
             }
-        )
-        appState.streamWrapper = streamWrapper
-    }
-    
-    private func checkLoggedInUser() {
-        if let user = userRepository.loadCurrentUser() {
-            appState.currentUser = user.user
-            appState.userState = .loggedIn
-            handleSelectedUser(user)
         }
     }
 }

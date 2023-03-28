@@ -10,17 +10,18 @@ struct StageView: View {
     
     @StateObject var viewModel: CallViewModel
     
-    @ObservedObject var appState = AppState.shared
+    @ObservedObject var appState: AppState
     
-    init(callId: String? = nil) {
+    init(appState: AppState, callId: String? = nil) {
         _viewModel = StateObject(wrappedValue: CallViewModel())
+        _appState = ObservedObject(wrappedValue: appState)
         if let callId = callId, viewModel.callingState == .idle {
-            viewModel.joinCall(callId: callId)
+            viewModel.joinCall(callId: callId, type: "default")
         }
     }
         
     var body: some View {
-        HomeView(viewModel: viewModel)
+        HomeView(viewModel: viewModel, appState: appState)
             .modifier(CallModifier(viewFactory: VideoWithChatViewFactory.shared, viewModel: viewModel))
             .onReceive(appState.$activeCallController) { callController in
                 if let callController = callController {

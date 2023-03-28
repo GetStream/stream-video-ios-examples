@@ -11,7 +11,7 @@ import StreamChatSwiftUI
 import StreamVideo
 import StreamVideoSwiftUI
 
-typealias StreamTokenProvider = (@escaping (Result<String, Error>) -> Void) -> Void
+typealias StreamTokenProvider = (@escaping (Result<UserToken, Error>) -> Void) -> Void
 
 class StreamWrapper {
     let chatClient: ChatClient
@@ -22,50 +22,36 @@ class StreamWrapper {
     
     init(
         apiKey: String,
-        userCredentials: UserCredentials,
+        user: User,
         videoFilters: [VideoFilter] = [],
+        initialToken: UserToken,
         tokenProvider: @escaping StreamTokenProvider
     ) {
         chatClient = ChatClient(config: .init(apiKeyString: apiKey))
         streamChatUI = StreamChat(chatClient: chatClient)
         self.tokenProvider = tokenProvider
-        let token = userCredentials.videoToken
         streamVideo = StreamVideo(
             apiKey: apiKey,
-            user: userCredentials.user,
-            token: token,
+            user: user,
+            token: initialToken,
             videoConfig: VideoConfig(
                 videoFilters: videoFilters
             ),
-            tokenProvider: { result in
-                tokenProvider { tokenResult in
-                    switch tokenResult {
-                    case .success(let rawValue):
-                        do {
-                            let updatedToken = try UserToken(rawValue: rawValue)
-                            result(.success(updatedToken))
-                        } catch {
-                            result(.failure(error))
-                        }
-                    case .failure(let error):
-                        result(.failure(error))
-                    }
-                }
-            }
+            tokenProvider: tokenProvider
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
         let userInfo = UserInfo.init(
-            id: userCredentials.user.id,
-            name: userCredentials.user.name,
-            imageURL: userCredentials.user.imageURL,
+            id: user.id,
+            name: user.name,
+            imageURL: user.imageURL,
             extraData: [:]
         )
         chatClient.connectUser(userInfo: userInfo) { result in
             tokenProvider { tokenResult in
                 switch tokenResult {
-                case .success(let rawValue):
+                case .success(let userToken):
                     do {
-                        let updatedToken = try Token(rawValue: rawValue)
+                        let updatedToken = try Token(rawValue: userToken.rawValue)
                         result(.success(updatedToken))
                     } catch {
                         result(.failure(error))

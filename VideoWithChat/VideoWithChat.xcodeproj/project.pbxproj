@@ -13,7 +13,6 @@
 		84CBBDDC292237DC00D0DA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CBBDDB292237DC00D0DA61 /* Assets.xcassets */; };
 		84CBBDDF292237DC00D0DA61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */; };
 		84CBBDF02922391900D0DA61 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDE72922391800D0DA61 /* HomeView.swift */; };
-		84CBBDF12922391900D0DA61 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDE82922391800D0DA61 /* LoginViewModel.swift */; };
 		84CBBDF22922391900D0DA61 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDE92922391800D0DA61 /* LocalStorage.swift */; };
 		84CBBDF42922391900D0DA61 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDEB2922391800D0DA61 /* AppState.swift */; };
 		84CBBDF52922391900D0DA61 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDEC2922391800D0DA61 /* LoginView.swift */; };
@@ -27,6 +26,9 @@
 		84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA292922A2950022AA96 /* ChatViewFactory.swift */; };
 		84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA2B2923837A0022AA96 /* ChatHelper.swift */; };
 		84F0867D296398AD0099907A /* FiltersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0867C296398AD0099907A /* FiltersService.swift */; };
+		AC0D065129CC820100531477 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D065029CC820100531477 /* HTTPClient.swift */; };
+		AC0D065329CC820F00531477 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D065229CC820F00531477 /* TokenService.swift */; };
+		AC0D065629CC835800531477 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D065529CC835800531477 /* UserCredentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +37,6 @@
 		84CBBDDB292237DC00D0DA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84CBBDE72922391800D0DA61 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		84CBBDE82922391800D0DA61 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84CBBDE92922391800D0DA61 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		84CBBDEB2922391800D0DA61 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		84CBBDEC2922391800D0DA61 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -48,6 +49,9 @@
 		84D6CA292922A2950022AA96 /* ChatViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewFactory.swift; sourceTree = "<group>"; };
 		84D6CA2B2923837A0022AA96 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
 		84F0867C296398AD0099907A /* FiltersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersService.swift; sourceTree = "<group>"; };
+		AC0D065029CC820100531477 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		AC0D065229CC820F00531477 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		AC0D065529CC835800531477 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,9 @@
 		84CBBDD6292237D900D0DA61 /* VideoWithChat */ = {
 			isa = PBXGroup;
 			children = (
+				84CBBDEB2922391800D0DA61 /* AppState.swift */,
+				AC0D064D29CC801200531477 /* Features */,
+				AC0D065429CC834800531477 /* Model */,
 				84CBBDE62922390B00D0DA61 /* Sources */,
 				84CBBDD7292237D900D0DA61 /* VideoWithChatApp.swift */,
 				84CBBDDB292237DC00D0DA61 /* Assets.xcassets */,
@@ -104,13 +111,10 @@
 		84CBBDE62922390B00D0DA61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				84CBBDEB2922391800D0DA61 /* AppState.swift */,
 				84CBBDEF2922391900D0DA61 /* StageView.swift */,
 				84CBBDEE2922391800D0DA61 /* DemoAppUtils.swift */,
 				84CBBDE72922391800D0DA61 /* HomeView.swift */,
 				84CBBDE92922391800D0DA61 /* LocalStorage.swift */,
-				84CBBDEC2922391800D0DA61 /* LoginView.swift */,
-				84CBBDE82922391800D0DA61 /* LoginViewModel.swift */,
 				84CBBDED2922391800D0DA61 /* MockUserListProvider.swift */,
 				84CBBE0129223EAA00D0DA61 /* VideoWithChatViewFactory.swift */,
 				84CBBE0329223F1D00D0DA61 /* ChatCallControls.swift */,
@@ -126,6 +130,40 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC0D064D29CC801200531477 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AC0D064E29CC802000531477 /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AC0D064E29CC802000531477 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC0D065029CC820100531477 /* HTTPClient.swift */,
+				AC0D065229CC820F00531477 /* TokenService.swift */,
+				AC0D064F29CC802900531477 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AC0D064F29CC802900531477 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84CBBDEC2922391800D0DA61 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC0D065429CC834800531477 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC0D065529CC835800531477 /* UserCredentials.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,17 +245,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CBBDF12922391900D0DA61 /* LoginViewModel.swift in Sources */,
 				84CBBE0429223F1D00D0DA61 /* ChatCallControls.swift in Sources */,
 				84CBBDF22922391900D0DA61 /* LocalStorage.swift in Sources */,
 				84CBBE06292274B000D0DA61 /* StreamWrapper.swift in Sources */,
 				84F0867D296398AD0099907A /* FiltersService.swift in Sources */,
+				AC0D065629CC835800531477 /* UserCredentials.swift in Sources */,
 				84CBBDF42922391900D0DA61 /* AppState.swift in Sources */,
 				84CBBDF02922391900D0DA61 /* HomeView.swift in Sources */,
 				84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */,
 				84CBBDF72922391900D0DA61 /* DemoAppUtils.swift in Sources */,
 				84CBBDD8292237D900D0DA61 /* VideoWithChatApp.swift in Sources */,
+				AC0D065129CC820100531477 /* HTTPClient.swift in Sources */,
 				84CBBDF82922391900D0DA61 /* StageView.swift in Sources */,
+				AC0D065329CC820F00531477 /* TokenService.swift in Sources */,
 				84CBBE0229223EAA00D0DA61 /* VideoWithChatViewFactory.swift in Sources */,
 				84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */,
 				84CBBDF62922391900D0DA61 /* MockUserListProvider.swift in Sources */,
