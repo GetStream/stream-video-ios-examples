@@ -147,7 +147,7 @@ struct ChatCallControls: View {
         )
         .onReceive(viewModel.$callParticipants, perform: { output in
             if viewModel.callParticipants.count > 1 {
-                chatHelper.update(memberIds: Set(viewModel.callParticipants.map(\.key)))
+                chatHelper.update(memberIds: Set(viewModel.callParticipants.map(\.1.userId)))
             }
         })
     }
