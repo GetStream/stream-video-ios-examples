@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/webrtc-sdk/Specs.git",
       "state" : {
-        "revision" : "3490cea839a8526733be6ad3de4f0ae04e192b0f",
-        "version" : "104.5112.6"
+        "revision" : "6fee6cd2e79d5605272207e224c9f3f5ec7010a7",
+        "version" : "104.5112.11"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/GetStream/stream-video-swift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a6b9d63a6cfdd4217a5c22d5da51579fa2b41306"
+        "revision" : "776c57d3000ff851ebe84b1a9481060b6c342ce5"
       }
     },
     {

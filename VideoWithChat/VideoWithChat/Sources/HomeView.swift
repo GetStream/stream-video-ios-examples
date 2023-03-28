@@ -10,6 +10,7 @@ import StreamVideoSwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: CallViewModel
+    @ObservedObject var appState: AppState
     
     @Injected(\.streamVideo) var streamVideo
     
@@ -20,7 +21,7 @@ struct HomeView: View {
     @State private var callAction = CallAction.startCall
     
     var participants: [User] {
-        var participants = UserCredentials.builtInUsers.map { $0.user }
+        var participants = User.builtInUsers
         participants.removeAll { userInfo in
             userInfo.id == streamVideo.user.id
         }
@@ -56,6 +57,7 @@ struct HomeView: View {
                 Text(CallAction.joinCall.rawValue).tag(CallAction.joinCall)
             }
             .pickerStyle(.segmented)
+            .padding()
             
             TextField("Insert a call id", text: $callId)
                 .textFieldStyle(.roundedBorder)
@@ -66,7 +68,7 @@ struct HomeView: View {
                     .transition(.opacity)
             } else {
                 Button {
-                    viewModel.joinCall(callId: callId)
+                    viewModel.joinCall(callId: callId, type: "default")
                 } label: {
                     Text("Join a call")
                         .padding()
@@ -86,12 +88,7 @@ struct HomeView: View {
                 message: Text("Are you sure you want to sign out?"),
                 primaryButton: .destructive(Text("Sign out")) {
                     withAnimation {
-                        if let userToken = UnsecureUserRepository.shared.currentVoipPushToken() {
-                            let controller = streamVideo.makeVoipNotificationsController()
-                            controller.removeDevice(with: userToken)
-                        }
-                        UnsecureUserRepository.shared.removeCurrentUser()
-                        AppState.shared.userState = .notLoggedIn
+                        appState.logout()
                     }
                 },
                 secondaryButton: .cancel()
@@ -140,7 +137,7 @@ struct HomeView: View {
                         
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, participants: selectedParticipants)
+                viewModel.startCall(callId: callId, type: "default", participants: selectedParticipants, ring: false)
             } label: {
                 Text("Start a call")
                     .padding()
