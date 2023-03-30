@@ -24,7 +24,7 @@ extension AppState {
     
     func login(_ user: User) async throws {
         let token = try await self.tokenService.fetchToken(for: user.id)
-        let credentials = UserCredentials(user: user, token: token)
+        let credentials = UserCredentials(user: user, tokenValue: token.rawValue)
         // save the selected user
         UnsecureUserRepository.shared.save(user: credentials)
         currentUser = user

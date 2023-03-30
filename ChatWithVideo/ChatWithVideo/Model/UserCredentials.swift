@@ -13,7 +13,7 @@ struct UserCredentials: Identifiable, Codable {
         user.id
     }
     let user: User
-    let token: UserToken
+    let tokenValue: String
 }
 
 extension User {
