@@ -33,19 +33,8 @@ class StreamWrapper {
             apiKey: apiKey,
             user: user,
             token: initialToken,
-            videoConfig: VideoConfig(
-                ringingTimeout: 0
-            ),
-            tokenProvider: { result in
-                tokenProvider { tokenResult in
-                    switch tokenResult {
-                    case .success(let userToken):
-                        result(.success(userToken))
-                    case .failure(let error):
-                        result(.failure(error))
-                    }
-                }
-            }
+            videoConfig: VideoConfig(),
+            tokenProvider: tokenProvider
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
         let userInfo = UserInfo.init(

@@ -21,7 +21,7 @@ class ChatViewFactory: ViewFactory {
         _appState = ObservedObject(wrappedValue: appState)
     }
     
-    @MainActor var callViewModel = CallViewModel(listenToRingingEvents: true)
+    @MainActor var callViewModel = CallViewModel()
     
     func makeChannelListHeaderViewModifier(title: String) -> some ChannelListHeaderViewModifier {
         CustomChannelModifier(appState: appState, title: title)
@@ -180,7 +180,7 @@ public struct CallChatChannelHeader: ToolbarContent {
                         extraData: [:]
                     )
                 }
-                callViewModel.startCall(callId: UUID().uuidString, participants: participants)
+                callViewModel.startCall(callId: UUID().uuidString, type: .default, participants: participants)
             } label: {
                 Image(systemName: "phone.fill")
             }

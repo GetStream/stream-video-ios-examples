@@ -14,7 +14,6 @@ import StreamVideoSwiftUI
 struct ChatWithVideoApp: App {
     
     @StateObject var appState = AppState()
-    var chatViewFactory: ChatViewFactory?
         
     init() {
         LogConfig.level = .debug
