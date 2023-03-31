@@ -58,6 +58,9 @@ class StreamWrapper {
                 }
             }
         }
+        Task {
+            try? await streamVideo.connect()
+        }
     }
     
 }

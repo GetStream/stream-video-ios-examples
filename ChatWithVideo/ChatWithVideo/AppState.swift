@@ -69,10 +69,7 @@ extension AppState {
         Task {
             await streamWrapper?.streamVideo.disconnect()
             streamWrapper?.chatClient.disconnect()
-            
-            withAnimation {
-                userState = .notLoggedIn
-            }
+            userState = .notLoggedIn
         }
     }
 }
