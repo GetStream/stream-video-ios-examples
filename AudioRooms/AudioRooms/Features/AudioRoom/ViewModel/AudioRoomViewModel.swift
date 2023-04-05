@@ -46,14 +46,22 @@ class AudioRoomViewModel: ObservableObject {
         }
     }
     
+    var call: Call {
+        get throws {
+            if let call = callViewModel.call {
+                return call
+            } else {
+                throw ClientError.Unknown()
+            }
+        }
+    }
+    
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
-    private var permissionsController: PermissionsController!
-    private let callType = "audio_room"
+    private let callType = CallType.audioRoom
     
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
-        self.permissionsController = streamVideo.makePermissionsController()
         checkAudioSettings()
         callViewModel.startCall(
             callId: audioRoom.id,
@@ -63,8 +71,6 @@ class AudioRoomViewModel: ObservableObject {
         subscribeForParticipantChanges()
         subscribeForAudioChanges()
         subscribeForCallStateChanges()
-        subscribeForPermissionsRequests()
-        subscribeForPermissionUpdates()
     }
     
     func leaveCall() {
@@ -73,31 +79,16 @@ class AudioRoomViewModel: ObservableObject {
     
     func raiseHand() {
         Task {
-            try await permissionsController.request(
-                permissions: [.sendAudio],
-                callId: audioRoom.id,
-                callType: callType
-            )
+            try await call.request(permissions: [.sendAudio])
         }
     }
     
     func grantUserPermissions() {
         guard let permissionRequest else { return }
-        var callId = ""
-        var callType = ""
-        let idComponents = permissionRequest.callCid.components(separatedBy: ":")
-        if idComponents.count >= 2  {
-            callId = idComponents[1]
-            callType = idComponents[0]
-        } else {
-            return
-        }
         Task {
-            try await permissionsController.grant(
+            try await call.grant(
                 permissions: permissionRequest.permissions.compactMap { Permission(rawValue: $0) },
-                for: permissionRequest.user.id,
-                callId: callId,
-                callType: callType
+                for: permissionRequest.user.id
             )
         }
     }
@@ -105,17 +96,19 @@ class AudioRoomViewModel: ObservableObject {
     func revokePermissions() {
         guard let revokingParticipant else { return }
         Task {
-            try await permissionsController.revoke(
+            try await call.revoke(
                 permissions: [.sendAudio],
-                for: revokingParticipant.userId,
-                callId: audioRoom.id,
-                callType: callType
+                for: revokingParticipant.userId
             )
         }
     }
     
     func canAskForAudioPermission() -> Bool {
-        permissionsController.currentUserCanRequestPermissions([.sendAudio])
+        do {
+            return try call.currentUserCanRequestPermissions([.sendAudio])
+        } catch {
+            return false
+        }
     }
     
     func changeMuteState() {
@@ -124,22 +117,30 @@ class AudioRoomViewModel: ObservableObject {
     
     func goLive() {
         Task {
-            try await permissionsController.goLive(callId: audioRoom.id, callType: callType)
+            try await call.goLive()
         }
     }
     
     func stopLive() {
         Task {
-            try await permissionsController.stopLive(callId: audioRoom.id, callType: callType)
+            try await call.stopLive()
         }
     }
     
     var showGoLiveButton: Bool {
-        permissionsController.currentUserHasCapability(.updateCall) && !isCallLive
+        do {
+            return try call.currentUserHasCapability(.updateCall) && !isCallLive
+        } catch {
+            return false
+        }
     }
     
     var showStopLiveButton: Bool {
-        permissionsController.currentUserHasCapability(.updateCall) && isCallLive
+        do {
+            return try call.currentUserHasCapability(.updateCall) && isCallLive
+        } catch {
+            return false
+        }
     }
     
     //MARK: - private
@@ -212,8 +213,10 @@ class AudioRoomViewModel: ObservableObject {
             guard let self = self else { return }
             self.loading = callState != .inCall
             if callState == .inCall {
-                self.isCallLive = self.callViewModel.call?.callInfo.backstage == false
+                self.isCallLive = self.callViewModel.call?.callInfo?.backstage == false
                 self.subscribeForCallUpdates()
+                self.subscribeForPermissionsRequests()
+                self.subscribeForPermissionUpdates()
             }
         }
         .store(in: &cancellables)
@@ -221,7 +224,7 @@ class AudioRoomViewModel: ObservableObject {
     
     private func subscribeForPermissionsRequests() {
         Task {
-            for await request in permissionsController.permissionRequests() {
+            for await request in try call.permissionRequests() {
                 self.permissionRequest = request
             }
         }
@@ -229,7 +232,7 @@ class AudioRoomViewModel: ObservableObject {
     
     private func subscribeForPermissionUpdates() {
         Task {
-            for await update in permissionsController.permissionUpdates() {
+            for await update in try call.permissionUpdates() {
                 let userId = update.user.id
                 self.activeCallPermissions[userId] = update.ownCapabilities
                 if userId == streamVideo.user.id
@@ -243,10 +246,12 @@ class AudioRoomViewModel: ObservableObject {
     }
     
     private func subscribeForCallUpdates() {
+        guard let currentCall = callViewModel.call else { return }
         callViewModel.call?.$callInfo.sink { call in
             DispatchQueue.main.async {
-                self.isCallLive = call.backstage == false
-                if !self.isCallLive && !self.permissionsController.currentUserHasCapability(.updateCall) {
+                if call == nil { return }
+                self.isCallLive = call?.backstage == false
+                if !self.isCallLive && !currentCall.currentUserHasCapability(.updateCall) {
                     self.leaveCall()
                     self.callEnded = true
                 }

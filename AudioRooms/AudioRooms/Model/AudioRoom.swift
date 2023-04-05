@@ -17,7 +17,7 @@ struct AudioRoom: Identifiable {
 
 extension AudioRoom {
     static var preview: AudioRoom = AudioRoom(
-        id: "demoAudioRoom1",
+        id: "testAudioRoom1",
         title: "The football room",
         subtitle: "All about the beautiful game",
         hosts: [
@@ -43,25 +43,25 @@ class DemoAudioRoomRepository: AudioRoomRepository {
     
     func loadAudioRooms() async -> [AudioRoom] {
         let footballRoom = AudioRoom(
-            id: "demoAudioRoom1",
+            id: "testAudioRoom1",
             title: "The football room",
             subtitle: "All about the beautiful game",
             hosts: [martin.asHost, thierry.asHost]
         )
         let iOSRoom = AudioRoom(
-            id: "demoAudioRoom2",
+            id: "testAudioRoom2",
             title: "iOS developers",
             subtitle: "Learn everything about Apple's platforms",
             hosts: [martin.asHost, tommaso.asHost]
         )
         let goRoom = AudioRoom(
-            id: "demoAudioRoom3",
+            id: "testAudioRoom3",
             title: "Go developers",
             subtitle: "We love Go",
             hosts: [marcelo.asHost, tommaso.asHost]
         )
         let balkanPeople = AudioRoom(
-            id: "demoAudioRoom4",
+            id: "testAudioRoom4",
             title: "Balkan people",
             subtitle: "Tales from the crazy region",
             hosts: [filip.asHost, martin.asHost]

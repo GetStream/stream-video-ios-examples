@@ -44,6 +44,9 @@ extension AppState {
             }
         )
         self.streamVideo = streamVideo
+        Task {
+            try await self.streamVideo?.connect()
+        }
         
         // change the login state
         userState = .loggedIn
