@@ -17,6 +17,8 @@
 		845E28C12923D1DF00110209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E28C02923D1DF00110209 /* Assets.xcassets */; };
 		845E28C42923D1DF00110209 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E28C32923D1DF00110209 /* Preview Assets.xcassets */; };
 		845E28CC2923D25A00110209 /* StreamChatSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 845E28CB2923D25A00110209 /* StreamChatSwiftUI */; };
+		84E5C50429F83B150003A27A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5C50229F83B150003A27A /* TokenService.swift */; };
+		84E5C50529F83B150003A27A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5C50329F83B150003A27A /* HTTPClient.swift */; };
 		84E880D02923D6A3004B0436 /* StreamWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E880CF2923D6A3004B0436 /* StreamWrapper.swift */; };
 		84E880D72923D720004B0436 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E880D52923D720004B0436 /* LoginView.swift */; };
 		84E880D82923D720004B0436 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E880D62923D720004B0436 /* LoginViewModel.swift */; };
@@ -33,6 +35,8 @@
 		845E28BE2923D1DD00110209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		845E28C02923D1DF00110209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E28C32923D1DF00110209 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		84E5C50229F83B150003A27A /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		84E5C50329F83B150003A27A /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		84E880CF2923D6A3004B0436 /* StreamWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWrapper.swift; sourceTree = "<group>"; };
 		84E880D52923D720004B0436 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		84E880D62923D720004B0436 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				84E880D62923D720004B0436 /* LoginViewModel.swift */,
 				845E28BC2923D1DD00110209 /* ChatWithVideoApp.swift */,
 				84E880DB2923D768004B0436 /* LocalStorage.swift */,
+				84E5C50329F83B150003A27A /* HTTPClient.swift */,
+				84E5C50229F83B150003A27A /* TokenService.swift */,
 				845E28BE2923D1DD00110209 /* ContentView.swift */,
 				845E28C02923D1DF00110209 /* Assets.xcassets */,
 				845E28C22923D1DF00110209 /* Preview Content */,
@@ -192,6 +198,7 @@
 			files = (
 				845E28BF2923D1DD00110209 /* ContentView.swift in Sources */,
 				84E880D02923D6A3004B0436 /* StreamWrapper.swift in Sources */,
+				84E5C50529F83B150003A27A /* HTTPClient.swift in Sources */,
 				84E880D72923D720004B0436 /* LoginView.swift in Sources */,
 				84E880DA2923D738004B0436 /* AppState.swift in Sources */,
 				84E880DE2923D7B7004B0436 /* DemoAppUtils.swift in Sources */,
@@ -200,6 +207,7 @@
 				84E880D82923D720004B0436 /* LoginViewModel.swift in Sources */,
 				84E880DC2923D768004B0436 /* LocalStorage.swift in Sources */,
 				845E28BD2923D1DD00110209 /* ChatWithVideoApp.swift in Sources */,
+				84E5C50429F83B150003A27A /* TokenService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +341,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "DemoApp requires camera access in order to capture and transmit video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DemoApp requires microphone access in order to capture and transmit audio";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to your photo library is needed for attaching photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -365,6 +374,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "DemoApp requires camera access in order to capture and transmit video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DemoApp requires microphone access in order to capture and transmit audio";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to your photo library is needed for attaching photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

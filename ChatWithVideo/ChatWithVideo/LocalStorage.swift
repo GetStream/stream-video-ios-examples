@@ -13,6 +13,8 @@ protocol UserRepository {
     
     func removeCurrentUser()
     
+    func save(token: String)
+    
 }
 
 protocol VoipTokenHandler {
@@ -42,6 +44,10 @@ class UnsecureUserRepository: UserRepository, VoipTokenHandler {
             defaults.set(encoded, forKey: userKey)
             defaults.set(user.tokenValue, forKey: tokenKey)
         }
+    }
+    
+    func save(token: String) {
+        defaults.set(token, forKey: tokenKey)
     }
     
     func loadCurrentUser() -> UserCredentials? {

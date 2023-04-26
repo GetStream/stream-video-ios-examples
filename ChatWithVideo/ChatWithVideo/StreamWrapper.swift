@@ -1,8 +1,8 @@
 //
 //  StreamWrapper.swift
-//  ChatWithVideo
+//  VideoWithChat
 //
-//  Created by Martin Mitrevski on 15.11.22.
+//  Created by Martin Mitrevski on 14.11.22.
 //
 
 import Foundation
@@ -23,18 +23,19 @@ class StreamWrapper {
     init(
         apiKey: String,
         userCredentials: UserCredentials,
+        videoFilters: [VideoFilter] = [],
         tokenProvider: @escaping StreamTokenProvider
     ) {
         chatClient = ChatClient(config: .init(apiKeyString: apiKey))
         streamChatUI = StreamChat(chatClient: chatClient)
         self.tokenProvider = tokenProvider
-        let token = userCredentials.videoToken
+        let token = userCredentials.tokenValue
         streamVideo = StreamVideo(
             apiKey: apiKey,
             user: userCredentials.user,
-            token: token,
+            token: try! UserToken(rawValue: token),
             videoConfig: VideoConfig(
-                ringingTimeout: 0
+                videoFilters: videoFilters
             ),
             tokenProvider: { result in
                 tokenProvider { tokenResult in
@@ -53,6 +54,9 @@ class StreamWrapper {
             }
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
+        Task {
+            try await streamVideoUI.connect()
+        }
         let userInfo = UserInfo.init(
             id: userCredentials.user.id,
             name: userCredentials.user.name,
@@ -74,6 +78,20 @@ class StreamWrapper {
                 }
             }
         }
+    }
+    
+    func logout() async {
+        await streamVideo.disconnect()
+        await logoutChatClient()
+    }
+    
+    func logoutChatClient() async {
+        await withCheckedContinuation { continuation in
+            chatClient.logout {
+                continuation.resume(returning: ())
+            }
+        }
+        
     }
     
 }

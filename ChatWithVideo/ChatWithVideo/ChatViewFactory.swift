@@ -20,7 +20,7 @@ class ChatViewFactory: ViewFactory {
     
     static let shared = ChatViewFactory()
     
-    @MainActor var callViewModel = CallViewModel(listenToRingingEvents: true)
+    @MainActor var callViewModel = CallViewModel()
     
     func makeChannelListHeaderViewModifier(title: String) -> some ChannelListHeaderViewModifier {
         CustomChannelModifier(title: title)
@@ -84,8 +84,7 @@ struct CustomChannelModifier: ChannelListHeaderViewModifier {
                     message: Text("Are you sure you want to sign out?"),
                     primaryButton: .destructive(Text("Sign out")) {
                         withAnimation {
-                            chatClient.disconnect()
-                            AppState.shared.userState = .notLoggedIn
+                            AppState.shared.logout()
                         }
                     },
                     secondaryButton: .cancel()
@@ -180,7 +179,12 @@ public struct CallChatChannelHeader: ToolbarContent {
                         extraData: [:]
                     )
                 }
-                callViewModel.startCall(callId: UUID().uuidString, participants: participants)
+                callViewModel.startCall(
+                    callId: UUID().uuidString,
+                    type: .default,
+                    participants: participants,
+                    ring: true
+                )
             } label: {
                 Image(systemName: "phone.fill")
             }

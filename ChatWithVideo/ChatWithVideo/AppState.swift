@@ -5,11 +5,13 @@
 import StreamVideo
 import SwiftUI
 
+@MainActor
 class AppState: ObservableObject {
+    
+    let userRepository: UserRepository = UnsecureUserRepository.shared
     
     @Published var userState: UserState = .notLoggedIn
     @Published var deeplinkCallId: String?
-    @Published var activeCallController: CallController?
     @Published var currentUser: User?
     
     var streamWrapper: StreamWrapper?
@@ -17,6 +19,16 @@ class AppState: ObservableObject {
     static let shared = AppState()
     
     private init() {}
+    
+    func logout() {
+        Task {
+            await streamWrapper?.logout()
+            userRepository.removeCurrentUser()
+            streamWrapper = nil
+            currentUser = nil
+            userState = .notLoggedIn
+        }
+    }
 }
 
 enum UserState {

@@ -21,11 +21,13 @@ struct LoginView: View {
             Text("Select a user")
                 .font(.title)
                 .bold()
-            List(viewModel.userCredentials) { user in
+            List(viewModel.users) { user in
                 Button {
-                    viewModel.login(user: user, completion: completion)
+                    Task {
+                        try await viewModel.login(user: user, completion: completion)
+                    }
                 } label: {
-                    Text(user.user.name)
+                    Text(user.name)
                         .foregroundColor(.primary)
                 }
                 .padding(.all, 8)
