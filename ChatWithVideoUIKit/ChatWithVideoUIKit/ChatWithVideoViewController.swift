@@ -34,7 +34,7 @@ class ChatWithVideoViewController: ChatChannelVC {
                 id: member.id,
                 name: member.name,
                 imageURL: member.imageURL,
-                extraData: [:]
+                customData: [:]
             )
         } ?? []
         callViewModel.startCall(

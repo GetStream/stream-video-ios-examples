@@ -79,7 +79,7 @@ extension User {
             name: name,
             imageURL: imageURL,
             role: "host",
-            extraData: extraData
+            customData: customData
         )
     }
     

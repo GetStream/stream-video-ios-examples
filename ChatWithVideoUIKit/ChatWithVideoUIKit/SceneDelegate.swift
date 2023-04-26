@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 id: userId,
                 name: "Martin",
                 imageURL: URL(string: "https://getstream.io/static/2796a305dd07651fcceb4721a94f4505/802d2/martin-mitrevski.webp"),
-                extraData: [:])
+                customData: [:])
             let userCredentials = UserCredentials(
                 user: user,
                 tokenValue: token.rawValue

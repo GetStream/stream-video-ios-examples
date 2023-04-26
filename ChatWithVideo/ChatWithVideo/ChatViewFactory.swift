@@ -176,7 +176,7 @@ public struct CallChatChannelHeader: ToolbarContent {
                         id: member.id,
                         name: member.name,
                         imageURL: member.imageURL,
-                        extraData: [:]
+                        customData: [:]
                     )
                 }
                 callViewModel.startCall(
