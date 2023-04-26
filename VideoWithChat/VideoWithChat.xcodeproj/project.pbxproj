@@ -26,6 +26,8 @@
 		84CBBE06292274B000D0DA61 /* StreamWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBE05292274B000D0DA61 /* StreamWrapper.swift */; };
 		84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA292922A2950022AA96 /* ChatViewFactory.swift */; };
 		84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6CA2B2923837A0022AA96 /* ChatHelper.swift */; };
+		84E5C50829F930050003A27A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5C50629F930050003A27A /* HTTPClient.swift */; };
+		84E5C50929F930050003A27A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5C50729F930050003A27A /* TokenService.swift */; };
 		84F0867D296398AD0099907A /* FiltersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0867C296398AD0099907A /* FiltersService.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		84CBBE05292274B000D0DA61 /* StreamWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWrapper.swift; sourceTree = "<group>"; };
 		84D6CA292922A2950022AA96 /* ChatViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewFactory.swift; sourceTree = "<group>"; };
 		84D6CA2B2923837A0022AA96 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
+		84E5C50629F930050003A27A /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		84E5C50729F930050003A27A /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		84F0867C296398AD0099907A /* FiltersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +119,8 @@
 				84CBBE0129223EAA00D0DA61 /* VideoWithChatViewFactory.swift */,
 				84CBBE0329223F1D00D0DA61 /* ChatCallControls.swift */,
 				84D6CA292922A2950022AA96 /* ChatViewFactory.swift */,
+				84E5C50629F930050003A27A /* HTTPClient.swift */,
+				84E5C50729F930050003A27A /* TokenService.swift */,
 				84D6CA2B2923837A0022AA96 /* ChatHelper.swift */,
 				84F0867C296398AD0099907A /* FiltersService.swift */,
 			);
@@ -217,7 +223,9 @@
 				84D6CA2A2922A2950022AA96 /* ChatViewFactory.swift in Sources */,
 				84CBBDF72922391900D0DA61 /* DemoAppUtils.swift in Sources */,
 				84CBBDD8292237D900D0DA61 /* VideoWithChatApp.swift in Sources */,
+				84E5C50829F930050003A27A /* HTTPClient.swift in Sources */,
 				84CBBDF82922391900D0DA61 /* StageView.swift in Sources */,
+				84E5C50929F930050003A27A /* TokenService.swift in Sources */,
 				84CBBE0229223EAA00D0DA61 /* VideoWithChatViewFactory.swift in Sources */,
 				84D6CA2C2923837A0022AA96 /* ChatHelper.swift in Sources */,
 				84CBBDF62922391900D0DA61 /* MockUserListProvider.swift in Sources */,

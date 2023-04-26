@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/webrtc-sdk/Specs.git",
       "state" : {
-        "revision" : "3490cea839a8526733be6ad3de4f0ae04e192b0f",
-        "version" : "104.5112.6"
+        "revision" : "6fee6cd2e79d5605272207e224c9f3f5ec7010a7",
+        "version" : "104.5112.11"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-chat-swift.git",
       "state" : {
-        "revision" : "30caff3f680abcda3226a0776c85c5c9de023130",
-        "version" : "4.24.1"
+        "revision" : "7efe79171c24c8eb312401f87c453c15f77fbba9",
+        "version" : "4.31.0"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://github.com/GetStream/stream-chat-swiftui.git",
       "state" : {
         "branch" : "main",
-        "revision" : "dcecafc343b755c31f5911e11d29aec209440b8a"
+        "revision" : "e56f1d232234e313b58c1612bdee08f7acaa3480"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/GetStream/stream-video-swift.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a6b9d63a6cfdd4217a5c22d5da51579fa2b41306"
+        "revision" : "1a0f01cb70a9940725bcf8689a309c569d10f14b"
       }
     },
     {

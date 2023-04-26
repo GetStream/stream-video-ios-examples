@@ -41,7 +41,7 @@ struct VideoWithChatApp: App {
     
     private func handle(url: URL) {
         let queryParams = url.queryParameters
-        let users = UserCredentials.builtInUsers
+        let users = User.builtInUsers
         guard let userId = queryParams["user_id"],
               let callId = queryParams["call_id"] else {
             return
@@ -50,18 +50,28 @@ struct VideoWithChatApp: App {
         if let user = user {
             appState.deeplinkCallId = callId
             appState.userState = .loggedIn
-            handleSelectedUser(user, callId: callId)
+            Task {
+                let token = try await TokenService.shared.fetchToken(for: user.id)
+                let credentials = UserCredentials(user: user, tokenValue: token.rawValue)
+                handleSelectedUser(credentials, callId: callId)
+            }
         }
     }
     
     private func handleSelectedUser(_ user: UserCredentials, callId: String? = nil) {
         streamWrapper = StreamWrapper(
-            apiKey: "us83cfwuhy8n",
+            apiKey: "hd8szvscpxvd",
             userCredentials: user,
-            videoFilters: FiltersService.supportedFilters,
             tokenProvider: { result in
-                //TODO: Provide token here.
-                result(.success(user.tokenValue))
+                Task {
+                    do {
+                        let token = try await TokenService.shared.fetchToken(for: user.id)
+                        userRepository.save(token: token.rawValue)
+                        result(.success(token.rawValue))
+                    } catch {
+                        result(.failure(error))
+                    }
+                }
             }
         )
         appState.streamWrapper = streamWrapper

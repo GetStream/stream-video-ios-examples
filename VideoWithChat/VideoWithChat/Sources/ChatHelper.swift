@@ -19,19 +19,13 @@ class ChatHelper: ObservableObject, ChatChannelControllerDelegate {
     
     @Published var unreadCount: Int = 0
     
-    private var memberIds = Set<String>() {
+    public var callId: String? {
         didSet {
-            channelController = try? chatClient.channelController(
-                createDirectMessageChannelWith: memberIds,
-                extraData: [:]
-            )
+            guard let callId, channelController == nil else { return }
+            channelController = chatClient.channelController(for: .init(type: .custom("videocall"), id: callId))
             channelController?.synchronize()
             channelController?.delegate = self
         }
-    }
-    
-    func update(memberIds: Set<String>) {
-        self.memberIds = memberIds
     }
     
     func channelController(_ channelController: ChatChannelController, didUpdateChannel channel: EntityChange<ChatChannel>) {

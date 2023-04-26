@@ -9,7 +9,6 @@ class AppState: ObservableObject {
     
     @Published var userState: UserState = .notLoggedIn
     @Published var deeplinkCallId: String?
-    @Published var activeCallController: CallController?
     @Published var currentUser: User?
     
     var streamWrapper: StreamWrapper?

@@ -145,11 +145,9 @@ struct ChatCallControls: View {
                 .cornerRadius(16)
                 .edgesIgnoringSafeArea(.all)
         )
-        .onReceive(viewModel.$callParticipants, perform: { output in
-            if viewModel.callParticipants.count > 1 {
-                chatHelper.update(memberIds: Set(viewModel.callParticipants.map(\.key)))
-            }
-        })
+        .onReceive(viewModel.$call) { call in
+            chatHelper.callId = call?.callId
+        }
     }
     
     private var chatHeight: CGFloat {

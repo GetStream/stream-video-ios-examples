@@ -20,7 +20,7 @@ struct HomeView: View {
     @State private var callAction = CallAction.startCall
     
     var participants: [User] {
-        var participants = UserCredentials.builtInUsers.map { $0.user }
+        var participants = User.builtInUsers
         participants.removeAll { userInfo in
             userInfo.id == streamVideo.user.id
         }
@@ -66,7 +66,7 @@ struct HomeView: View {
                     .transition(.opacity)
             } else {
                 Button {
-                    viewModel.joinCall(callId: callId)
+                    viewModel.joinCall(callId: callId, type: .default)
                 } label: {
                     Text("Join a call")
                         .padding()
@@ -91,7 +91,10 @@ struct HomeView: View {
                             controller.removeDevice(with: userToken)
                         }
                         UnsecureUserRepository.shared.removeCurrentUser()
-                        AppState.shared.userState = .notLoggedIn
+                        Task {
+                            await AppState.shared.streamWrapper?.logout()
+                            AppState.shared.userState = .notLoggedIn
+                        }
                     }
                 },
                 secondaryButton: .cancel()
@@ -140,7 +143,7 @@ struct HomeView: View {
                         
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, participants: selectedParticipants)
+                viewModel.startCall(callId: callId, type: .default, participants: selectedParticipants)
             } label: {
                 Text("Start a call")
                     .padding()
