@@ -16,6 +16,36 @@ struct AudioRoom: Identifiable {
 }
 
 extension AudioRoom {
+    init?(from dict: [String: Any], id: String) {
+        self.id = id
+        guard dict.keys.contains("title"), let title = dict["title"] as? String else {
+            return nil
+        }
+        self.title = title
+        
+        guard dict.keys.contains("description"), let description = dict["description"] as? String else { return nil }
+        self.subtitle = description
+        
+        guard dict.keys.contains("hosts"),
+              let hostsDict = dict["hosts"] as? [[String: String]] else { return nil }
+        self.hosts = hostsDict.compactMap({ hostsDict in
+            guard hostsDict.keys.contains("id"),
+                  hostsDict.keys.contains("name"),
+                  hostsDict.keys.contains("imageUrl"),
+                  let hostId = hostsDict["id"],
+                  let hostName = hostsDict["name"],
+                  let hostImageUrl = hostsDict["imageUrl"]
+            else { return nil }
+            return User(
+                id: hostId,
+                name: hostName,
+                imageURL: URL(string: hostImageUrl)
+            )
+        })
+    }
+}
+
+extension AudioRoom {
     static var preview: AudioRoom = AudioRoom(
         id: "audioSample1",
         title: "The football room",
