@@ -16,31 +16,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { return }
         self.window = UIWindow(windowScene: scene)
-        /// user id and token for the user
-        let userId = "tommaso"
-        let user = User(
-            id: userId,
-            name: "Tommaso",
-            imageURL: URL(string: "https://getstream.io/static/712bb5c0bd5ed8d3fa6e5842f6cfbeed/c59de/tommaso.webp"),
-            extraData: [:])
-        let userCredentials = UserCredentials(
-            user: user,
-            tokenValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdHJlYW0tdmlkZW8tZ29AdjAuMS4wIiwic3ViIjoidXNlci90b21tYXNvIiwiaWF0IjoxNjcwMTg5MDQ4LCJ1c2VyX2lkIjoidG9tbWFzbyJ9.kKv0Mmz9i_30z2JnjOaz2qEMsUgDVJvSzRK5LRJqg_Q"
-        )
         
-        StreamWrapper.shared = StreamWrapper(
-            apiKey: "us83cfwuhy8n",
-            userCredentials: userCredentials,
-            tokenProvider: { result in
-            result(.success(userCredentials.tokenValue))
-        })        
-        
-        let channelList = ChannelListViewController()
-        let query = ChannelListQuery(filter: .containMembers(userIds: [userId]))
-        channelList.controller = StreamWrapper.shared.chatClient.channelListController(query: query)
-        
-        window?.rootViewController = UINavigationController(rootViewController: channelList)
-        window?.makeKeyAndVisible()
+        let userId = "martin"
+        Task {
+            let token = try await TokenService.shared.fetchToken(for: userId)
+            /// user id and token for the user
+            let user = User(
+                id: userId,
+                name: "Martin",
+                imageURL: URL(string: "https://getstream.io/static/2796a305dd07651fcceb4721a94f4505/802d2/martin-mitrevski.webp"),
+                extraData: [:])
+            let userCredentials = UserCredentials(
+                user: user,
+                tokenValue: token.rawValue
+            )
+            
+            StreamWrapper.shared = StreamWrapper(
+                apiKey: "hd8szvscpxvd",
+                userCredentials: userCredentials,
+                tokenProvider: { result in
+                    Task {
+                        do {
+                            let token = try await TokenService.shared.fetchToken(for: user.id)
+                            result(.success(token.rawValue))
+                        } catch {
+                            result(.failure(error))
+                        }
+                    }
+            })
+            
+            let channelList = ChannelListViewController()
+            let query = ChannelListQuery(filter: .containMembers(userIds: [userId]))
+            channelList.controller = StreamWrapper.shared.chatClient.channelListController(query: query)
+            
+            window?.rootViewController = UINavigationController(rootViewController: channelList)
+            window?.makeKeyAndVisible()
+        }
+
     }
     
 }

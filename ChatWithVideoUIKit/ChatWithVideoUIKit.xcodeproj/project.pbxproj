@@ -25,6 +25,8 @@
 		84722C83292CD1330045D973 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84722C82292CD1330045D973 /* UserCredentials.swift */; };
 		84722C85292CD91E0045D973 /* ChatWithVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84722C84292CD91E0045D973 /* ChatWithVideoViewController.swift */; };
 		84722C89292CE2F60045D973 /* ChannelListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84722C88292CE2F60045D973 /* ChannelListRouter.swift */; };
+		84E5C50C29F946170003A27A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5C50A29F946170003A27A /* HTTPClient.swift */; };
+		84E5C50D29F946170003A27A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5C50B29F946170003A27A /* TokenService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		84722C82292CD1330045D973 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		84722C84292CD91E0045D973 /* ChatWithVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithVideoViewController.swift; sourceTree = "<group>"; };
 		84722C88292CE2F60045D973 /* ChannelListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListRouter.swift; sourceTree = "<group>"; };
+		84E5C50A29F946170003A27A /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		84E5C50B29F946170003A27A /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				84722C61292CC3900045D973 /* SceneDelegate.swift */,
 				84722C63292CC3900045D973 /* ChannelListViewController.swift */,
 				84722C84292CD91E0045D973 /* ChatWithVideoViewController.swift */,
+				84E5C50A29F946170003A27A /* HTTPClient.swift */,
+				84E5C50B29F946170003A27A /* TokenService.swift */,
 				84722C88292CE2F60045D973 /* ChannelListRouter.swift */,
 				840311512930BE290033C712 /* CallViewHelper.swift */,
 				84722C82292CD1330045D973 /* UserCredentials.swift */,
@@ -194,9 +200,11 @@
 				84722C62292CC3900045D973 /* SceneDelegate.swift in Sources */,
 				84722C89292CE2F60045D973 /* ChannelListRouter.swift in Sources */,
 				84722C7A292CCF050045D973 /* StreamWrapper.swift in Sources */,
+				84E5C50C29F946170003A27A /* HTTPClient.swift in Sources */,
 				84722C85292CD91E0045D973 /* ChatWithVideoViewController.swift in Sources */,
 				840311522930BE2A0033C712 /* CallViewHelper.swift in Sources */,
 				84722C83292CD1330045D973 /* UserCredentials.swift in Sources */,
+				84E5C50D29F946170003A27A /* TokenService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +354,8 @@
 				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatWithVideoUIKit/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "DemoApp requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DemoApp requires microphone access in order to capture and transmit audio";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -374,6 +384,8 @@
 				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatWithVideoUIKit/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "DemoApp requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DemoApp requires microphone access in order to capture and transmit audio";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

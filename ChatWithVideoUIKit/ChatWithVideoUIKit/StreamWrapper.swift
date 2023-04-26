@@ -33,9 +33,7 @@ class StreamWrapper {
             apiKey: apiKey,
             user: userCredentials.user,
             token: token,
-            videoConfig: VideoConfig(
-                ringingTimeout: 0
-            ),
+            videoConfig: VideoConfig(),
             tokenProvider: { result in
                 tokenProvider { tokenResult in
                     switch tokenResult {
@@ -53,6 +51,9 @@ class StreamWrapper {
             }
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
+        Task {
+            try await streamVideo.connect()
+        }
         let userInfo = UserInfo.init(
             id: userCredentials.user.id,
             name: userCredentials.user.name,

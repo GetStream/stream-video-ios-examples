@@ -39,6 +39,7 @@ class ChatWithVideoViewController: ChatChannelVC {
         } ?? []
         callViewModel.startCall(
             callId: UUID().uuidString,
+            type: .default,
             participants: participants
         )
         let next = CallViewController.make(with: self.callViewModel)

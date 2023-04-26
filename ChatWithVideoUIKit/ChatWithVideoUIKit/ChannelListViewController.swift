@@ -16,7 +16,7 @@ import StreamVideoUIKit
 
 class ChannelListViewController: ChatChannelListVC {
     
-    let callViewModel = CallViewModel(listenToRingingEvents: true)
+    let callViewModel = CallViewModel()
     
     private var cancellables = Set<AnyCancellable>()
         
