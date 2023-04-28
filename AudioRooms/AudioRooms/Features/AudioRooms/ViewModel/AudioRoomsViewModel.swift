@@ -27,6 +27,7 @@ class AudioRoomsViewModel: ObservableObject {
                 .sink { retrievedAudioRooms in
                     DispatchQueue.main.async {
                         self.audioRooms = retrievedAudioRooms.compactMap { callData in
+                            if let _ = callData.endedAt { return nil }
                             return AudioRoom(from: callData.customData, id: callData.callCid)
                         }
                     }

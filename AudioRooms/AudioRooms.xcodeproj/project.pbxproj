@@ -22,6 +22,9 @@
 		84AA6EB929882534005732EF /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB629882534005732EF /* UserCredentials.swift */; };
 		84AA6EBB2988254E005732EF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBA2988254E005732EF /* AppState.swift */; };
 		84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBC2988256F005732EF /* LocalStorage.swift */; };
+		AC42EB0329FBBA5A004E712F /* CreateRoomForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */; };
+		AC42EB0529FBBDE7004E712F /* CreateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */; };
+		AC42EB0729FBC3CB004E712F /* User+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */; };
 		AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */; };
 		AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */; };
 		AC791BA42993A5FD0072AD3C /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */; };
@@ -46,6 +49,9 @@
 		84AA6EBA2988254E005732EF /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		84AA6EBC2988256F005732EF /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		84AD51D02989468F0057F1A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomForm.swift; sourceTree = "<group>"; };
+		AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
+		AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Dictionary.swift"; sourceTree = "<group>"; };
 		AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomCell.swift; sourceTree = "<group>"; };
 		AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+BackgroundColor.swift"; sourceTree = "<group>"; };
 		AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 				AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */,
 				84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */,
 				AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */,
+				AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */,
+				AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 			children = (
 				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
 				84AA6EB629882534005732EF /* UserCredentials.swift */,
+				AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,10 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC42EB0729FBC3CB004E712F /* User+Dictionary.swift in Sources */,
 				AC791BAB2993EB2A0072AD3C /* ImageFromUrl.swift in Sources */,
 				84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */,
 				AC791BA62993A6B60072AD3C /* IconView.swift in Sources */,
 				84A9B2D2298438A000F96E01 /* AudioRoomsView.swift in Sources */,
+				AC42EB0329FBBA5A004E712F /* CreateRoomForm.swift in Sources */,
 				84AA6EBB2988254E005732EF /* AppState.swift in Sources */,
 				84A9B2D02984360C00F96E01 /* AudioRoom.swift in Sources */,
 				AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */,
@@ -295,6 +306,7 @@
 				844CF22B29B5DA6C00389DBD /* TokenService.swift in Sources */,
 				84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */,
 				84AA6EB929882534005732EF /* UserCredentials.swift in Sources */,
+				AC42EB0529FBBDE7004E712F /* CreateRoomViewModel.swift in Sources */,
 				84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */,
 				84AA6EB829882534005732EF /* LoginView.swift in Sources */,
 			);

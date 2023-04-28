@@ -58,7 +58,7 @@ class AudioRoomViewModel: ObservableObject {
     
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
-    private let callType = CallType.audioRoom
+    private let callType = "audio_room"
     
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
@@ -66,7 +66,7 @@ class AudioRoomViewModel: ObservableObject {
         callViewModel.startCall(
             callId: audioRoom.id,
             type: callType,
-            participants: audioRoom.hosts
+            members: audioRoom.hosts
         )
         subscribeForParticipantChanges()
         subscribeForAudioChanges()

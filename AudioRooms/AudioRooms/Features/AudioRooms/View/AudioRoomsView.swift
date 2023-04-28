@@ -16,20 +16,39 @@ struct AudioRoomsView: View {
     
     @Injected(\.streamVideo) var streamVideo
     
+    @State private var showCreateRoom = false
+    
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.audioRooms) { audioRoom in
-                        Button {
-                            viewModel.selectedAudioRoom = audioRoom
-                        } label: {
-                            AudioRoomCell(audioRoom: audioRoom)
+            ZStack(alignment: .bottomTrailing) {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.audioRooms) { audioRoom in
+                            Button {
+                                viewModel.selectedAudioRoom = audioRoom
+                            } label: {
+                                AudioRoomCell(audioRoom: audioRoom)
+                            }
                         }
                     }
+                    .sheet(item: $viewModel.selectedAudioRoom) { audioRoom in
+                        AudioRoomView(audioRoom: audioRoom)
+                    }
                 }
-                .sheet(item: $viewModel.selectedAudioRoom) { audioRoom in
-                    AudioRoomView(audioRoom: audioRoom)
+                
+                if let _ = appState.currentUser {
+                    Button {
+                        showCreateRoom = true
+                    } label: {
+                        Label("Create", systemImage: "plus")
+                            .foregroundColor(.primary)
+                    }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(in: Capsule())
+                    .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))
+                    .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 4)
+                    .padding(20)
                 }
             }
             .navigationTitle("Audio Rooms")
@@ -51,6 +70,13 @@ struct AudioRoomsView: View {
                         .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))
                     }
                     .padding()
+                }
+            }
+            .sheet(isPresented: $showCreateRoom) {
+                if let user = appState.currentUser {
+                    CreateRoomForm(user: user)
+                } else {
+                    Text("No user found.")
                 }
             }
         }
