@@ -7,31 +7,37 @@
 
 import SwiftUI
 import StreamVideo
+import Combine
 
 @MainActor
 class AudioRoomsViewModel: ObservableObject {
-
+    
     @Published var audioRooms = [AudioRoom]()
     @Published var selectedAudioRoom: AudioRoom?
     
     @Injected(\.streamVideo) var streamVideo
-
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     init() {
         Task {
-            do {
-                let callsQuery = CallsQuery(sortParams: [], filters: ["audioRoomCall": .bool(true)], watch: false)
-                let controller = streamVideo.makeCallsController(callsQuery: callsQuery)
-                try await controller.loadNextCalls()
-                let retrievedAudioRooms = controller.calls.compactMap { callData in
-                    print("Call: \(callData.extraData)")
-                    return AudioRoom(from: callData.extraData, id: callData.callCid)
+            let callsQuery = CallsQuery(sortParams: [], filters: ["audioRoomCall": .bool(true)], watch: true)
+            let controller = streamVideo.makeCallsController(callsQuery: callsQuery)
+            controller.$calls
+                .sink { retrievedAudioRooms in
+                    DispatchQueue.main.async {
+                        self.audioRooms = retrievedAudioRooms.compactMap { callData in
+                            return AudioRoom(from: callData.customData, id: callData.callCid)
+                        }
+                    }
                 }
-                    
-                self.audioRooms = retrievedAudioRooms
-            } catch {
-                print("We got an error: \(error.localizedDescription)")
-            }
+                .store(in: &cancellables)
+            try? await controller.loadNextCalls()
         }
+    }
+    
+    deinit {
+        self.cancellables.removeAll()
     }
 }
 
