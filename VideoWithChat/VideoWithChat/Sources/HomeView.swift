@@ -143,7 +143,7 @@ struct HomeView: View {
                         
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, type: .default, participants: selectedParticipants)
+                viewModel.startCall(callId: callId, type: .default, members: selectedParticipants)
             } label: {
                 Text("Start a call")
                     .padding()

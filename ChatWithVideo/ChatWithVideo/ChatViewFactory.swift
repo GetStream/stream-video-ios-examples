@@ -182,7 +182,7 @@ public struct CallChatChannelHeader: ToolbarContent {
                 callViewModel.startCall(
                     callId: UUID().uuidString,
                     type: .default,
-                    participants: participants,
+                    members: participants,
                     ring: true
                 )
             } label: {
