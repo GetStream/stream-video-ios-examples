@@ -19,28 +19,22 @@ struct AudioRoomCell: View {
             VStack(alignment: .leading) {
                 Text(audioRoom.title)
                     .font(.headline)
-
+                
                 Text(audioRoom.subtitle)
                     .font(.caption)
                 
                 HStack(spacing: 30) {
-                    if audioRoom.hosts.count > 1 {
-                        ZStack {
+                    ZStack {
+                        ForEach(Array(audioRoom.hosts.enumerated()), id: \.offset) { (index, host) in
                             ImageFromUrl(
-                                url: audioRoom.hosts[0].imageURL,
+                                url: host.imageURL,
                                 size: 40,
-                                offset: -imageOffset
-                            )
-                            
-                            ImageFromUrl(
-                                url: audioRoom.hosts[1].imageURL,
-                                size: 40,
-                                offset: imageOffset
+                                offset: -imageOffset * CGFloat(index)
                             )
                         }
-                        .frame(height: 80)
-                        .padding(.leading, imageOffset)
                     }
+                    .frame(height: 80)
+                    .padding(.leading, imageOffset)
                     
                     VStack(alignment: .leading, spacing: imageOffset / 2) {
                         ForEach(audioRoom.hosts) { host in
@@ -60,7 +54,7 @@ struct AudioRoomCell: View {
         .padding(.horizontal)
     }
 }
- 
+
 struct AudioRoomCell_Previews: PreviewProvider {
     static var previews: some View {
         AudioRoomCell(audioRoom: .preview)

@@ -60,3 +60,11 @@ extension User {
     }
 
 }
+
+extension User {
+    var asAdmin: User {
+        return User(
+            id: self.id, name: self.name, imageURL: self.imageURL, role: "admin", customData: self.customData
+        )
+    }
+}
