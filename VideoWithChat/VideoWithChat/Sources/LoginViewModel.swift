@@ -83,7 +83,7 @@ extension User {
             id: $0.0,
             name: $0.1,
             imageURL: URL(string: $0.2)!,
-            extraData: [:]
+            customData: [:]
         )
     }
 }

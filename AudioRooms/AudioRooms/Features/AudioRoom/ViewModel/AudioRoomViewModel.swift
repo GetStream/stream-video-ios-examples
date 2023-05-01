@@ -58,7 +58,7 @@ class AudioRoomViewModel: ObservableObject {
     
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
-    private let callType = "audio_room"
+    private let callType: String = .audioRoom
     
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
