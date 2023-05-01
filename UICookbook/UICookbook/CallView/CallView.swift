@@ -15,7 +15,9 @@ struct CallView: View {
     @ObservedObject var viewModel: CallViewModel
     
     var participants: [CallParticipant] {
-        viewModel.callParticipants.map(\.value)
+        viewModel
+            .callParticipants.map(\.value)
+            .sorted(using: defaultComparators)
     }
     
     var body: some View {
