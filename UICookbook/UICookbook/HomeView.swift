@@ -18,7 +18,7 @@ struct HomeView: View {
         ZStack {
             JoinCallView(viewModel: viewModel)
             
-            if viewModel.callingState == .outgoing {
+            if viewModel.callingState == .joining {
                 ProgressView()
             } else if viewModel.callingState == .inCall {
                 CallView(viewModel: viewModel)
@@ -37,7 +37,7 @@ struct JoinCallView: View {
             TextField("Insert call id", text: $callId)
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, type: "default", participants: [])
+                viewModel.startCall(callId: callId, type: "default", members: [])
             } label: {
                 Text("Join call")
             }

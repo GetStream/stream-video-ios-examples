@@ -15,27 +15,18 @@ struct CallView: View {
     @ObservedObject var viewModel: CallViewModel
     
     var participants: [CallParticipant] {
-        viewModel.callParticipants
-            .map(\.value)
-            .sorted(by: { $0.name < $1.name })
-    }
-    
-    var dominantSpeaker: CallParticipant? {
-        (participants.first { $0.isSpeaking } ?? participants.first)
-    }
-    
-    var otherParticipants: [CallParticipant] {
-        participants.filter { $0.id != dominantSpeaker?.id }
+        viewModel.callParticipants.map(\.value)
     }
     
     var body: some View {
         VStack {
             ZStack {
                 GeometryReader { reader in
-                    if let dominantSpeaker {
+                    if let dominantSpeaker = participants.first {
                         VideoCallParticipantView(
                             participant: dominantSpeaker,
-                            availableSize: reader.size
+                            availableSize: reader.size,
+                            contentMode: .scaleAspectFit
                         ) { participant, view in
                             if let track = dominantSpeaker.track {
                                 view.add(track: track)
@@ -56,7 +47,7 @@ struct CallView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(otherParticipants) { participant in
+                    ForEach(participants.dropFirst()) { participant in
                         BottomParticipantView(participant: participant)
                     }
                 }

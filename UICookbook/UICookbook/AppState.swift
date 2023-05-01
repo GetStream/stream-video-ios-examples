@@ -44,9 +44,11 @@ extension AppState {
             }
         )
         self.streamVideo = streamVideo
-        
-        // change the login state
-        userState = .loggedIn
+        Task {
+            try await streamVideo.connect()
+            // change the login state
+            userState = .loggedIn
+        }
     }
     
     func checkLoggedInUser() {
