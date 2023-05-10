@@ -35,13 +35,6 @@ struct LoginView: View {
             .foregroundColor(Color.white)
             .background(Color.blue)
             .cornerRadius(16)
-            
-            Button {
-                
-            } label: {
-                Text("Join anonymously")
-            }
-
         }
         .foregroundColor(.primary)
         .overlay(
