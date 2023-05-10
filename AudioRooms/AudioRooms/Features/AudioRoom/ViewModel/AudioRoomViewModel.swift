@@ -64,7 +64,7 @@ class AudioRoomViewModel: ObservableObject {
         self.audioRoom = audioRoom
         checkAudioSettings()
         callViewModel.startCall(
-            callId: audioRoom.id,
+            callId: audioRoom.callId,
             type: callType,
             members: audioRoom.hosts
         )

@@ -50,3 +50,13 @@ extension AudioRoom {
         ]
     )
 }
+
+extension AudioRoom {
+    var callId: String {
+        if id.contains("audio_room:") {
+            return "\(id.split(separator: ":")[1])"
+        } else {
+            return id
+        }
+    }
+}
