@@ -62,10 +62,6 @@ extension AppState {
     }
     
     func logout() {
-        if let userToken = UnsecureUserRepository.shared.currentVoipPushToken(),
-            let controller = streamVideo?.makeVoipNotificationsController() {
-            controller.removeDevice(with: userToken)
-        }
         UnsecureUserRepository.shared.removeCurrentUser()
         Task {
             await streamVideo?.disconnect()
