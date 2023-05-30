@@ -20,7 +20,7 @@ class CreateRoomViewModel: ObservableObject {
     
     func createRoom(title: String, description: String) {
         Task {
-            let call = streamVideo.makeCall(callType: "audio_room", callId: UUID().uuidString)
+            let call = streamVideo.call(callType: "audio_room", callId: UUID().uuidString)
             let data = try await call.getOrCreate(
                 members: [user.asAdmin],
                 customData: [

@@ -32,7 +32,7 @@ class LivestreamHomeViewModel: ObservableObject {
     func createLivestream() {
         guard !callId.isEmpty else { return }
         let currentUser = streamVideo.user
-        let call = streamVideo.makeCall(callType: .default, callId: callId, members: [currentUser])
+        let call = streamVideo.call(callType: .default, callId: callId, members: [currentUser])
         Task {
             do {
                 loading = true

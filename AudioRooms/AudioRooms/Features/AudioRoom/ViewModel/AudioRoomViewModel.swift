@@ -213,7 +213,7 @@ class AudioRoomViewModel: ObservableObject {
             guard let self = self else { return }
             self.loading = callState != .inCall
             if callState == .inCall {
-                self.isCallLive = self.callViewModel.call?.callInfo?.backstage == false
+                self.isCallLive = self.callViewModel.call?.state?.backstage == false
                 self.subscribeForCallUpdates()
                 self.subscribeForPermissionsRequests()
                 self.subscribeForPermissionUpdates()
@@ -247,7 +247,7 @@ class AudioRoomViewModel: ObservableObject {
     
     private func subscribeForCallUpdates() {
         guard let currentCall = callViewModel.call else { return }
-        callViewModel.call?.$callInfo.sink { call in
+        callViewModel.call?.$state.sink { call in
             DispatchQueue.main.async {
                 if call == nil { return }
                 self.isCallLive = call?.backstage == false

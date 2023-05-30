@@ -28,7 +28,8 @@ struct CallView: View {
                         VideoCallParticipantView(
                             participant: dominantSpeaker,
                             availableSize: reader.size,
-                            contentMode: .scaleAspectFit
+                            contentMode: .scaleAspectFit,
+                            customData: [:]
                         ) { participant, view in
                             if let track = dominantSpeaker.track {
                                 view.add(track: track)
@@ -59,9 +60,6 @@ struct CallView: View {
             .frame(maxWidth: .infinity)
         }
         .background(Color.black)
-        .onAppear {
-            viewModel.startCapturingLocalVideo()
-        }
     }
 }
 

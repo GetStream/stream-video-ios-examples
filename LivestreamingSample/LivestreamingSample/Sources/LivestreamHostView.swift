@@ -42,7 +42,8 @@ struct LivestreamHostView: View {
                         participant: first,
                         availableSize: reader.size,
                         contentMode: .scaleAspectFit,
-                        edgesIgnoringSafeArea: .bottom
+                        edgesIgnoringSafeArea: .bottom,
+                        customData: [:]
                     ) { participant, view in
                             view.handleViewRendering(for: participant) { size, participant in }
                         }
@@ -103,10 +104,6 @@ struct LivestreamHostView: View {
             loading = false
         })
         .background(Color(UIColor.systemBackground))
-        .navigationBarHidden(true)
-        .onAppear {
-            call.startCapturingLocalVideo()
-        }
-        
+        .navigationBarHidden(true)        
     }
 }
