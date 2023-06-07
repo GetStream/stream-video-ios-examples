@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8439425A2979929800531972 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 843942592979929800531972 /* StreamVideo */; };
-		8439425C2979929800531972 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8439425B2979929800531972 /* StreamVideoSwiftUI */; };
+		40006D752A309D9B0091781D /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 40006D742A309D9B0091781D /* StreamVideo */; };
+		40006D772A309D9B0091781D /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 40006D762A309D9B0091781D /* StreamVideoSwiftUI */; };
 		84CBBDD8292237D900D0DA61 /* VideoWithChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBBDD7292237D900D0DA61 /* VideoWithChatApp.swift */; };
 		84CBBDDC292237DC00D0DA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CBBDDB292237DC00D0DA61 /* Assets.xcassets */; };
 		84CBBDDF292237DC00D0DA61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CBBDDE292237DC00D0DA61 /* Preview Assets.xcassets */; };
@@ -59,8 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8439425C2979929800531972 /* StreamVideoSwiftUI in Frameworks */,
-				8439425A2979929800531972 /* StreamVideo in Frameworks */,
+				40006D772A309D9B0091781D /* StreamVideoSwiftUI in Frameworks */,
+				40006D752A309D9B0091781D /* StreamVideo in Frameworks */,
 				84CBBE0029223A6D00D0DA61 /* StreamChatSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,8 +152,8 @@
 			name = VideoWithChat;
 			packageProductDependencies = (
 				84CBBDFF29223A6D00D0DA61 /* StreamChatSwiftUI */,
-				843942592979929800531972 /* StreamVideo */,
-				8439425B2979929800531972 /* StreamVideoSwiftUI */,
+				40006D742A309D9B0091781D /* StreamVideo */,
+				40006D762A309D9B0091781D /* StreamVideoSwiftUI */,
 			);
 			productName = VideoWithChat;
 			productReference = 84CBBDD4292237D900D0DA61 /* VideoWithChat.app */;
@@ -185,7 +185,7 @@
 			mainGroup = 84CBBDCB292237D900D0DA61;
 			packageReferences = (
 				84CBBDFE29223A6D00D0DA61 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */,
-				843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+				40006D732A309D9B0091781D /* XCRemoteSwiftPackageReference "stream-video-swift" */,
 			);
 			productRefGroup = 84CBBDD5292237D900D0DA61 /* Products */;
 			projectDirPath = "";
@@ -436,9 +436,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+		40006D732A309D9B0091781D /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			repositoryURL = "https://github.com/GetStream/stream-video-swift";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -455,14 +455,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		843942592979929800531972 /* StreamVideo */ = {
+		40006D742A309D9B0091781D /* StreamVideo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			package = 40006D732A309D9B0091781D /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideo;
 		};
-		8439425B2979929800531972 /* StreamVideoSwiftUI */ = {
+		40006D762A309D9B0091781D /* StreamVideoSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			package = 40006D732A309D9B0091781D /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideoSwiftUI;
 		};
 		84CBBDFF29223A6D00D0DA61 /* StreamChatSwiftUI */ = {

@@ -87,8 +87,9 @@ struct HomeView: View {
                 primaryButton: .destructive(Text("Sign out")) {
                     withAnimation {
                         if let userToken = UnsecureUserRepository.shared.currentVoipPushToken() {
-                            let controller = streamVideo.makeVoipNotificationsController()
-                            controller.removeDevice(with: userToken)
+                            Task {
+                                try await streamVideo.deleteDevice(id: userToken)
+                            }
                         }
                         UnsecureUserRepository.shared.removeCurrentUser()
                         Task {
