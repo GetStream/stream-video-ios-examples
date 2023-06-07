@@ -63,10 +63,10 @@ struct AudioRoomsView: View {
                             
                             ImageFromUrl(
                                 url: streamVideo.user.imageURL,
-                                size: 32
+                                size: 26
                             )
                         }
-                        .padding(8)
+                        .padding(6)
                         .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))
                     }
                     .padding()
@@ -79,6 +79,9 @@ struct AudioRoomsView: View {
                     Text("No user found.")
                 }
             }
+        }
+        .onAppear {
+            viewModel.loadRooms()
         }
     }
 }

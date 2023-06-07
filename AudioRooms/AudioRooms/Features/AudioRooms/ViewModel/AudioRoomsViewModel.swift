@@ -18,22 +18,29 @@ class AudioRoomsViewModel: ObservableObject {
     @Injected(\.streamVideo) var streamVideo
     
     private var cancellables = Set<AnyCancellable>()
+    private var controller: CallsController?
     
     init() {
-        Task {
-            let callsQuery = CallsQuery(sortParams: [], filters: ["audioRoomCall": .bool(true)], watch: true)
-            let controller = streamVideo.makeCallsController(callsQuery: callsQuery)
-            controller.$calls
-                .sink { retrievedAudioRooms in
-                    DispatchQueue.main.async {
-                        self.audioRooms = retrievedAudioRooms.compactMap { callData in
-                            if let _ = callData.endedAt { return nil }
-                            return AudioRoom(from: callData.customData, id: callData.callCid)
-                        }
+        let callsQuery = CallsQuery(sortParams: [], filters: ["audioRoomCall": .bool(true)], watch: true)
+        self.controller = streamVideo.makeCallsController(callsQuery: callsQuery)
+        controller?.$calls
+            .sink { retrievedAudioRooms in
+                print("[ARVM] Retrieved \(retrievedAudioRooms.count) rooms.")
+                DispatchQueue.main.async {
+                    self.audioRooms = retrievedAudioRooms.compactMap { callData in
+                        if let _ = callData.endedAt { return nil }
+                        return AudioRoom(from: callData.customData, id: callData.callCid)
                     }
+                    
+                    print("[ARVM] Casted \(self.audioRooms.count) rooms.")
                 }
-                .store(in: &cancellables)
-            try? await controller.loadNextCalls()
+            }
+            .store(in: &cancellables)
+    }
+    
+    func loadRooms() {
+        Task {
+            try? await controller?.loadNextCalls()
         }
     }
     

@@ -16,19 +16,21 @@ struct AudioRoom: Identifiable {
 }
 
 extension AudioRoom {
-    init?(from dict: [String: Any], id: String) {
+    init?(from dict: [String: RawJSON], id: String) {
         self.id = id
-        guard let title = dict["title"] as? String,
-              let description = dict["description"] as? String,
-              let hostsDict = dict["hosts"] as? [[String: String]] else {
+        guard let title = dict["title"]?.stringValue,
+              let description = dict["description"]?.stringValue,
+              let hostsDict = dict["hosts"]?.arrayValue else {
             return nil
         }
         self.title = title
         self.subtitle = description
-        self.hosts = hostsDict.compactMap({ hostsDict in
-            guard let hostId = hostsDict["id"],
-                  let hostName = hostsDict["name"],
-                  let hostImageUrl = hostsDict["imageUrl"]
+        self.hosts = hostsDict
+            .compactMap { $0.dictionaryValue }
+            .compactMap({ hostsDict in
+            guard let hostId = hostsDict["id"]?.stringValue,
+                  let hostName = hostsDict["name"]?.stringValue,
+                  let hostImageUrl = hostsDict["imageUrl"]?.stringValue
             else { return nil }
             return User(
                 id: hostId,
