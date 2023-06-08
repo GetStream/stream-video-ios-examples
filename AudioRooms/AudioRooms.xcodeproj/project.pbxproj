@@ -33,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4093105F2A31ED7F00DEE196 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../../../stream-video-swift"; sourceTree = "<group>"; };
 		844CF22829B5DA6C00389DBD /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		844CF22929B5DA6C00389DBD /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		84A9B2BB298434C000F96E01 /* AudioRooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +91,7 @@
 		84A9B2BD298434C000F96E01 /* AudioRooms */ = {
 			isa = PBXGroup;
 			children = (
+				4093105F2A31ED7F00DEE196 /* stream-video-swift */,
 				84AA6EBA2988254E005732EF /* AppState.swift */,
 				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
 				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,

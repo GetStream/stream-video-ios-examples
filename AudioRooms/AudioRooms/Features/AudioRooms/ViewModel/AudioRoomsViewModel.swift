@@ -22,30 +22,32 @@ class AudioRoomsViewModel: ObservableObject {
     
     init() {
         let callsQuery = CallsQuery(sortParams: [], filters: ["audioRoomCall": .bool(true)], watch: true)
-        self.controller = streamVideo.makeCallsController(callsQuery: callsQuery)
-        controller?.$calls
-            .sink { retrievedAudioRooms in
-                print("[ARVM] Retrieved \(retrievedAudioRooms.count) rooms.")
-                DispatchQueue.main.async {
-                    self.audioRooms = retrievedAudioRooms.compactMap { callData in
-                        if let _ = callData.endedAt { return nil }
-                        return AudioRoom(from: callData.customData, id: callData.callCid)
-                    }
-                    
-                    print("[ARVM] Casted \(self.audioRooms.count) rooms.")
-                }
-            }
+        let controller = streamVideo.makeCallsController(callsQuery: callsQuery)
+        self.controller = controller
+        controller
+            .$calls
+            .map { $0.compactMap(AudioRoom.init) }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.audioRooms = $0 }
             .store(in: &cancellables)
     }
-    
+
+    deinit { self.cancellables.forEach { $0.cancel() } }
+
     func loadRooms() {
-        Task {
-            try? await controller?.loadNextCalls()
-        }
-    }
-    
-    deinit {
-        self.cancellables.removeAll()
+        Task { try? await controller?.loadNextCalls() }
     }
 }
 
+extension AudioRoom {
+
+    fileprivate init?(_ callData: CallData) {
+        guard
+            callData.endedAt == nil,
+            let model = AudioRoom(from: callData.customData, id: callData.callCid)
+        else {
+            return nil
+        }
+        self = model
+    }
+}

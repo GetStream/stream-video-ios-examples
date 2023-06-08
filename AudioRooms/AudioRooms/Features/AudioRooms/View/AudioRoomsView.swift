@@ -57,7 +57,7 @@ struct AudioRoomsView: View {
                     Button {
                         appState.logout()
                     } label: {
-                        HStack {
+                        HStack(spacing: 8) {
                             Text("Logout")
                                 .foregroundColor(.primary)
                             
@@ -66,7 +66,8 @@ struct AudioRoomsView: View {
                                 size: 26
                             )
                         }
-                        .padding(6)
+                        .padding([.leading, .trailing], 12)
+                        .padding([.top, .bottom], 6)
                         .overlay(Capsule().stroke(Color.secondary, lineWidth: 1))
                     }
                     .padding()
@@ -88,6 +89,11 @@ struct AudioRoomsView: View {
 
 struct AudioRoomsView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioRoomsView(appState: AppState())
+        InjectedValues[\.streamVideo] = StreamVideo(
+            apiKey: UUID().uuidString,
+            user: .anonymous,
+            token: .anonymous
+        )
+        return AudioRoomsView(appState: AppState())
     }
 }

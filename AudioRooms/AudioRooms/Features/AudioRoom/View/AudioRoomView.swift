@@ -40,11 +40,36 @@ struct AudioRoomView: View {
                     }
                 }
                 Spacer()
-                Button {
-                    viewModel.leaveCall()
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Leave quitely")
+
+                if viewModel.showEndCallButton {
+                    Menu {
+                        VStack {
+                            Button {
+                                viewModel.leaveCall()
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Text("Leave quitely")
+                            }
+
+                            if viewModel.showEndCallButton {
+                                Button {
+                                    viewModel.endCall()
+                                    presentationMode.wrappedValue.dismiss()
+                                } label: {
+                                    Text("End")
+                                }
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                    }
+                } else {
+                    Button {
+                        viewModel.leaveCall()
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Leave quitely")
+                    }
                 }
             }
             .padding(.bottom, 16)
@@ -117,11 +142,19 @@ struct AudioRoomView: View {
             }
         )
         .padding()
+        .onDisappear {
+            viewModel.leaveCall()
+        }
     }
 }
 
 struct AudioRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioRoomView(audioRoom: .preview)
+        InjectedValues[\.streamVideo] = StreamVideo(
+            apiKey: UUID().uuidString,
+            user: .anonymous,
+            token: .anonymous
+        )
+        return AudioRoomView(audioRoom: .preview)
     }
 }

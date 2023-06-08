@@ -16,14 +16,18 @@ struct AudioRoomCell: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text(audioRoom.title)
-                    .font(.headline)
+            VStack(alignment: .leading, spacing: 16) {
+                VStack {
+                    Text(audioRoom.title)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Text(audioRoom.subtitle)
+                        .font(.caption)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 
-                Text(audioRoom.subtitle)
-                    .font(.caption)
-                
-                HStack(spacing: 30) {
+                HStack(spacing: 16) {
                     ZStack {
                         ForEach(Array(audioRoom.hosts.enumerated()), id: \.offset) { (index, host) in
                             ImageFromUrl(
@@ -33,21 +37,20 @@ struct AudioRoomCell: View {
                             )
                         }
                     }
-                    .frame(height: 80)
-                    .padding(.leading, imageOffset)
+                    .frame(height: 40)
                     
-                    VStack(alignment: .leading, spacing: imageOffset / 2) {
+                    VStack(alignment: .leading) {
                         ForEach(audioRoom.hosts) { host in
                             Text(host.name)
                                 .font(.headline)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }
                 }
             }
             .padding()
-            
-            Spacer()
         }
+        .frame(maxWidth: .infinity)
         .foregroundColor(.primary)
         .background(Color.backgroundColor)
         .cornerRadius(16)
