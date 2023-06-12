@@ -17,9 +17,6 @@ class AudioRoomViewModel: ObservableObject {
     /// Provides access to the current call.
     private var call: Call!
 
-    /// Tracks the current state of a call. It should be used to show different UI in your views.
-    @Published private var callingState: CallingState = .idle
-
     /// Provides information about the current call settings, such as the camera position and whether there's an audio and video turned on.
     @Published private var callSettings = CallSettings()
 
@@ -51,10 +48,11 @@ class AudioRoomViewModel: ObservableObject {
         }
     }
 
+    var showEndCallButton: Bool { call.currentUserHasCapability(.endCall) }
+
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
     private let callType: String = .audioRoom
-    private var currentEventsTask: Task<Void, Never>?
 
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
@@ -66,10 +64,8 @@ class AudioRoomViewModel: ObservableObject {
 
         subscribeForParticipantChanges()
         subscribeForCallUpdates()
-        subscribeForReconnectionUpdates()
         subscribeForParticipantChanges()
         subscribeForAudioChanges()
-        subscribeForCallStateChanges()
 
         checkAudioSettings()
         joinRoom(audioRoom)
@@ -134,32 +130,18 @@ class AudioRoomViewModel: ObservableObject {
         }
     }
 
-    func goLive() {
+    func toggleLive() {
         Task {
-            try await call.goLive()
+            if isCallLive {
+                try await call.stopLive()
+            } else {
+                try await call.goLive()
+            }
         }
-    }
-
-    func stopLive() {
-        Task {
-            try await call.stopLive()
-        }
-    }
-
-    var showGoLiveButton: Bool {
-        return call.currentUserHasCapability(.updateCall) && !isCallLive
-    }
-
-    var showStopLiveButton: Bool {
-        return call.currentUserHasCapability(.updateCall) && isCallLive
-    }
-
-    var showEndCallButton: Bool {
-        return call.currentUserHasCapability(.endCall)
     }
 
     //MARK: - Private Helpers
-
+    
     private var isCurrentUserHost: Bool {
         Set(hosts.map(\.userId)).contains(streamVideo.user.id)
     }
@@ -171,17 +153,18 @@ class AudioRoomViewModel: ObservableObject {
     }
 
     private func joinRoom(_ audioRoom: AudioRoom) {
-        callingState = .joining
+        loading = true
         Task {
             do {
                 log.debug("Joining room \(audioRoom.callId)")
                 try await call.join(ring: false, callSettings: callSettings)
-                updateCallStateIfNeeded()
-                listenForParticipantEvents()
+                loading = false
+                isCallLive = call.state.callData?.backstage == false
+                subscribeForPermissionsRequests()
+                subscribeForPermissionUpdates()
                 log.debug("Joined room \(audioRoom.callId)")
             } catch {
                 log.error("Error joining room \(audioRoom.callId) \(error.localizedDescription)")
-                callingState = .idle
             }
         }
     }
@@ -190,37 +173,12 @@ class AudioRoomViewModel: ObservableObject {
 
     }
 
-    private func updateCallStateIfNeeded() {
-        if callingState != .reconnecting {
-            callingState = .inCall
-        } else {
-            let shouldGoInCall = call.state.participantCount > 1
-            if shouldGoInCall {
-                callingState = .inCall
-            }
-        }
-    }
-
-    private func listenForParticipantEvents() {
-        currentEventsTask = Task {
-            for await event in call.participantEvents() {
-                if
-                    event.action == .leave,
-                    call.state.participantCount == 1 {
-                    leaveCall()
-                }
-            }
-        }
-    }
-
     private func cleanUpAfterLeavingCall() {
         log.debug("Leaving call")
         cancellables.forEach { $0.cancel() }
         call.leave()
         hosts = []
         otherUsers = []
-        currentEventsTask?.cancel()
-        callingState = .idle
     }
 
     // MARK: - Subscribers
@@ -238,13 +196,6 @@ class AudioRoomViewModel: ObservableObject {
         $callSettings
             .receive(on: DispatchQueue.main)
             .sink { [weak self] callSettings in self?.isUserMuted = !callSettings.audioOn }
-            .store(in: &cancellables)
-    }
-
-    private func subscribeForCallStateChanges() {
-        $callingState
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] in self?.didReceiveCallStateUpdates($0) }
             .store(in: &cancellables)
     }
 
@@ -277,19 +228,9 @@ class AudioRoomViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    private func subscribeForReconnectionUpdates() {
-        call
-            .state
-            .$reconnectionStatus
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] in self?.didReceiveReconnectionUpdate($0) }
-            .store(in: &cancellables)
-    }
-
     // MARK: - Subscription Handlers
 
     private func didReceiveCallUpdates(_ callData: CallData?) {
-
         guard let callData = callData else {
             isCallLive = false
             return
@@ -300,18 +241,6 @@ class AudioRoomViewModel: ObservableObject {
         if !isCallLive && !call.currentUserHasCapability(.updateCall) {
             leaveCall()
             callEnded = true
-        }
-    }
-
-    private func didReceiveCallStateUpdates(_ callState: CallingState) {
-        if callState == .inCall {
-            loading = false
-            isCallLive = call.state.callData?.backstage == false
-            subscribeForCallUpdates()
-            subscribeForPermissionsRequests()
-            subscribeForPermissionUpdates()
-        } else {
-            loading = true
         }
     }
 
@@ -354,18 +283,6 @@ class AudioRoomViewModel: ObservableObject {
         }
 
         didReceiveParticipantUpdates(call.state.participants)
-    }
-
-    private func didReceiveReconnectionUpdate(
-        _ reconnectionStatus: ReconnectionStatus
-    ) {
-        if reconnectionStatus == .reconnecting {
-            if callingState != .reconnecting {
-                callingState = .reconnecting
-            }
-        } else if reconnectionStatus == .disconnected {
-            leaveCall()
-        }
     }
 }
 

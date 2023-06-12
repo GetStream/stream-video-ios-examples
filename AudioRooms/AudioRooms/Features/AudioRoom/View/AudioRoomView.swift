@@ -25,20 +25,12 @@ struct AudioRoomView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                if viewModel.showGoLiveButton {
-                    Button {
-                        viewModel.goLive()
-                    } label: {
-                        Text("Go live")
-                    }
+                Button {
+                    viewModel.toggleLive()
+                } label: {
+                    Text(viewModel.isCallLive ? "Stop Live" : "Go Live")
                 }
-                if viewModel.showStopLiveButton {
-                    Button {
-                        viewModel.stopLive()
-                    } label: {
-                        Text("Stop live")
-                    }
-                }
+
                 Spacer()
 
                 if viewModel.showEndCallButton {
