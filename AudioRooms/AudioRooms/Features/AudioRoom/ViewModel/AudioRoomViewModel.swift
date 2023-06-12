@@ -24,8 +24,7 @@ class AudioRoomViewModel: ObservableObject {
     @Published var revokePermissionPopupShown = false
     @Published var activeCallPermissions = [String: [String]]() {
         didSet {
-            hasPermissionsToSpeak = activeCallPermissions[streamVideo.user.id]?.contains("send-audio") == true
-            || isCurrentUserHost
+            hasPermissionsToSpeak = activeCallPermissions[streamVideo.user.id]?.contains("send-audio") == true || isCurrentUserHost
         }
     }
     @Published var isCallLive = false
@@ -118,20 +117,6 @@ class AudioRoomViewModel: ObservableObject {
 
     func changeMuteState() {
         callViewModel.toggleMicrophoneEnabled()
-//        Task {
-//            do {
-//                let isEnabled = !callSettings.audioOn
-//                try await call.changeAudioState(isEnabled: isEnabled)
-//                callSettings = CallSettings(
-//                    audioOn: isEnabled,
-//                    videoOn: callSettings.videoOn,
-//                    speakerOn: callSettings.speakerOn,
-//                    audioOutputOn: callSettings.audioOutputOn
-//                )
-//            } catch {
-//                log.error("Error toggling microphone")
-//            }
-//        }
     }
 
     func goLive() {
@@ -173,7 +158,7 @@ class AudioRoomViewModel: ObservableObject {
     //MARK: - private
 
     private var isCurrentUserHost: Bool {
-        Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id)
+        Set(hosts.map(\.userId)).contains(streamVideo.user.id)
     }
 
     private func checkAudioSettings() {
@@ -267,7 +252,6 @@ class AudioRoomViewModel: ObservableObject {
     private func didReceiveParticipantUpdates(
         _ participants: [String: CallParticipant]
     ) {
-        var hostsDictionary: [String: CallParticipant] = [:]
         var hostIds = Set(self.audioRoom.hosts.map { $0.id })
 
         for (userId, capabilities) in activeCallPermissions {
@@ -276,29 +260,25 @@ class AudioRoomViewModel: ObservableObject {
             }
         }
 
+        var hosts: [CallParticipant] = []
+        var otherUsers: [CallParticipant] = []
+
         participants.forEach { (key, participant) in
-            guard
-                hostIds.contains(participant.userId),
-                hostsDictionary[participant.userId] == nil
-            else {
-                return
-            }
-            hostsDictionary[participant.userId] = participant
+            hostIds.contains(participant.userId)
+            ? hosts.append(participant)
+            : otherUsers.append(participant)
         }
 
-        self.hosts = hostsDictionary
-            .values
-            .sorted(by: { $0.name < $1.name })
+        self.hosts = hosts.sorted(by: { $0.name < $1.name })
+        self.otherUsers = otherUsers.sorted(by: { $0.name < $1.name })
 
-        self.otherUsers = participants
-            .filter { (key, participant) in !hostIds.contains(participant.userId) }
-            .map { $0.value }
-            .sorted(by: { $0.name < $1.name })
+        hasPermissionsToSpeak = isCurrentUserHost
     }
 
     private func didReceivePermissionUpdate(_ update: PermissionsUpdated) {
         let userId = update.user.id
         activeCallPermissions[userId] = update.ownCapabilities
+
         if
             userId == streamVideo.user.id,
             !update.ownCapabilities.contains("send-audio"),
