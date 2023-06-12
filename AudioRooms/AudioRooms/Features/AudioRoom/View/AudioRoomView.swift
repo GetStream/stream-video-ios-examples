@@ -44,32 +44,14 @@ struct AudioRoomView: View {
                 if viewModel.showEndCallButton {
                     Menu {
                         VStack {
-                            Button {
-                                viewModel.leaveCall()
-                                presentationMode.wrappedValue.dismiss()
-                            } label: {
-                                Text("Leave quitely")
-                            }
-
-                            if viewModel.showEndCallButton {
-                                Button {
-                                    viewModel.endCall()
-                                    presentationMode.wrappedValue.dismiss()
-                                } label: {
-                                    Text("End")
-                                }
-                            }
+                            makeLeaveCallButton()
+                            makeEndCallButton()
                         }
                     } label: {
                         Image(systemName: "ellipsis")
                     }
                 } else {
-                    Button {
-                        viewModel.leaveCall()
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Leave quitely")
-                    }
+                    makeLeaveCallButton()
                 }
             }
             .padding(.bottom, 16)
@@ -146,7 +128,30 @@ struct AudioRoomView: View {
             viewModel.leaveCall()
         }
     }
+
+    // MARK: - Private Helpers
+
+    @ViewBuilder
+    private func makeLeaveCallButton() -> some View {
+        Button {
+            viewModel.leaveCall()
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Text("Leave quitely")
+        }
+    }
+
+    @ViewBuilder
+    private func makeEndCallButton() -> some View {
+        Button {
+            viewModel.endCall()
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Text("End")
+        }
+    }
 }
+
 
 struct AudioRoomView_Previews: PreviewProvider {
     static var previews: some View {
