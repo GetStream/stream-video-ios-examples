@@ -11,14 +11,17 @@ import StreamVideo
 
 @MainActor
 class AudioRoomViewModel: ObservableObject {
-    
+
     @Injected(\.streamVideo) var streamVideo
-    
-    @Published var callViewModel = CallViewModel()
-    
+
+    /// Provides access to the current call.
+    private var call: Call!
+
+    /// Provides information about the current call settings, such as the camera position and whether there's an audio and video turned on.
+    @Published private var callSettings = CallSettings()
+
     @Published var hosts = [CallParticipant]()
     @Published var otherUsers = [CallParticipant]()
-    
     @Published var hasPermissionsToSpeak = false
     @Published var isUserMuted = true
     @Published var loading = true
@@ -26,12 +29,12 @@ class AudioRoomViewModel: ObservableObject {
     @Published var revokePermissionPopupShown = false
     @Published var activeCallPermissions = [String: [String]]() {
         didSet {
-            hasPermissionsToSpeak = activeCallPermissions[streamVideo.user.id]?.contains("send-audio") == true
-                || isCurrentUserHost
+            hasPermissionsToSpeak = activeCallPermissions[streamVideo.user.id]?.contains("send-audio") == true || isCurrentUserHost
         }
     }
     @Published var isCallLive = false
     @Published var callEnded = false
+
     var revokingParticipant: CallParticipant? {
         didSet {
             if revokingParticipant != nil {
@@ -39,60 +42,63 @@ class AudioRoomViewModel: ObservableObject {
             }
         }
     }
-    
     var permissionRequest: PermissionRequest? {
         didSet {
             permissionPopupShown = permissionRequest != nil
         }
     }
-    
-    var call: Call {
-        get throws {
-            if let call = callViewModel.call {
-                return call
-            } else {
-                throw ClientError.Unknown()
-            }
-        }
-    }
-    
+
+    var showEndCallButton: Bool { call.currentUserHasCapability(.endCall) }
+
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
     private let callType: String = .audioRoom
-    
+
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
-        checkAudioSettings()
-        callViewModel.startCall(
+        self.call = streamVideo.call(
+            callType: callType,
             callId: audioRoom.callId,
-            type: callType,
-            members: audioRoom.hosts
+            members: audioRoom.hosts.map(\.member)
         )
+
+        subscribeForParticipantChanges()
+        subscribeForCallUpdates()
         subscribeForParticipantChanges()
         subscribeForAudioChanges()
-        subscribeForCallStateChanges()
+
+        checkAudioSettings()
+        joinRoom(audioRoom)
     }
-    
+
     func leaveCall() {
-        callViewModel.hangUp()
+        cleanUpAfterLeavingCall()
     }
-    
+
+    func endCall() {
+        Task {
+            try await call.end()
+        }
+    }
+
     func raiseHand() {
         Task {
             try await call.request(permissions: [.sendAudio])
         }
     }
-    
+
     func grantUserPermissions() {
         guard let permissionRequest else { return }
         Task {
             try await call.grant(
-                permissions: permissionRequest.permissions.compactMap { Permission(rawValue: $0) },
+                permissions: permissionRequest
+                    .permissions
+                    .compactMap { Permission(rawValue: $0) },
                 for: permissionRequest.user.id
             )
         }
     }
-    
+
     func revokePermissions() {
         guard let revokingParticipant else { return }
         Task {
@@ -102,162 +108,181 @@ class AudioRoomViewModel: ObservableObject {
             )
         }
     }
-    
+
     func canAskForAudioPermission() -> Bool {
-        do {
-            return try call.currentUserCanRequestPermissions([.sendAudio])
-        } catch {
-            return false
-        }
+        return call.currentUserCanRequestPermissions([.sendAudio])
     }
-    
+
     func changeMuteState() {
-        callViewModel.toggleMicrophoneEnabled()
-    }
-    
-    func goLive() {
         Task {
-            try await call.goLive()
+            do {
+                let isEnabled = !callSettings.audioOn
+                try await call.changeAudioState(isEnabled: isEnabled)
+                callSettings = CallSettings(
+                    audioOn: isEnabled,
+                    videoOn: callSettings.videoOn,
+                    speakerOn: callSettings.speakerOn,
+                    audioOutputOn: callSettings.audioOutputOn
+                )
+            } catch {
+                log.error("Error toggling microphone")
+            }
         }
     }
-    
-    func stopLive() {
+
+    func toggleLive() {
         Task {
-            try await call.stopLive()
+            if isCallLive {
+                try await call.stopLive()
+            } else {
+                try await call.goLive()
+            }
         }
     }
-    
-    var showGoLiveButton: Bool {
-        do {
-            return try call.currentUserHasCapability(.updateCall) && !isCallLive
-        } catch {
-            return false
-        }
-    }
-    
-    var showStopLiveButton: Bool {
-        do {
-            return try call.currentUserHasCapability(.updateCall) && isCallLive
-        } catch {
-            return false
-        }
-    }
-    
-    //MARK: - private
+
+    //MARK: - Private Helpers
     
     private var isCurrentUserHost: Bool {
-        let hostIds = self.audioRoom.hosts.map { $0.id }
-        let isCurrentUserHost = hostIds.contains(streamVideo.user.id)
-        return isCurrentUserHost
+        Set(hosts.map(\.userId)).contains(streamVideo.user.id)
     }
-    
+
     private func checkAudioSettings() {
         hasPermissionsToSpeak = isCurrentUserHost
         isUserMuted = !isCurrentUserHost
-        callViewModel.callSettings = CallSettings(audioOn: isCurrentUserHost, videoOn: false)
+        callSettings = CallSettings(audioOn: isCurrentUserHost, videoOn: false)
     }
-    
+
+    private func joinRoom(_ audioRoom: AudioRoom) {
+        loading = true
+        Task {
+            do {
+                log.debug("Joining room \(audioRoom.callId)")
+                try await call.join(ring: false, callSettings: callSettings)
+                loading = false
+                isCallLive = call.state.callData?.backstage == false
+                subscribeForPermissionsRequests()
+                subscribeForPermissionUpdates()
+                log.debug("Joined room \(audioRoom.callId)")
+            } catch {
+                log.error("Error joining room \(audioRoom.callId) \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func save(call: Call) {
+
+    }
+
+    private func cleanUpAfterLeavingCall() {
+        log.debug("Leaving call")
+        cancellables.forEach { $0.cancel() }
+        call.leave()
+        hosts = []
+        otherUsers = []
+    }
+
+    // MARK: - Subscribers
+
     private func subscribeForParticipantChanges() {
-        callViewModel.$callParticipants.sink { [weak self] participants in
-            guard let self = self else { return }
-            self.update(participants: participants)
-        }
-        .store(in: &cancellables)
+        call
+            .state
+            .$participants
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.didReceiveParticipantUpdates($0) }
+            .store(in: &cancellables)
     }
-    
-    private func update(participants: [String: CallParticipant]) {
-        var hostIds = self.audioRoom.hosts.map { $0.id }
-        self.hosts = participants.filter { (key, participant) in
-            hostIds.contains(participant.userId)
-        }
-        .map { $0.value }
-        .sorted(by: { $0.name < $1.name })
-        
-        for (userId, capabilities) in activeCallPermissions {
-            if capabilities.contains("send-audio"),
-                let participant = findUser(with: userId, in: participants) {
-                hosts.append(participant)
-                hostIds.append(userId)
-            }
-        }
-        
-        self.otherUsers = participants.filter { (key, participant) in
-            !hostIds.contains(participant.userId)
-        }
-        .map { $0.value }
-        .sorted(by: { $0.name < $1.name })
-    }
-    
-    private func findUser(
-        with userId: String,
-        in participants: [String: CallParticipant]
-    ) -> CallParticipant? {
-        for (_, participant) in participants {
-            if participant.userId == userId {
-                return participant
-            }
-        }
-        return nil
-    }
-    
+
     private func subscribeForAudioChanges() {
-        callViewModel.$callSettings.sink { [weak self] callSettings in
-            guard let self = self else { return }
-            self.isUserMuted = !callSettings.audioOn
-        }
-        .store(in: &cancellables)
+        $callSettings
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] callSettings in self?.isUserMuted = !callSettings.audioOn }
+            .store(in: &cancellables)
     }
-    
-    private func subscribeForCallStateChanges() {
-        callViewModel.$callingState.sink { [weak self] callState in
-            guard let self = self else { return }
-            self.loading = callState != .inCall
-            if callState == .inCall {
-                self.isCallLive = self.callViewModel.call?.state?.backstage == false
-                self.subscribeForCallUpdates()
-                self.subscribeForPermissionsRequests()
-                self.subscribeForPermissionUpdates()
-            }
-        }
-        .store(in: &cancellables)
-    }
-    
+
     private func subscribeForPermissionsRequests() {
         Task {
-            for await request in try call.permissionRequests() {
-                self.permissionRequest = request
+            for await request in call.permissionRequests() {
+                DispatchQueue.main.async {
+                    self.permissionRequest = request
+                }
             }
         }
     }
-    
+
     private func subscribeForPermissionUpdates() {
         Task {
-            for await update in try call.permissionUpdates() {
-                let userId = update.user.id
-                self.activeCallPermissions[userId] = update.ownCapabilities
-                if userId == streamVideo.user.id
-                    && !update.ownCapabilities.contains("send-audio")
-                    && callViewModel.callSettings.audioOn {
-                    changeMuteState()
+            for await update in call.permissionUpdates() {
+                DispatchQueue.main.async { [weak self] in
+                    self?.didReceivePermissionUpdate(update)
                 }
-                self.update(participants: callViewModel.callParticipants)
             }
         }
     }
-    
+
     private func subscribeForCallUpdates() {
-        guard let currentCall = callViewModel.call else { return }
-        callViewModel.call?.$state.sink { call in
-            DispatchQueue.main.async {
-                if call == nil { return }
-                self.isCallLive = call?.backstage == false
-                if !self.isCallLive && !currentCall.currentUserHasCapability(.updateCall) {
-                    self.leaveCall()
-                    self.callEnded = true
-                }
+        call
+            .state
+            .$callData
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.didReceiveCallUpdates($0) }
+            .store(in: &cancellables)
+    }
+
+    // MARK: - Subscription Handlers
+
+    private func didReceiveCallUpdates(_ callData: CallData?) {
+        guard let callData = callData else {
+            isCallLive = false
+            return
+        }
+
+        isCallLive = callData.backstage == false
+
+        if !isCallLive && !call.currentUserHasCapability(.updateCall) {
+            leaveCall()
+            callEnded = true
+        }
+    }
+
+    private func didReceiveParticipantUpdates(
+        _ participants: [String: CallParticipant]
+    ) {
+        var hostIds = Set(self.audioRoom.hosts.map { $0.id })
+
+        for (userId, capabilities) in activeCallPermissions {
+            if capabilities.contains("send-audio") {
+                hostIds.insert(userId)
             }
         }
-        .store(in: &cancellables)
+
+        var hosts: [CallParticipant] = []
+        var otherUsers: [CallParticipant] = []
+
+        participants.forEach { (_, participant) in
+            hostIds.contains(participant.userId)
+            ? hosts.append(participant)
+            : otherUsers.append(participant)
+        }
+
+        self.hosts = hosts.sorted(by: { $0.name < $1.name })
+        self.otherUsers = otherUsers.sorted(by: { $0.name < $1.name })
+
+        hasPermissionsToSpeak = isCurrentUserHost
     }
-    
+
+    private func didReceivePermissionUpdate(_ update: PermissionsUpdated) {
+        let userId = update.user.id
+        activeCallPermissions[userId] = update.ownCapabilities
+
+        if
+            userId == streamVideo.user.id,
+            !update.ownCapabilities.contains("send-audio"),
+            callSettings.audioOn
+        {
+            changeMuteState()
+        }
+
+        didReceiveParticipantUpdates(call.state.participants)
+    }
 }
+

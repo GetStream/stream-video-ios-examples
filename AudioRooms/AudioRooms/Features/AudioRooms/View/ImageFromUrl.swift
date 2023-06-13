@@ -21,9 +21,14 @@ struct ImageFromUrl: View {
                 .clipShape(Circle())
                 .offset(x: offset ?? 0, y: offset ?? 0)
         } placeholder: {
-            Circle().fill(Color.gray)
-                .frame(width: size, height: size)
-                .offset(x: offset ?? 0, y: offset ?? 0)
+            ZStack {
+                Circle().fill(Color.gray)
+                    .frame(width: size, height: size)
+                    .offset(x: offset ?? 0, y: offset ?? 0)
+
+                ProgressView()
+                    .tint(.white)
+            }
         }
     }
 }
@@ -32,7 +37,7 @@ struct ImageFromUrl_Previews: PreviewProvider {
     static var previews: some View {
         ImageFromUrl(
             url: URL(string: "https://getstream.io/static/237f45f28690696ad8fff92726f45106/c59de/thierry.webp"),
-            size: 40
+            size: 100
         )
     }
 }

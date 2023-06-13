@@ -21,7 +21,7 @@ extension User {
     
     static var builtInUsers: [User] = [
         (
-            "oliver.lazoroski@getstream.io",
+            "tomasso",
             "Tommaso",
             "https://getstream.io/static/712bb5c0bd5ed8d3fa6e5842f6cfbeed/c59de/tommaso.webp"
         ),
@@ -68,3 +68,4 @@ extension User {
         )
     }
 }
+

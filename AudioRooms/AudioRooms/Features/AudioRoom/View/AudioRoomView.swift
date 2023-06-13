@@ -25,26 +25,25 @@ struct AudioRoomView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                if viewModel.showGoLiveButton {
-                    Button {
-                        viewModel.goLive()
-                    } label: {
-                        Text("Go live")
-                    }
-                }
-                if viewModel.showStopLiveButton {
-                    Button {
-                        viewModel.stopLive()
-                    } label: {
-                        Text("Stop live")
-                    }
-                }
-                Spacer()
                 Button {
-                    viewModel.leaveCall()
-                    presentationMode.wrappedValue.dismiss()
+                    viewModel.toggleLive()
                 } label: {
-                    Text("Leave quitely")
+                    Text(viewModel.isCallLive ? "Stop Live" : "Go Live")
+                }
+
+                Spacer()
+
+                if viewModel.showEndCallButton {
+                    Menu {
+                        VStack {
+                            makeLeaveCallButton()
+                            makeEndCallButton()
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                    }
+                } else {
+                    makeLeaveCallButton()
                 }
             }
             .padding(.bottom, 16)
@@ -117,11 +116,42 @@ struct AudioRoomView: View {
             }
         )
         .padding()
+        .onDisappear {
+            viewModel.leaveCall()
+        }
+    }
+
+    // MARK: - Private Helpers
+
+    @ViewBuilder
+    private func makeLeaveCallButton() -> some View {
+        Button {
+            viewModel.leaveCall()
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Text("Leave quitely")
+        }
+    }
+
+    @ViewBuilder
+    private func makeEndCallButton() -> some View {
+        Button {
+            viewModel.endCall()
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Text("End")
+        }
     }
 }
 
+
 struct AudioRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioRoomView(audioRoom: .preview)
+        InjectedValues[\.streamVideo] = StreamVideo(
+            apiKey: UUID().uuidString,
+            user: .anonymous,
+            token: .anonymous
+        )
+        return AudioRoomView(audioRoom: .preview)
     }
 }

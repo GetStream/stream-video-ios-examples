@@ -17,27 +17,17 @@ struct AudioRoom: Identifiable {
 
 extension AudioRoom {
     init?(from dict: [String: RawJSON], id: String) {
-        self.id = id
-        guard let title = dict["title"]?.stringValue,
-              let description = dict["description"]?.stringValue,
-              let hostsDict = dict["hosts"]?.arrayValue else {
+        guard
+            let title = dict["title"]?.stringValue,
+            let description = dict["description"]?.stringValue,
+            let hostsDict = dict["hosts"]?.arrayValue?.compactMap(\.dictionaryValue)
+        else {
             return nil
         }
+        self.id = id
         self.title = title
         self.subtitle = description
-        self.hosts = hostsDict
-            .compactMap { $0.dictionaryValue }
-            .compactMap({ hostsDict in
-            guard let hostId = hostsDict["id"]?.stringValue,
-                  let hostName = hostsDict["name"]?.stringValue,
-                  let hostImageUrl = hostsDict["imageUrl"]?.stringValue
-            else { return nil }
-            return User(
-                id: hostId,
-                name: hostName,
-                imageURL: URL(string: hostImageUrl)
-            )
-        })
+        self.hosts = hostsDict.compactMap(User.init)
     }
 }
 
@@ -61,4 +51,27 @@ extension AudioRoom {
             return id
         }
     }
+}
+
+extension User {
+
+    init?(_ dictionary: [String: RawJSON]) {
+        guard
+            let hostId = dictionary["id"]?.stringValue,
+            let hostName = dictionary["name"]?.stringValue,
+            let hostImageUrl = dictionary["imageUrl"]?.stringValue
+        else {
+            return nil
+        }
+        self = .init(
+            id: hostId,
+            name: hostName,
+            imageURL: URL(string: hostImageUrl)
+        )
+    }
+}
+
+extension User {
+
+    var member: Member { .init(user: self) }
 }
