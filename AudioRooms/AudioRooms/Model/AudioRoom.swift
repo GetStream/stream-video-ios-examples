@@ -9,10 +9,28 @@ import Foundation
 import StreamVideo
 
 struct AudioRoom: Identifiable {
+    enum AudioRoomType: CaseIterable, CustomStringConvertible, Hashable {
+        case live
+        case upcoming
+        case ended
+
+        var description: String {
+            switch self {
+            case .live:
+                return "Live"
+            case .upcoming:
+                return "Upcoming"
+            case .ended:
+                return "Ended"
+            }
+        }
+    }
+
     let id: String
     let title: String
     let subtitle: String
     let hosts: [User]
+    let type: AudioRoomType
 }
 
 extension AudioRoom {
@@ -28,6 +46,15 @@ extension AudioRoom {
         self.title = title
         self.subtitle = description
         self.hosts = hostsDict.compactMap(User.init)
+        self.type = {
+            if dict["backstage"]?.boolValue == false {
+                return .live
+            } else if dict["ended_at"]?.stringValue != nil {
+                return .ended
+            } else {
+                return .upcoming
+            }
+        }()
     }
 }
 
@@ -39,7 +66,8 @@ extension AudioRoom {
         hosts: [
             User.builtInUsersByID(id: "martin")!,
             User.builtInUsersByID(id: "thierry")!
-        ]
+        ],
+        type: .live
     )
 }
 
