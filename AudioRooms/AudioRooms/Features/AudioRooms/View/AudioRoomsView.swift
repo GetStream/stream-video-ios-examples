@@ -113,7 +113,7 @@ struct AudioRoomsView_Previews: PreviewProvider {
         InjectedValues[\.streamVideo] = StreamVideo(
             apiKey: UUID().uuidString,
             user: .anonymous,
-            token: .anonymous
+            token: .init(stringLiteral: UUID().uuidString)
         )
         return AudioRoomsView(appState: AppState())
     }
