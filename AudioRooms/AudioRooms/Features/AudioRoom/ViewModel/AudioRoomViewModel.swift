@@ -53,6 +53,7 @@ class AudioRoomViewModel: ObservableObject {
     }
 
     var showEndCallButton: Bool { audioRoomCall.currentUserHasCapability(.endCall) }
+    var showBackStageToggleButton: Bool { Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) }
 
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
