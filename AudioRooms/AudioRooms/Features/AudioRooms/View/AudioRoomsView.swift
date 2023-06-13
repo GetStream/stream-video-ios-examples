@@ -17,22 +17,43 @@ struct AudioRoomsView: View {
     @Injected(\.streamVideo) var streamVideo
     
     @State private var showCreateRoom = false
-    
+    @State private var audioRoomType: AudioRoom.AudioRoomType = .live
+
+    private var datasource: [AudioRoom] {
+        switch audioRoomType {
+        case .live:
+            return viewModel.liveAudioRooms
+        case .upcoming:
+            return viewModel.upcomingAudioRooms
+        case .ended:
+            return viewModel.endedAudioRooms
+        }
+    }
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.audioRooms) { audioRoom in
-                            Button {
-                                viewModel.selectedAudioRoom = audioRoom
-                            } label: {
-                                AudioRoomCell(audioRoom: audioRoom)
-                            }
+                VStack {
+                    Picker("", selection: $audioRoomType) {
+                        ForEach(AudioRoom.AudioRoomType.allCases, id: \.self) { roomType in
+                            Text(roomType.description).tag(roomType)
                         }
                     }
-                    .sheet(item: $viewModel.selectedAudioRoom) { audioRoom in
-                        AudioRoomView(audioRoom: audioRoom)
+                    .pickerStyle(.segmented)
+
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(datasource) { audioRoom in
+                                Button {
+                                    viewModel.selectedAudioRoom = audioRoom
+                                } label: {
+                                    AudioRoomCell(audioRoom: audioRoom)
+                                }
+                            }
+                        }
+                        .sheet(item: $viewModel.selectedAudioRoom) { audioRoom in
+                            AudioRoomView(audioRoom: audioRoom)
+                        }
                     }
                 }
                 

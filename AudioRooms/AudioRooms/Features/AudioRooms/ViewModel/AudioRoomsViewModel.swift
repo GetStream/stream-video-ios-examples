@@ -12,7 +12,9 @@ import Combine
 @MainActor
 class AudioRoomsViewModel: ObservableObject {
     
-    @Published var audioRooms = [AudioRoom]()
+    @Published var liveAudioRooms = [AudioRoom]()
+    @Published var upcomingAudioRooms = [AudioRoom]()
+    @Published var endedAudioRooms = [AudioRoom]()
     @Published var selectedAudioRoom: AudioRoom?
     
     @Injected(\.streamVideo) var streamVideo
@@ -28,7 +30,25 @@ class AudioRoomsViewModel: ObservableObject {
             .$calls
             .map { $0.compactMap(AudioRoom.init) }
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] in self?.audioRooms = $0 }
+            .sink { [weak self] audioRooms in
+                var newLiveAudioRooms: [AudioRoom] = []
+                var newUpcomingAudioRooms: [AudioRoom] = []
+                var newEndedAudioRooms: [AudioRoom] = []
+                audioRooms.forEach { audioRoom in
+                    switch audioRoom.type {
+                    case .live:
+                        newLiveAudioRooms.append(audioRoom)
+                    case .upcoming:
+                        newUpcomingAudioRooms.append(audioRoom)
+                    case .ended:
+                        newEndedAudioRooms.append(audioRoom)
+                    }
+                }
+
+                self?.liveAudioRooms = newLiveAudioRooms
+                self?.upcomingAudioRooms = newUpcomingAudioRooms
+                self?.endedAudioRooms = newEndedAudioRooms
+            }
             .store(in: &cancellables)
     }
 
@@ -42,12 +62,27 @@ class AudioRoomsViewModel: ObservableObject {
 extension AudioRoom {
 
     fileprivate init?(_ callData: CallData) {
+        let dict = callData.customData
         guard
-            callData.endedAt == nil,
-            let model = AudioRoom(from: callData.customData, id: callData.callCid)
+            let title = dict["title"]?.stringValue,
+            let hosts = dict["hosts"]?.arrayValue?.compactMap(\.dictionaryValue).compactMap(User.init)
         else {
             return nil
         }
-        self = model
+        self = .init(
+            id: callData.callCid,
+            title: title,
+            subtitle: dict["description"]?.stringValue ?? "",
+            hosts: hosts,
+            type: {
+                if callData.backstage == false {
+                    return .live
+                } else if callData.endedAt == nil {
+                    return .upcoming
+                } else {
+                    return .ended
+                }
+            }()
+        )
     }
 }
