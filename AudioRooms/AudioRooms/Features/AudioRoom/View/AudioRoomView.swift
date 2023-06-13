@@ -117,7 +117,7 @@ struct AudioRoomView: View {
         )
         .padding()
         .onDisappear {
-            viewModel.leaveCall()
+            viewModel.leaveAudioRoomCall()
         }
     }
 
@@ -126,7 +126,7 @@ struct AudioRoomView: View {
     @ViewBuilder
     private func makeLeaveCallButton() -> some View {
         Button {
-            viewModel.leaveCall()
+            viewModel.leaveAudioRoomCall()
             presentationMode.wrappedValue.dismiss()
         } label: {
             Text("Leave quitely")
@@ -136,7 +136,7 @@ struct AudioRoomView: View {
     @ViewBuilder
     private func makeEndCallButton() -> some View {
         Button {
-            viewModel.endCall()
+            viewModel.endAudioRoomCall()
             presentationMode.wrappedValue.dismiss()
         } label: {
             Text("End")
