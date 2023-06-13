@@ -135,8 +135,10 @@ class AudioRoomViewModel: ObservableObject {
         Task {
             if isCallLive {
                 try await audioRoomCall.stopLive()
+                isCallLive = false
             } else {
                 try await audioRoomCall.goLive()
+                isCallLive = true
             }
         }
     }
@@ -203,6 +205,17 @@ class AudioRoomViewModel: ObservableObject {
             for await request in audioRoomCall.subscribe(for: PermissionRequestEvent.self) {
                 DispatchQueue.main.async {
                     self.permissionRequest = request
+                }
+            }
+        }
+    }
+
+    private func subscribeForLiveEnded() {
+        guard !Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) else { return }
+        Task {
+            for await _ in audioRoomCall.subscribe(for: CallEndedEvent.self) {
+                DispatchQueue.main.async {
+                    self.callEnded = true
                 }
             }
         }

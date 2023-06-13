@@ -70,6 +70,13 @@ struct AudioRoomView: View {
                     secondaryButton: .cancel()
                 )
             }
+            .alert(isPresented: .constant(viewModel.callEnded)) {
+                Alert(
+                    title: Text("Live Ended"),
+                    message: Text("The live audioRoom ended."),
+                    dismissButton: .default(Text("OK")) { presentationMode.wrappedValue.dismiss() }
+                )
+            }
             
             if viewModel.otherUsers.count > 0 {
                 Text("Listeners")
@@ -109,11 +116,7 @@ struct AudioRoomView: View {
         .overlay(
             ZStack {
                 if viewModel.loading {
-                    if viewModel.callEnded {
-                        Text("Call ended")
-                    } else {
-                        ProgressView()
-                    }
+                    ProgressView()
                 }
             }
         )
