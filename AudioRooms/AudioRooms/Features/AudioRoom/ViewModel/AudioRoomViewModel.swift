@@ -17,8 +17,7 @@ class AudioRoomViewModel: ObservableObject {
     /// Provides access to the current call.
     private lazy var audioRoomCall: Call = streamVideo.call(
         callType: .audioRoom,
-        callId: audioRoom.callId,
-        members: audioRoom.hosts.map(\.member)
+        callId: audioRoom.callId
     )
 
     /// Provides information about the current call settings, such as the camera position and whether there's an audio and video turned on.
@@ -160,7 +159,11 @@ class AudioRoomViewModel: ObservableObject {
         Task {
             do {
                 log.debug("Joining room \(audioRoom.callId)")
-                try await audioRoomCall.join(ring: false, callSettings: callSettings)
+                try await audioRoomCall.join(
+                    members: audioRoom.hosts.map(\.member),
+                    ring: false,
+                    callSettings: callSettings
+                )
                 loading = false
                 isCallLive = audioRoomCall.state.callData?.backstage == false
                 if Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) {
