@@ -19,17 +19,6 @@ struct AudioRoomsView: View {
     @State private var showCreateRoom = false
     @State private var audioRoomType: AudioRoom.AudioRoomType = .live
 
-    private var datasource: [AudioRoom] {
-        switch audioRoomType {
-        case .live:
-            return viewModel.liveAudioRooms
-        case .upcoming:
-            return viewModel.upcomingAudioRooms
-        case .ended:
-            return viewModel.endedAudioRooms
-        }
-    }
-
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
@@ -53,6 +42,12 @@ struct AudioRoomsView: View {
                         }
                         .sheet(item: $viewModel.selectedAudioRoom) { audioRoom in
                             AudioRoomView(audioRoom: audioRoom)
+                        }
+                    }
+                    .overlay {
+                        if datasource.isEmpty {
+                            Text(noRoomsFound)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         }
                     }
                 }
@@ -104,6 +99,28 @@ struct AudioRoomsView: View {
         }
         .onAppear {
             viewModel.loadRooms()
+        }
+    }
+
+    private var datasource: [AudioRoom] {
+        switch audioRoomType {
+        case .live:
+            return viewModel.liveAudioRooms
+        case .upcoming:
+            return viewModel.upcomingAudioRooms
+        case .ended:
+            return viewModel.endedAudioRooms
+        }
+    }
+
+    private var noRoomsFound: String {
+        switch audioRoomType {
+        case .live:
+            return "No live rooms found"
+        case .upcoming:
+            return "No upcoming rooms found"
+        case .ended:
+            return "No ended rooms found"
         }
     }
 }
