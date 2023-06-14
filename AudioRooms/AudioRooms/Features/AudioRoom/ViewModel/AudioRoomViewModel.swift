@@ -15,7 +15,10 @@ class AudioRoomViewModel: ObservableObject {
     @Injected(\.streamVideo) var streamVideo
 
     /// Provides access to the current call.
-    private var call: Call!
+    private lazy var audioRoomCall: Call = streamVideo.call(
+        callType: .audioRoom,
+        callId: audioRoom.callId
+    )
 
     /// Provides information about the current call settings, such as the camera position and whether there's an audio and video turned on.
     @Published private var callSettings = CallSettings()
@@ -42,25 +45,22 @@ class AudioRoomViewModel: ObservableObject {
             }
         }
     }
-    var permissionRequest: PermissionRequest? {
+    var permissionRequest: PermissionRequestEvent? {
         didSet {
             permissionPopupShown = permissionRequest != nil
         }
     }
 
-    var showEndCallButton: Bool { call.currentUserHasCapability(.endCall) }
+    var showEndCallButton: Bool { audioRoomCall.currentUserHasCapability(.endCall) }
+    var showBackStageToggleButton: Bool { Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) }
 
     private let audioRoom: AudioRoom
     private var cancellables = Set<AnyCancellable>()
-    private let callType: String = .audioRoom
 
     init(audioRoom: AudioRoom) {
         self.audioRoom = audioRoom
-        self.call = streamVideo.call(
-            callType: callType,
-            callId: audioRoom.callId,
-            members: audioRoom.hosts.map(\.member)
-        )
+
+        _ = audioRoomCall
 
         subscribeForParticipantChanges()
         subscribeForCallUpdates()
@@ -71,26 +71,26 @@ class AudioRoomViewModel: ObservableObject {
         joinRoom(audioRoom)
     }
 
-    func leaveCall() {
+    func leaveAudioRoomCall() {
         cleanUpAfterLeavingCall()
     }
 
-    func endCall() {
+    func endAudioRoomCall() {
         Task {
-            try await call.end()
+            try await audioRoomCall.end()
         }
     }
 
     func raiseHand() {
         Task {
-            try await call.request(permissions: [.sendAudio])
+            try await audioRoomCall.request(permissions: [.sendAudio])
         }
     }
 
     func grantUserPermissions() {
         guard let permissionRequest else { return }
         Task {
-            try await call.grant(
+            try await audioRoomCall.grant(
                 permissions: permissionRequest
                     .permissions
                     .compactMap { Permission(rawValue: $0) },
@@ -102,7 +102,7 @@ class AudioRoomViewModel: ObservableObject {
     func revokePermissions() {
         guard let revokingParticipant else { return }
         Task {
-            try await call.revoke(
+            try await audioRoomCall.revoke(
                 permissions: [.sendAudio],
                 for: revokingParticipant.userId
             )
@@ -110,14 +110,14 @@ class AudioRoomViewModel: ObservableObject {
     }
 
     func canAskForAudioPermission() -> Bool {
-        return call.currentUserCanRequestPermissions([.sendAudio])
+        return audioRoomCall.currentUserCanRequestPermissions([.sendAudio])
     }
 
     func changeMuteState() {
         Task {
             do {
                 let isEnabled = !callSettings.audioOn
-                try await call.changeAudioState(isEnabled: isEnabled)
+                try await audioRoomCall.changeAudioState(isEnabled: isEnabled)
                 callSettings = CallSettings(
                     audioOn: isEnabled,
                     videoOn: callSettings.videoOn,
@@ -133,15 +133,17 @@ class AudioRoomViewModel: ObservableObject {
     func toggleLive() {
         Task {
             if isCallLive {
-                try await call.stopLive()
+                try await audioRoomCall.stopLive()
+                isCallLive = false
             } else {
-                try await call.goLive()
+                try await audioRoomCall.goLive()
+                isCallLive = true
             }
         }
     }
 
     //MARK: - Private Helpers
-    
+
     private var isCurrentUserHost: Bool {
         Set(hosts.map(\.userId)).contains(streamVideo.user.id)
     }
@@ -157,10 +159,16 @@ class AudioRoomViewModel: ObservableObject {
         Task {
             do {
                 log.debug("Joining room \(audioRoom.callId)")
-                try await call.join(ring: false, callSettings: callSettings)
+                try await audioRoomCall.join(
+                    members: audioRoom.hosts.map(\.member),
+                    ring: false,
+                    callSettings: callSettings
+                )
                 loading = false
-                isCallLive = call.state.callData?.backstage == false
-                subscribeForPermissionsRequests()
+                isCallLive = audioRoomCall.state.callData?.backstage == false
+                if Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) {
+                    subscribeForPermissionsRequests()
+                }
                 subscribeForPermissionUpdates()
                 log.debug("Joined room \(audioRoom.callId)")
             } catch {
@@ -169,14 +177,10 @@ class AudioRoomViewModel: ObservableObject {
         }
     }
 
-    private func save(call: Call) {
-
-    }
-
     private func cleanUpAfterLeavingCall() {
         log.debug("Leaving call")
         cancellables.forEach { $0.cancel() }
-        call.leave()
+        audioRoomCall.leave()
         hosts = []
         otherUsers = []
     }
@@ -184,7 +188,7 @@ class AudioRoomViewModel: ObservableObject {
     // MARK: - Subscribers
 
     private func subscribeForParticipantChanges() {
-        call
+        audioRoomCall
             .state
             .$participants
             .receive(on: DispatchQueue.main)
@@ -201,7 +205,7 @@ class AudioRoomViewModel: ObservableObject {
 
     private func subscribeForPermissionsRequests() {
         Task {
-            for await request in call.permissionRequests() {
+            for await request in audioRoomCall.subscribe(for: PermissionRequestEvent.self) {
                 DispatchQueue.main.async {
                     self.permissionRequest = request
                 }
@@ -209,9 +213,20 @@ class AudioRoomViewModel: ObservableObject {
         }
     }
 
+    private func subscribeForLiveEnded() {
+        guard !Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) else { return }
+        Task {
+            for await _ in audioRoomCall.subscribe(for: CallEndedEvent.self) {
+                DispatchQueue.main.async {
+                    self.callEnded = true
+                }
+            }
+        }
+    }
+
     private func subscribeForPermissionUpdates() {
         Task {
-            for await update in call.permissionUpdates() {
+            for await update in audioRoomCall.subscribe(for: UpdatedCallPermissionsEvent.self) {
                 DispatchQueue.main.async { [weak self] in
                     self?.didReceivePermissionUpdate(update)
                 }
@@ -220,7 +235,7 @@ class AudioRoomViewModel: ObservableObject {
     }
 
     private func subscribeForCallUpdates() {
-        call
+        audioRoomCall
             .state
             .$callData
             .receive(on: DispatchQueue.main)
@@ -238,8 +253,8 @@ class AudioRoomViewModel: ObservableObject {
 
         isCallLive = callData.backstage == false
 
-        if !isCallLive && !call.currentUserHasCapability(.updateCall) {
-            leaveCall()
+        if !isCallLive && !audioRoomCall.currentUserHasCapability(.updateCall) {
+            leaveAudioRoomCall()
             callEnded = true
         }
     }
@@ -270,19 +285,18 @@ class AudioRoomViewModel: ObservableObject {
         hasPermissionsToSpeak = isCurrentUserHost
     }
 
-    private func didReceivePermissionUpdate(_ update: PermissionsUpdated) {
+    private func didReceivePermissionUpdate(_ update: UpdatedCallPermissionsEvent) {
         let userId = update.user.id
-        activeCallPermissions[userId] = update.ownCapabilities
+        activeCallPermissions[userId] = update.ownCapabilities.map(\.rawValue)
 
         if
             userId == streamVideo.user.id,
-            !update.ownCapabilities.contains("send-audio"),
+            !update.ownCapabilities.contains(.sendAudio),
             callSettings.audioOn
         {
             changeMuteState()
         }
 
-        didReceiveParticipantUpdates(call.state.participants)
+        didReceiveParticipantUpdates(audioRoomCall.state.participants)
     }
 }
-

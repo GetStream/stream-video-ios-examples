@@ -25,10 +25,12 @@ struct AudioRoomView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Button {
-                    viewModel.toggleLive()
-                } label: {
-                    Text(viewModel.isCallLive ? "Stop Live" : "Go Live")
+                if viewModel.showBackStageToggleButton {
+                    Button {
+                        viewModel.toggleLive()
+                    } label: {
+                        Text(viewModel.isCallLive ? "Stop Live" : "Go Live")
+                    }
                 }
 
                 Spacer()
@@ -66,6 +68,13 @@ struct AudioRoomView: View {
                         viewModel.revokePermissions()
                     },
                     secondaryButton: .cancel()
+                )
+            }
+            .alert(isPresented: .constant(viewModel.callEnded)) {
+                Alert(
+                    title: Text("Live Ended"),
+                    message: Text("The live audioRoom ended."),
+                    dismissButton: .default(Text("OK")) { presentationMode.wrappedValue.dismiss() }
                 )
             }
             
@@ -107,17 +116,13 @@ struct AudioRoomView: View {
         .overlay(
             ZStack {
                 if viewModel.loading {
-                    if viewModel.callEnded {
-                        Text("Call ended")
-                    } else {
-                        ProgressView()
-                    }
+                    ProgressView()
                 }
             }
         )
         .padding()
         .onDisappear {
-            viewModel.leaveCall()
+            viewModel.leaveAudioRoomCall()
         }
     }
 
@@ -126,7 +131,7 @@ struct AudioRoomView: View {
     @ViewBuilder
     private func makeLeaveCallButton() -> some View {
         Button {
-            viewModel.leaveCall()
+            viewModel.leaveAudioRoomCall()
             presentationMode.wrappedValue.dismiss()
         } label: {
             Text("Leave quitely")
@@ -136,7 +141,7 @@ struct AudioRoomView: View {
     @ViewBuilder
     private func makeEndCallButton() -> some View {
         Button {
-            viewModel.endCall()
+            viewModel.endAudioRoomCall()
             presentationMode.wrappedValue.dismiss()
         } label: {
             Text("End")
@@ -150,7 +155,7 @@ struct AudioRoomView_Previews: PreviewProvider {
         InjectedValues[\.streamVideo] = StreamVideo(
             apiKey: UUID().uuidString,
             user: .anonymous,
-            token: .anonymous
+            token: .init(stringLiteral: UUID().uuidString)
         )
         return AudioRoomView(audioRoom: .preview)
     }
