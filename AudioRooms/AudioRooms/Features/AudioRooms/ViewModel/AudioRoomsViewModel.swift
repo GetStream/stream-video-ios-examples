@@ -61,8 +61,9 @@ class AudioRoomsViewModel: ObservableObject {
 
 extension AudioRoom {
 
-    fileprivate init?(_ callData: CallData) {
-        let dict = callData.customData
+    fileprivate init?(_ response: CallStateResponseFields) {
+        let callData = response.call
+        let dict = callData.custom
         guard
             let title = dict["title"]?.stringValue,
             let hosts = dict["hosts"]?.arrayValue?.compactMap(\.dictionaryValue).compactMap(User.init)
@@ -70,7 +71,7 @@ extension AudioRoom {
             return nil
         }
         self = .init(
-            id: callData.callCid,
+            id: callData.cid,
             title: title,
             subtitle: dict["description"]?.stringValue ?? "",
             hosts: hosts,

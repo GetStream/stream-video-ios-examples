@@ -165,7 +165,7 @@ class AudioRoomViewModel: ObservableObject {
                     callSettings: callSettings
                 )
                 loading = false
-                isCallLive = audioRoomCall.state.callData?.backstage == false
+                isCallLive = audioRoomCall.state.backstage == false
                 if Set(audioRoom.hosts.map(\.id)).contains(streamVideo.user.id) {
                     subscribeForPermissionsRequests()
                 }
@@ -237,7 +237,7 @@ class AudioRoomViewModel: ObservableObject {
     private func subscribeForCallUpdates() {
         audioRoomCall
             .state
-            .$callData
+            .$backstage
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in self?.didReceiveCallUpdates($0) }
             .store(in: &cancellables)
@@ -245,13 +245,8 @@ class AudioRoomViewModel: ObservableObject {
 
     // MARK: - Subscription Handlers
 
-    private func didReceiveCallUpdates(_ callData: CallData?) {
-        guard let callData = callData else {
-            isCallLive = false
-            return
-        }
-
-        isCallLive = callData.backstage == false
+    private func didReceiveCallUpdates(_ backstage: Bool) {
+        isCallLive = backstage == false
 
         if !isCallLive && !audioRoomCall.currentUserHasCapability(.updateCall) {
             leaveAudioRoomCall()
