@@ -152,10 +152,12 @@ struct AudioRoomView: View {
 
 struct AudioRoomView_Previews: PreviewProvider {
     static var previews: some View {
+        let token = UserToken(stringLiteral: UUID().uuidString)
         InjectedValues[\.streamVideo] = StreamVideo(
             apiKey: UUID().uuidString,
             user: .anonymous,
-            token: .init(stringLiteral: UUID().uuidString)
+            token: token,
+            tokenProvider: { _  in }
         )
         return AudioRoomView(audioRoom: .preview)
     }

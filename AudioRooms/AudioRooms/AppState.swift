@@ -4,6 +4,7 @@
 
 import StreamVideo
 import SwiftUI
+import Combine
 
 @MainActor
 class AppState: ObservableObject {
@@ -15,6 +16,8 @@ class AppState: ObservableObject {
     var currentUser: User?
     
     var streamVideo: StreamVideo?
+
+    private var connectionStatusCancellable: AnyCancellable?
  }
 
 /* Login-related functionality */
@@ -44,13 +47,12 @@ extension AppState {
             }
         )
         self.streamVideo = streamVideo
-        Task {
-            try await self.streamVideo?.connect()
-            
-            // change the login state
-            userState = .loggedIn
-        }
-        
+
+        connectionStatusCancellable?.cancel()
+        connectionStatusCancellable = streamVideo
+            .$connectionStatus
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in self?.userState = $0 == .connected ? .loggedIn : .notLoggedIn }
     }
     
     func checkLoggedInUser() {
