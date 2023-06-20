@@ -160,7 +160,6 @@ class AudioRoomViewModel: ObservableObject {
             do {
                 log.debug("Joining room \(audioRoom.callId)")
                 try await audioRoomCall.join(
-                    members: audioRoom.hosts.map(\.member),
                     ring: false,
                     callSettings: callSettings
                 )

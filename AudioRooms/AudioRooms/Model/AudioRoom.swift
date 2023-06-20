@@ -101,5 +101,5 @@ extension User {
 
 extension User {
 
-    var member: Member { .init(user: self) }
+    var memberRequest: MemberRequest { .init(custom: customData, role: role,  userId: id) }
 }
