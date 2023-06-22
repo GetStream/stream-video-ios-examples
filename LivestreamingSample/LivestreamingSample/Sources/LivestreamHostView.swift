@@ -56,7 +56,7 @@ struct LivestreamHostView: View {
             
             ZStack {
                 HStack {
-                    if isBroadcasting && !isLoading {
+                    if isBroadcasting {
                         Button {
                             Task {
                                 isLoading = true
@@ -103,11 +103,19 @@ struct LivestreamHostView: View {
         }
         .background(Color(UIColor.systemBackground))
         .navigationBarHidden(true)
-        .onReceive(call.state.$egress, perform: { newValue in
-            isBroadcasting = newValue?.broadcasting == true
-            if isBroadcasting {
-                isLoading = false
+        .task {
+            for await videoEvent in streamVideo.subscribe() {
+                switch videoEvent {
+                case .typeCallBroadcastingStartedEvent:
+                    self.isBroadcasting = true
+                    self.isLoading = false
+                case .typeCallBroadcastingStoppedEvent:
+                    self.isBroadcasting = false
+                    self.isLoading = false
+                default:
+                    break
+                }
             }
-        })
+        }
     }
 }
