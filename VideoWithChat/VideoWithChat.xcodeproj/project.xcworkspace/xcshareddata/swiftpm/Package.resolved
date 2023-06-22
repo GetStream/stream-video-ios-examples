@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-chat-swift.git",
       "state" : {
-        "revision" : "37020c72cb54a26c3eeb37de4344f49f58e6af86",
-        "version" : "4.32.0"
+        "revision" : "980bab5f7c160197d69b36b229441f85f708f9a1",
+        "version" : "4.33.0"
       }
     },
     {
@@ -51,7 +51,7 @@
       "location" : "https://github.com/GetStream/stream-chat-swiftui.git",
       "state" : {
         "branch" : "main",
-        "revision" : "2f3f38183df2acdb4044777935861c81579054d9"
+        "revision" : "aad69eef86c5b19cbb555cca446457ce3eed7033"
       }
     },
     {
@@ -60,7 +60,7 @@
       "location" : "https://github.com/GetStream/stream-video-swift",
       "state" : {
         "branch" : "main",
-        "revision" : "c81bd773f9641076a5143e4a9dcf0fa1c527e924"
+        "revision" : "691b58f4f99689c6165afadf6b77524940507966"
       }
     },
     {

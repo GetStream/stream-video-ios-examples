@@ -66,7 +66,7 @@ struct HomeView: View {
                     .transition(.opacity)
             } else {
                 Button {
-                    viewModel.joinCall(callId: callId, type: .default)
+                    viewModel.joinCall(callType: .default, callId: callId)
                 } label: {
                     Text("Join a call")
                         .padding()
@@ -144,7 +144,11 @@ struct HomeView: View {
                         
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, type: .default, members: selectedParticipants)
+                viewModel.startCall(
+                    callType: .default,
+                    callId: callId,
+                    members: selectedParticipants.map { MemberRequest(custom: $0.customData, role: $0.role, userId: $0.id) }
+                )
             } label: {
                 Text("Start a call")
                     .padding()
