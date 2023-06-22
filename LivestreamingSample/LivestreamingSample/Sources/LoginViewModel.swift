@@ -24,8 +24,10 @@ class LoginViewModel: ObservableObject {
         completion(credentials)
     }
     
-    func loginAnonymously() {
-        
+    func loginAnonymously(completion: (UserCredentials) -> ()) {
+        AppState.shared.currentUser = .anonymous
+        AppState.shared.userState = .loggedIn
+        completion(.init(user: .anonymous, tokenValue: ""))
     }
     
 }
@@ -39,9 +41,7 @@ struct UserCredentials: Identifiable, Codable {
 }
 
 extension UserCredentials {
-    var videoToken: UserToken {
-        try! UserToken(rawValue: tokenValue)
-    }
+    var videoToken: UserToken { UserToken(rawValue: tokenValue) }
 }
 
 extension User {

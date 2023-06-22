@@ -25,18 +25,17 @@ class LivestreamHomeViewModel: ObservableObject {
             subscribeForBroadcastEvents()
         }
     }
-    @Published var watchedCall: CallData?
+    @Published var watchedCall: CallResponse?
     
     private var broadcastEventsTask: Task<Void, Never>?
     
     func createLivestream() {
         guard !callId.isEmpty else { return }
-        let currentUser = streamVideo.user
-        let call = streamVideo.call(callType: .default, callId: callId, members: [currentUser])
+        let call = streamVideo.call(callType: .default, callId: callId)
         Task {
             do {
                 loading = true
-                try await call.join()
+                try await call.join(create: true)
                 loading = false
                 self.call = call
             } catch {
@@ -44,34 +43,51 @@ class LivestreamHomeViewModel: ObservableObject {
             }
         }
     }
-    
+
+    func fetchAnonymousUserTokenIfRequired(for callId: String) async throws {
+        if AppState.shared.currentUser == .anonymous {
+            let token = try await TokenService.shared.fetchToken(for: User.anonymous.id, callIds: ["default:\(callId)"])
+            AppState.shared.streamWrapper = StreamWrapper(
+                apiKey: "hd8szvscpxvd",
+                userCredentials: .init(user: .anonymous, tokenValue: token.rawValue),
+                tokenProvider: { _ in }
+            )
+        }
+    }
+
     func watchCall() {
         guard !watchedCallId.isEmpty else { return }
-        callsController = makeCallsController()
         Task {
+            try await fetchAnonymousUserTokenIfRequired(for: watchedCallId)
+            self.callsController = makeCallsController()
             try await callsController?.loadNextCalls()
-            watchedCall = callsController?.calls.first
-            hlsURL = URL(string: watchedCall?.hlsPlaylistUrl ?? "")
+            if let firstCall = callsController?.calls.first {
+                watchedCall = firstCall.call
+                watchedCallId = firstCall.call.cid
+                hlsURL = URL(string: firstCall.call.egress.hls?.playlistUrl ?? "")
+            }
         }
     }
     
     private func makeCallsController() -> CallsController {
         let sortParam = CallSortParam(direction: .descending, field: .createdAt)
         let filters: [String: RawJSON] = ["id": .dictionary(["$eq": .string(watchedCallId)])]
-        let callsQuery = CallsQuery(sortParams: [sortParam], filters: filters, watch: true)
+        let callsQuery = CallsQuery(sortParams: [sortParam], filters: filters, watch: AppState.shared.currentUser != User.anonymous)
         return streamVideo.makeCallsController(callsQuery: callsQuery)
     }
     
     private func subscribeForBroadcastEvents() {
         broadcastEventsTask?.cancel()
-        guard let callsController else { return }
         broadcastEventsTask = Task {
-            for await event in callsController.broadcastEvents() {
-                if let event = event as? BroadcastingStartedEvent {
+            for await videoEvent in streamVideo.subscribe() {
+                switch videoEvent {
+                case .typeCallBroadcastingStartedEvent(let event) where event.callCid == watchedCallId:
                     let url = event.hlsPlaylistUrl.replacingOccurrences(of: "\\u0026", with: "&")
                     self.hlsURL = URL(string: url)
-                } else if event is BroadcastingStoppedEvent {
+                case .typeCallBroadcastingStoppedEvent:
                     self.hlsURL = nil
+                default:
+                    break
                 }
             }
         }

@@ -21,20 +21,28 @@ struct LoginView: View {
             Text("Select a user")
                 .font(.title)
                 .bold()
-            List(viewModel.users) { user in
-                Button {
-                    Task {
-                        try await viewModel.login(user: user, completion: completion)
+            List {
+                ForEach(viewModel.users) { user in
+                    Button {
+                        Task {
+                            try await viewModel.login(user: user, completion: completion)
+                        }
+                    } label: {
+                        Text(user.name)
                     }
-                } label: {
-                    Text(user.name)
-                        .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.all, 8)
                 }
+
+                Button {
+                    viewModel.loginAnonymously(completion: completion)
+                } label: {
+                    Text("Anonymous User")
+                        .accessibility(identifier: "Login as Anonymous")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.all, 8)
             }
-            .foregroundColor(Color.white)
-            .background(Color.blue)
-            .cornerRadius(16)
         }
         .foregroundColor(.primary)
         .overlay(
