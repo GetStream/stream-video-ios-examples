@@ -54,9 +54,6 @@ class StreamWrapper {
             }
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
-        Task {
-            try await streamVideoUI.connect()
-        }
         let userInfo = UserInfo.init(
             id: userCredentials.user.id,
             name: userCredentials.user.name,

@@ -15,7 +15,7 @@ struct StageView: View {
     init(callId: String? = nil) {
         _viewModel = StateObject(wrappedValue: CallViewModel())
         if let callId = callId, viewModel.callingState == .idle {
-            viewModel.joinCall(callId: callId, type: .default)
+            viewModel.joinCall(callType: .default, callId: callId)
         }
     }
         

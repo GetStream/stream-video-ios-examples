@@ -13,14 +13,15 @@ struct LivestreamHostView: View {
     
     @Injected(\.streamVideo) var streamVideo
     
-    @ObservedObject var call: Call
-    
-    @State var loading = false
+    var call: Call
+
+    @State var isBroadcasting = false
+    @State var isLoading = false
     
     var onLeaveCall: () -> ()
     
     private var participants: [CallParticipant] {
-        return call.participants.map(\.value).sorted(using: defaultComparators)
+        return call.state.participants.map(\.value).sorted(using: defaultComparators)
     }
     
     var body: some View {
@@ -33,7 +34,7 @@ struct LivestreamHostView: View {
                     .foregroundColor(.white)
                     .background(Color.blue)
                     .cornerRadius(8)
-                    .opacity(call.state?.broadcasting == true ? 1 : 0)
+                    .opacity(isBroadcasting ? 1 : 0)
             }
             
             GeometryReader { reader in
@@ -55,10 +56,10 @@ struct LivestreamHostView: View {
             
             ZStack {
                 HStack {
-                    if call.state?.broadcasting == true {
+                    if isBroadcasting {
                         Button {
                             Task {
-                                loading = true
+                                isLoading = true
                                 try await call.stopBroadcasting()
                             }
                         } label: {
@@ -71,7 +72,7 @@ struct LivestreamHostView: View {
                     } else {
                         Button {
                             Task {
-                                loading = true
+                                isLoading = true
                                 try await call.startBroadcasting()
                             }
                         } label: {
@@ -93,17 +94,28 @@ struct LivestreamHostView: View {
                             .cornerRadius(8)
                     }
                 }
-                .opacity(loading ? 0 : 1)
+                .opacity(isLoading ? 0 : 1)
                 
                 ProgressView()
-                    .opacity(loading ? 1 : 0)
+                    .opacity(isLoading ? 1 : 0)
             }
             .padding()
         }
-        .onChange(of: call.state?.broadcasting, perform: { state in
-            loading = false
-        })
         .background(Color(UIColor.systemBackground))
-        .navigationBarHidden(true)        
+        .navigationBarHidden(true)
+        .task {
+            for await videoEvent in call.subscribe() {
+                switch videoEvent {
+                case .typeCallBroadcastingStartedEvent:
+                    self.isBroadcasting = true
+                    self.isLoading = false
+                case .typeCallBroadcastingStoppedEvent:
+                    self.isBroadcasting = false
+                    self.isLoading = false
+                default:
+                    break
+                }
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@
 import StreamChat
 import StreamChatSwiftUI
 import struct StreamVideoSwiftUI.CallModifier
-import class StreamVideo.CallViewModel
+import class StreamVideoSwiftUI.CallViewModel
 import struct StreamVideoSwiftUI.MinimizedCallView
 import SwiftUI
 

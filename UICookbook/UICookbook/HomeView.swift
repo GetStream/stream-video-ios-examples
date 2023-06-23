@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import StreamVideo
+import StreamVideoSwiftUI
 
 struct HomeView: View {
     
@@ -37,7 +37,7 @@ struct JoinCallView: View {
             TextField("Insert call id", text: $callId)
             Button {
                 resignFirstResponder()
-                viewModel.startCall(callId: callId, type: "default", members: [])
+                viewModel.startCall(callType: .default, callId: callId, members: [])
             } label: {
                 Text("Join call")
             }

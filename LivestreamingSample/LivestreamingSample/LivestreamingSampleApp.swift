@@ -18,6 +18,7 @@ struct LivestreamingSampleApp: App {
     @ObservedObject var appState = AppState.shared
         
     init() {
+        LogConfig.level = .debug
         checkLoggedInUser()
     }
     
