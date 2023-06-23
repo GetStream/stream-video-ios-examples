@@ -10,7 +10,7 @@ import UIKit
 import StreamChat
 import StreamChatUI
 import UIKit
-import StreamVideo
+import class StreamVideoSwiftUI.CallViewModel
 import Combine
 import StreamVideoUIKit
 
@@ -24,7 +24,11 @@ class ChannelListViewController: ChatChannelListVC {
         super.viewDidLoad()
         listenToIncomingCalls()
     }
-    
+
+    override func didTapOnCurrentUserAvatar(_ sender: Any) {
+        
+    }
+
     private func listenToIncomingCalls() {
         callViewModel.$callingState.sink { [weak self] newState in
             guard let self = self else { return }

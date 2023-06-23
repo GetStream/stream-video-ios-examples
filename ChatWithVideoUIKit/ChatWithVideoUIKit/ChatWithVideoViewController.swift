@@ -9,6 +9,7 @@ import Combine
 import UIKit
 import StreamChatUI
 import StreamVideo
+import class StreamVideoSwiftUI.CallViewModel
 import StreamVideoUIKit
 
 class ChatWithVideoViewController: ChatChannelVC {
@@ -38,10 +39,11 @@ class ChatWithVideoViewController: ChatChannelVC {
             )
         } ?? []
         callViewModel.startCall(
+            callType: .default,
             callId: UUID().uuidString,
-            type: .default,
-            members: participants
+            members: participants.map { .init(custom: $0.customData, role: $0.role, userId: $0.id) }
         )
+
         let next = CallViewController.make(with: self.callViewModel)
         CallViewHelper.shared.add(callView: next.view)
     }
