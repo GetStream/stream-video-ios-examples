@@ -33,7 +33,7 @@ class StreamWrapper {
         streamVideo = StreamVideo(
             apiKey: apiKey,
             user: userCredentials.user,
-            token: try! UserToken(rawValue: token),
+            token: UserToken(rawValue: token),
             videoConfig: VideoConfig(
                 videoFilters: videoFilters
             ),
@@ -41,12 +41,7 @@ class StreamWrapper {
                 tokenProvider { tokenResult in
                     switch tokenResult {
                     case .success(let rawValue):
-                        do {
-                            let updatedToken = try UserToken(rawValue: rawValue)
-                            result(.success(updatedToken))
-                        } catch {
-                            result(.failure(error))
-                        }
+                        result(.success(UserToken(rawValue: rawValue)))
                     case .failure(let error):
                         result(.failure(error))
                     }
@@ -54,9 +49,6 @@ class StreamWrapper {
             }
         )
         streamVideoUI = StreamVideoUI(streamVideo: streamVideo)
-        Task {
-            try await streamVideoUI.connect()
-        }
         let userInfo = UserInfo.init(
             id: userCredentials.user.id,
             name: userCredentials.user.name,

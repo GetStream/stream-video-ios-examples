@@ -6,7 +6,7 @@
 //
 
 import NukeUI
-import class StreamVideo.CallViewModel
+import class StreamVideoSwiftUI.CallViewModel
 import struct StreamVideo.User
 import StreamChat
 import StreamChatSwiftUI
@@ -180,9 +180,9 @@ public struct CallChatChannelHeader: ToolbarContent {
                     )
                 }
                 callViewModel.startCall(
+                    callType: .default,
                     callId: UUID().uuidString,
-                    type: .default,
-                    members: participants,
+                    members: participants.map { .init(custom: $0.customData, role: $0.role, userId: $0.id) },
                     ring: true
                 )
             } label: {
