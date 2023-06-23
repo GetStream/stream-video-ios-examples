@@ -104,7 +104,7 @@ struct LivestreamHostView: View {
         .background(Color(UIColor.systemBackground))
         .navigationBarHidden(true)
         .task {
-            for await videoEvent in streamVideo.subscribe() {
+            for await videoEvent in call.subscribe() {
                 switch videoEvent {
                 case .typeCallBroadcastingStartedEvent:
                     self.isBroadcasting = true
