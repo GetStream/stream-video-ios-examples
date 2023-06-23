@@ -28,8 +28,7 @@ class CreateRoomViewModel: ObservableObject {
                     "description": .string(description),
                     "hosts": .array([
                         .dictionary(user.toDict())
-                    ]),
-                    "audioRoomCall": .bool(true)
+                    ])
                 ],
                 ring: false
             )
