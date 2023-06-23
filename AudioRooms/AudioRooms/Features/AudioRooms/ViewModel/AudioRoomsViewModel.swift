@@ -23,7 +23,11 @@ class AudioRoomsViewModel: ObservableObject {
     private var controller: CallsController?
     
     init() {
-        let callsQuery = CallsQuery(sortParams: [], filters: ["audioRoomCall": .bool(true)], watch: true)
+        let callsQuery = CallsQuery(
+            sortParams: [],
+            filters: ["type": .dictionary(["$eq": .string("audio_room")])],
+            watch: true
+        )
         let controller = streamVideo.makeCallsController(callsQuery: callsQuery)
         self.controller = controller
         controller
