@@ -56,6 +56,30 @@ extension AudioRoom {
             }
         }()
     }
+
+    init?(from call: Call) {
+        guard
+            let title = call.state.custom["title"]?.stringValue,
+            let description = call.state.custom["description"]?.stringValue,
+            let hostsDict = call.state.custom["hosts"]?.arrayValue?.compactMap(\.dictionaryValue)
+        else {
+            return nil
+        }
+
+        self.id = call.cId
+        self.title = title
+        self.subtitle = description
+        self.hosts = hostsDict.compactMap(User.init)
+        self.type = {
+            if call.state.backstage == false {
+                return .live
+            } else if call.state.endedAt != nil {
+                return .ended
+            } else {
+                return .upcoming
+            }
+        }()
+    }
 }
 
 extension AudioRoom {
