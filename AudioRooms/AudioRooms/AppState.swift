@@ -50,7 +50,8 @@ extension AppState {
 
         connectionStatusCancellable?.cancel()
         connectionStatusCancellable = streamVideo
-            .$connectionStatus
+            .state
+            .$connection
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in self?.userState = $0 == .connected ? .loggedIn : .notLoggedIn }
     }
