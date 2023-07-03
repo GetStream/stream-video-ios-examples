@@ -8,6 +8,7 @@
 import Foundation
 import StreamVideo
 
+@MainActor
 struct AudioRoom: Identifiable {
     enum AudioRoomType: CaseIterable, CustomStringConvertible, Hashable {
         case live
