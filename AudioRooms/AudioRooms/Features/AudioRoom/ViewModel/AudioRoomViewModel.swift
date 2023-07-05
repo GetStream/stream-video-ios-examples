@@ -117,7 +117,11 @@ class AudioRoomViewModel: ObservableObject {
         Task {
             do {
                 let isEnabled = !callSettings.audioOn
-                try await audioRoomCall.changeAudioState(isEnabled: isEnabled)
+                if isEnabled {
+                    try await audioRoomCall.microphone.enable()
+                } else {
+                    try await audioRoomCall.microphone.disable()
+                }
                 callSettings = CallSettings(
                     audioOn: isEnabled,
                     videoOn: callSettings.videoOn,
@@ -189,7 +193,7 @@ class AudioRoomViewModel: ObservableObject {
     private func subscribeForParticipantChanges() {
         audioRoomCall
             .state
-            .$participants
+            .$participantsMap
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in self?.didReceiveParticipantUpdates($0) }
             .store(in: &cancellables)
@@ -291,6 +295,6 @@ class AudioRoomViewModel: ObservableObject {
             changeMuteState()
         }
 
-        didReceiveParticipantUpdates(audioRoomCall.state.participants)
+        didReceiveParticipantUpdates(audioRoomCall.state.participantsMap)
     }
 }
