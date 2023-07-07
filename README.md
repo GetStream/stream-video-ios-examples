@@ -1,5 +1,4 @@
 # stream-video-ios-examples
-Sample apps for the Stream Video SDK.
 
 This repo contains several sample apps to get you started with [Stream Video's iOS SDK](https://github.com/GetStream/stream-video-swift).
 
