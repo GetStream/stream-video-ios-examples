@@ -49,6 +49,7 @@
 		84AA6EBA2988254E005732EF /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		84AA6EBC2988256F005732EF /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		84AD51D02989468F0057F1A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		84CC058C2A56EBE300EE9815 /* stream-video-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "stream-video-swift"; path = "../../stream-video-swift"; sourceTree = "<group>"; };
 		AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomForm.swift; sourceTree = "<group>"; };
 		AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
 		AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Dictionary.swift"; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		84A9B2B2298434C000F96E01 = {
 			isa = PBXGroup;
 			children = (
+				84CC058C2A56EBE300EE9815 /* stream-video-swift */,
 				84A9B2BD298434C000F96E01 /* AudioRooms */,
 				84A9B2BC298434C000F96E01 /* Products */,
 			);
@@ -441,7 +443,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioRooms/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera needed for establishing the call.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone needed for interacting in audio rooms.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -475,7 +476,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioRooms/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera needed for establishing the call.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone needed for interacting in audio rooms.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

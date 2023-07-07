@@ -25,7 +25,7 @@ class AudioRoomViewModel: ObservableObject {
 
     @Published var hosts = [CallParticipant]()
     @Published var otherUsers = [CallParticipant]()
-    @Published var hasPermissionsToSpeak = false
+    @Published var hasPermissionsToSpeak = true
     @Published var isUserMuted = true
     @Published var loading = true
     @Published var permissionPopupShown = false
@@ -117,11 +117,7 @@ class AudioRoomViewModel: ObservableObject {
         Task {
             do {
                 let isEnabled = !callSettings.audioOn
-                if isEnabled {
-                    try await audioRoomCall.microphone.enable()
-                } else {
-                    try await audioRoomCall.microphone.disable()
-                }
+                try await audioRoomCall.microphone.toggle()
                 callSettings = CallSettings(
                     audioOn: isEnabled,
                     videoOn: callSettings.videoOn,
@@ -129,7 +125,12 @@ class AudioRoomViewModel: ObservableObject {
                     audioOutputOn: callSettings.audioOutputOn
                 )
             } catch {
-                log.error("Error toggling microphone")
+                if let apiError = error as? APIError {
+                    log.error("====== \(apiError.message)")
+                } else {
+                    log.error("Error toggling microphone \(error.localizedDescription)")
+                }
+
             }
         }
     }

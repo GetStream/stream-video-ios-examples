@@ -54,7 +54,7 @@ struct LivestreamHomeView: View {
                             Text("Watching stream")
                                 .bold()
                             HStack {
-                                Text("\(watchedCall.cid)")
+                                Text("\(watchedCall.cId)")
                                 Spacer()
                                 if let url = viewModel.hlsURL {
                                     NavigationLink {

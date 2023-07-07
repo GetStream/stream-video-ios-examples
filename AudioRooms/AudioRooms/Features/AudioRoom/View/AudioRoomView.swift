@@ -87,7 +87,7 @@ struct AudioRoomView: View {
             
             HStack {
                 Spacer()
-                if viewModel.hasPermissionsToSpeak {
+                if true {
                     Button {
                         viewModel.changeMuteState()
                     } label: {

@@ -20,8 +20,9 @@ struct LivestreamHostView: View {
     
     var onLeaveCall: () -> ()
     
+    @MainActor
     private var participants: [CallParticipant] {
-        return call.state.participants.map(\.value).sorted(using: defaultComparators)
+        return call.state.participants.sorted(using: defaultComparators)
     }
     
     var body: some View {

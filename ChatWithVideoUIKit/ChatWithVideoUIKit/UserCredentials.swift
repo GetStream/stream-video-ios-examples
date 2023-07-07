@@ -18,6 +18,6 @@ struct UserCredentials: Identifiable, Codable {
 
 extension UserCredentials {
     var videoToken: UserToken {
-        try! UserToken(rawValue: tokenValue)
+        UserToken(rawValue: tokenValue)
     }
 }

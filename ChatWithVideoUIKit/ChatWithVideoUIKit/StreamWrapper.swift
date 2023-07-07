@@ -38,12 +38,8 @@ class StreamWrapper {
                 tokenProvider { tokenResult in
                     switch tokenResult {
                     case .success(let rawValue):
-                        do {
-                            let updatedToken = try UserToken(rawValue: rawValue)
-                            result(.success(updatedToken))
-                        } catch {
-                            result(.failure(error))
-                        }
+                        let updatedToken = UserToken(rawValue: rawValue)
+                        result(.success(updatedToken))
                     case .failure(let error):
                         result(.failure(error))
                     }

@@ -25,7 +25,7 @@ class LivestreamHomeViewModel: ObservableObject {
             subscribeForBroadcastEvents()
         }
     }
-    @Published var watchedCall: CallResponse?
+    @Published var watchedCall: Call?
     
     private var broadcastEventsTask: Task<Void, Never>?
     
@@ -62,9 +62,9 @@ class LivestreamHomeViewModel: ObservableObject {
             self.callsController = makeCallsController()
             try await callsController?.loadNextCalls()
             if let firstCall = callsController?.calls.first {
-                watchedCall = firstCall.call
-                watchedCallId = firstCall.call.cid
-                hlsURL = URL(string: firstCall.call.egress.hls?.playlistUrl ?? "")
+                watchedCall = firstCall
+                watchedCallId = firstCall.cId
+                hlsURL = URL(string: firstCall.state.egress?.hls?.playlistUrl ?? "")
             }
         }
     }
