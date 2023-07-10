@@ -126,7 +126,7 @@ class AudioRoomViewModel: ObservableObject {
                 )
             } catch {
                 if let apiError = error as? APIError {
-                    log.error("====== \(apiError.message)")
+                    log.error("Error toggling microphone \(apiError.message)")
                 } else {
                     log.error("Error toggling microphone \(error.localizedDescription)")
                 }
