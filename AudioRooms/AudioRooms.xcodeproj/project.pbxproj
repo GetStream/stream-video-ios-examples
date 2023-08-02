@@ -7,251 +7,258 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		844CF22A29B5DA6C00389DBD /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CF22829B5DA6C00389DBD /* HTTPClient.swift */; };
-		844CF22B29B5DA6C00389DBD /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CF22929B5DA6C00389DBD /* TokenService.swift */; };
-		84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */; };
-		84A9B2C3298434C200F96E01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A9B2C2298434C200F96E01 /* Assets.xcassets */; };
-		84A9B2C6298434C200F96E01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A9B2C5298434C200F96E01 /* Preview Assets.xcassets */; };
-		84A9B2CE298435AD00F96E01 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 84A9B2CD298435AD00F96E01 /* StreamVideo */; };
-		84A9B2D02984360C00F96E01 /* AudioRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2CF2984360C00F96E01 /* AudioRoom.swift */; };
-		84A9B2D2298438A000F96E01 /* AudioRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */; };
-		84A9B2D4298438AF00F96E01 /* AudioRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */; };
-		84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB029881D17005732EF /* AudioRoomView.swift */; };
-		84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */; };
-		84AA6EB829882534005732EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB529882534005732EF /* LoginView.swift */; };
-		84AA6EB929882534005732EF /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EB629882534005732EF /* UserCredentials.swift */; };
-		84AA6EBB2988254E005732EF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBA2988254E005732EF /* AppState.swift */; };
-		84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6EBC2988256F005732EF /* LocalStorage.swift */; };
-		AC42EB0329FBBA5A004E712F /* CreateRoomForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */; };
-		AC42EB0529FBBDE7004E712F /* CreateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */; };
-		AC42EB0729FBC3CB004E712F /* User+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */; };
-		AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */; };
-		AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */; };
-		AC791BA42993A5FD0072AD3C /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */; };
-		AC791BA62993A6B60072AD3C /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BA52993A6B60072AD3C /* IconView.swift */; };
-		AC791BAB2993EB2A0072AD3C /* ImageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */; };
+		407AFF412A79105A00512216 /* AudioRoomsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF402A79105A00512216 /* AudioRoomsApp.swift */; };
+		407AFF452A79105D00512216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407AFF442A79105D00512216 /* Assets.xcassets */; };
+		407AFF482A79105D00512216 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407AFF472A79105D00512216 /* Preview Assets.xcassets */; };
+		407AFF502A79109A00512216 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 407AFF4F2A79109A00512216 /* StreamVideo */; };
+		407AFF522A79109A00512216 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 407AFF512A79109A00512216 /* StreamVideoSwiftUI */; };
+		407AFF542A79110500512216 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF532A79110500512216 /* DescriptionView.swift */; };
+		407AFF572A79112B00512216 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF562A79112B00512216 /* ParticipantsView.swift */; };
+		407AFF592A79115200512216 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF582A79115200512216 /* ControlsView.swift */; };
+		407AFF5B2A79116F00512216 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF5A2A79116F00512216 /* ContentView.swift */; };
+		407AFF5D2A79120900512216 /* MicButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF5C2A79120900512216 /* MicButtonView.swift */; };
+		407AFF5F2A79122100512216 /* LiveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF5E2A79122100512216 /* LiveButtonView.swift */; };
+		407AFF612A79125100512216 /* ParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF602A79125100512216 /* ParticipantView.swift */; };
+		407AFF632A79127200512216 /* PermissionRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF622A79127200512216 /* PermissionRequestsView.swift */; };
+		407AFF6B2A79139A00512216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF6A2A79139A00512216 /* AppDelegate.swift */; };
+		407AFF6D2A79139A00512216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF6C2A79139A00512216 /* SceneDelegate.swift */; };
+		407AFF6F2A79139A00512216 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF6E2A79139A00512216 /* ContentViewController.swift */; };
+		407AFF742A79139D00512216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407AFF732A79139D00512216 /* Assets.xcassets */; };
+		407AFF772A79139D00512216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407AFF752A79139D00512216 /* LaunchScreen.storyboard */; };
+		407AFF7F2A7914A400512216 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 407AFF7E2A7914A400512216 /* StreamVideo */; };
+		407AFF832A791CDD00512216 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF812A791C1F00512216 /* UIView+Autolayout.swift */; };
+		407AFF852A791F3600512216 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF842A791F3600512216 /* ContentView.swift */; };
+		407AFF872A7922A500512216 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF862A7922A500512216 /* DescriptionView.swift */; };
+		407AFF892A79239B00512216 /* UIStackView+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF882A79239B00512216 /* UIStackView+Convenience.swift */; };
+		407AFF8B2A7924CE00512216 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF8A2A7924CE00512216 /* ParticipantsView.swift */; };
+		407AFF8D2A7925B200512216 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF8C2A7925B200512216 /* ControlsView.swift */; };
+		407AFF8F2A793C1D00512216 /* MicButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF8E2A793C1D00512216 /* MicButtonView.swift */; };
+		407AFF912A793CB500512216 /* LiveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF902A793CB500512216 /* LiveButtonView.swift */; };
+		407AFF932A7947D200512216 /* ParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF922A7947D200512216 /* ParticipantView.swift */; };
+		407AFF952A794AAD00512216 /* StreamVideoUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 407AFF942A794AAD00512216 /* StreamVideoUIKit */; };
+		407AFF972A795F9700512216 /* PermissionRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF962A795F9700512216 /* PermissionRequestsView.swift */; };
+		407AFF992A7967EE00512216 /* ParticipantsListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407AFF982A7967EE00512216 /* ParticipantsListHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		844CF22829B5DA6C00389DBD /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		844CF22929B5DA6C00389DBD /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
-		84A9B2BB298434C000F96E01 /* AudioRooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsApp.swift; sourceTree = "<group>"; };
-		84A9B2C2298434C200F96E01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		84A9B2C5298434C200F96E01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		84A9B2CF2984360C00F96E01 /* AudioRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoom.swift; sourceTree = "<group>"; };
-		84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsView.swift; sourceTree = "<group>"; };
-		84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsViewModel.swift; sourceTree = "<group>"; };
-		84AA6EB029881D17005732EF /* AudioRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomView.swift; sourceTree = "<group>"; };
-		84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomViewModel.swift; sourceTree = "<group>"; };
-		84AA6EB529882534005732EF /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		84AA6EB629882534005732EF /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
-		84AA6EBA2988254E005732EF /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		84AA6EBC2988256F005732EF /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
-		84AD51D02989468F0057F1A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomForm.swift; sourceTree = "<group>"; };
-		AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewModel.swift; sourceTree = "<group>"; };
-		AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Dictionary.swift"; sourceTree = "<group>"; };
-		AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomCell.swift; sourceTree = "<group>"; };
-		AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+BackgroundColor.swift"; sourceTree = "<group>"; };
-		AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
-		AC791BA52993A6B60072AD3C /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
-		AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromUrl.swift; sourceTree = "<group>"; };
+		407AFF3D2A79105A00512216 /* AudioRooms-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AudioRooms-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		407AFF402A79105A00512216 /* AudioRoomsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRoomsApp.swift; sourceTree = "<group>"; };
+		407AFF442A79105D00512216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		407AFF472A79105D00512216 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		407AFF532A79110500512216 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		407AFF562A79112B00512216 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
+		407AFF582A79115200512216 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
+		407AFF5A2A79116F00512216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		407AFF5C2A79120900512216 /* MicButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicButtonView.swift; sourceTree = "<group>"; };
+		407AFF5E2A79122100512216 /* LiveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveButtonView.swift; sourceTree = "<group>"; };
+		407AFF602A79125100512216 /* ParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
+		407AFF622A79127200512216 /* PermissionRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestsView.swift; sourceTree = "<group>"; };
+		407AFF682A79139A00512216 /* AudioRooms-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AudioRooms-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		407AFF6A2A79139A00512216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		407AFF6C2A79139A00512216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		407AFF6E2A79139A00512216 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		407AFF732A79139D00512216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		407AFF762A79139D00512216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		407AFF782A79139D00512216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407AFF812A791C1F00512216 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
+		407AFF842A791F3600512216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		407AFF862A7922A500512216 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		407AFF882A79239B00512216 /* UIStackView+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Convenience.swift"; sourceTree = "<group>"; };
+		407AFF8A2A7924CE00512216 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
+		407AFF8C2A7925B200512216 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
+		407AFF8E2A793C1D00512216 /* MicButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicButtonView.swift; sourceTree = "<group>"; };
+		407AFF902A793CB500512216 /* LiveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveButtonView.swift; sourceTree = "<group>"; };
+		407AFF922A7947D200512216 /* ParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
+		407AFF962A795F9700512216 /* PermissionRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestsView.swift; sourceTree = "<group>"; };
+		407AFF982A7967EE00512216 /* ParticipantsListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsListHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		84A9B2B8298434C000F96E01 /* Frameworks */ = {
+		407AFF3A2A79105A00512216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A9B2CE298435AD00F96E01 /* StreamVideo in Frameworks */,
+				407AFF522A79109A00512216 /* StreamVideoSwiftUI in Frameworks */,
+				407AFF502A79109A00512216 /* StreamVideo in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407AFF652A79139A00512216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407AFF7F2A7914A400512216 /* StreamVideo in Frameworks */,
+				407AFF952A794AAD00512216 /* StreamVideoUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84A9B2B2298434C000F96E01 = {
+		407AFF342A79105A00512216 = {
 			isa = PBXGroup;
 			children = (
-				84A9B2BD298434C000F96E01 /* AudioRooms */,
-				84A9B2BC298434C000F96E01 /* Products */,
+				407AFF3F2A79105A00512216 /* AudioRooms-SwiftUI */,
+				407AFF692A79139A00512216 /* AudioRooms-UIKit */,
+				407AFF3E2A79105A00512216 /* Products */,
+				407AFF7D2A7914A400512216 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		84A9B2BC298434C000F96E01 /* Products */ = {
+		407AFF3E2A79105A00512216 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84A9B2BB298434C000F96E01 /* AudioRooms.app */,
+				407AFF3D2A79105A00512216 /* AudioRooms-SwiftUI.app */,
+				407AFF682A79139A00512216 /* AudioRooms-UIKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84A9B2BD298434C000F96E01 /* AudioRooms */ = {
+		407AFF3F2A79105A00512216 /* AudioRooms-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				84AA6EBA2988254E005732EF /* AppState.swift */,
-				84A9B2C2298434C200F96E01 /* Assets.xcassets */,
-				84A9B2BE298434C000F96E01 /* AudioRoomsApp.swift */,
-				AC791B972993A09A0072AD3C /* Features */,
-				AC791B9D2993A1660072AD3C /* Helpers */,
-				84AD51D02989468F0057F1A5 /* Info.plist */,
-				AC791BA92993A73A0072AD3C /* Model */,
-				84A9B2C4298434C200F96E01 /* Preview Content */,
+				407AFF552A79111E00512216 /* Components */,
+				407AFF402A79105A00512216 /* AudioRoomsApp.swift */,
+				407AFF442A79105D00512216 /* Assets.xcassets */,
+				407AFF462A79105D00512216 /* Preview Content */,
 			);
-			path = AudioRooms;
+			path = "AudioRooms-SwiftUI";
 			sourceTree = "<group>";
 		};
-		84A9B2C4298434C200F96E01 /* Preview Content */ = {
+		407AFF462A79105D00512216 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				84A9B2C5298434C200F96E01 /* Preview Assets.xcassets */,
+				407AFF472A79105D00512216 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AC791B972993A09A0072AD3C /* Features */ = {
+		407AFF552A79111E00512216 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AC791BA72993A72C0072AD3C /* Login */,
-				AC791BA02993A55D0072AD3C /* AudioRoom */,
-				AC791B982993A09F0072AD3C /* AudioRooms */,
+				407AFF5A2A79116F00512216 /* ContentView.swift */,
+				407AFF582A79115200512216 /* ControlsView.swift */,
+				407AFF532A79110500512216 /* DescriptionView.swift */,
+				407AFF5E2A79122100512216 /* LiveButtonView.swift */,
+				407AFF5C2A79120900512216 /* MicButtonView.swift */,
+				407AFF562A79112B00512216 /* ParticipantsView.swift */,
+				407AFF602A79125100512216 /* ParticipantView.swift */,
+				407AFF622A79127200512216 /* PermissionRequestsView.swift */,
 			);
-			path = Features;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		AC791B982993A09F0072AD3C /* AudioRooms */ = {
+		407AFF692A79139A00512216 /* AudioRooms-UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				AC791B9A2993A0AD0072AD3C /* ViewModel */,
-				AC791B992993A0A80072AD3C /* View */,
+				407AFF802A791C1300512216 /* Utilities */,
+				407AFF7C2A79143E00512216 /* Components */,
+				407AFF6A2A79139A00512216 /* AppDelegate.swift */,
+				407AFF6C2A79139A00512216 /* SceneDelegate.swift */,
+				407AFF732A79139D00512216 /* Assets.xcassets */,
+				407AFF752A79139D00512216 /* LaunchScreen.storyboard */,
+				407AFF782A79139D00512216 /* Info.plist */,
 			);
-			path = AudioRooms;
+			path = "AudioRooms-UIKit";
 			sourceTree = "<group>";
 		};
-		AC791B992993A0A80072AD3C /* View */ = {
+		407AFF7C2A79143E00512216 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AC791B9B2993A13F0072AD3C /* AudioRoomCell.swift */,
-				84A9B2D1298438A000F96E01 /* AudioRoomsView.swift */,
-				AC791BAA2993EB2A0072AD3C /* ImageFromUrl.swift */,
-				AC42EB0229FBBA5A004E712F /* CreateRoomForm.swift */,
+				407AFF6E2A79139A00512216 /* ContentViewController.swift */,
+				407AFF842A791F3600512216 /* ContentView.swift */,
+				407AFF862A7922A500512216 /* DescriptionView.swift */,
+				407AFF8A2A7924CE00512216 /* ParticipantsView.swift */,
+				407AFF8C2A7925B200512216 /* ControlsView.swift */,
+				407AFF8E2A793C1D00512216 /* MicButtonView.swift */,
+				407AFF902A793CB500512216 /* LiveButtonView.swift */,
+				407AFF922A7947D200512216 /* ParticipantView.swift */,
+				407AFF962A795F9700512216 /* PermissionRequestsView.swift */,
+				407AFF982A7967EE00512216 /* ParticipantsListHeader.swift */,
 			);
-			path = View;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		AC791B9A2993A0AD0072AD3C /* ViewModel */ = {
+		407AFF7D2A7914A400512216 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84A9B2D3298438AF00F96E01 /* AudioRoomsViewModel.swift */,
-				AC42EB0429FBBDE7004E712F /* CreateRoomViewModel.swift */,
 			);
-			path = ViewModel;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AC791B9D2993A1660072AD3C /* Helpers */ = {
+		407AFF802A791C1300512216 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AC791B9E2993A1750072AD3C /* Color+BackgroundColor.swift */,
-				84AA6EBC2988256F005732EF /* LocalStorage.swift */,
+				407AFF812A791C1F00512216 /* UIView+Autolayout.swift */,
+				407AFF882A79239B00512216 /* UIStackView+Convenience.swift */,
 			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		AC791BA02993A55D0072AD3C /* AudioRoom */ = {
-			isa = PBXGroup;
-			children = (
-				AC791BA22993A5680072AD3C /* ViewModel */,
-				AC791BA12993A5640072AD3C /* View */,
-			);
-			path = AudioRoom;
-			sourceTree = "<group>";
-		};
-		AC791BA12993A5640072AD3C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84AA6EB029881D17005732EF /* AudioRoomView.swift */,
-				AC791BA32993A5FD0072AD3C /* ParticipantsView.swift */,
-				AC791BA52993A6B60072AD3C /* IconView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AC791BA22993A5680072AD3C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				84AA6EB229881DDE005732EF /* AudioRoomViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AC791BA72993A72C0072AD3C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				844CF22829B5DA6C00389DBD /* HTTPClient.swift */,
-				844CF22929B5DA6C00389DBD /* TokenService.swift */,
-				AC791BA82993A7310072AD3C /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		AC791BA82993A7310072AD3C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84AA6EB529882534005732EF /* LoginView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AC791BA92993A73A0072AD3C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				84A9B2CF2984360C00F96E01 /* AudioRoom.swift */,
-				84AA6EB629882534005732EF /* UserCredentials.swift */,
-				AC42EB0629FBC3CB004E712F /* User+Dictionary.swift */,
-			);
-			path = Model;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84A9B2BA298434C000F96E01 /* AudioRooms */ = {
+		407AFF3C2A79105A00512216 /* AudioRooms-SwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84A9B2C9298434C200F96E01 /* Build configuration list for PBXNativeTarget "AudioRooms" */;
+			buildConfigurationList = 407AFF4B2A79105D00512216 /* Build configuration list for PBXNativeTarget "AudioRooms-SwiftUI" */;
 			buildPhases = (
-				84A9B2B7298434C000F96E01 /* Sources */,
-				84A9B2B8298434C000F96E01 /* Frameworks */,
-				84A9B2B9298434C000F96E01 /* Resources */,
+				407AFF392A79105A00512216 /* Sources */,
+				407AFF3A2A79105A00512216 /* Frameworks */,
+				407AFF3B2A79105A00512216 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AudioRooms;
+			name = "AudioRooms-SwiftUI";
 			packageProductDependencies = (
-				84A9B2CD298435AD00F96E01 /* StreamVideo */,
+				407AFF4F2A79109A00512216 /* StreamVideo */,
+				407AFF512A79109A00512216 /* StreamVideoSwiftUI */,
 			);
 			productName = AudioRooms;
-			productReference = 84A9B2BB298434C000F96E01 /* AudioRooms.app */;
+			productReference = 407AFF3D2A79105A00512216 /* AudioRooms-SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		407AFF672A79139A00512216 /* AudioRooms-UIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407AFF792A79139D00512216 /* Build configuration list for PBXNativeTarget "AudioRooms-UIKit" */;
+			buildPhases = (
+				407AFF642A79139A00512216 /* Sources */,
+				407AFF652A79139A00512216 /* Frameworks */,
+				407AFF662A79139A00512216 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AudioRooms-UIKit";
+			packageProductDependencies = (
+				407AFF7E2A7914A400512216 /* StreamVideo */,
+				407AFF942A794AAD00512216 /* StreamVideoUIKit */,
+			);
+			productName = "AudioRooms-UIKit";
+			productReference = 407AFF682A79139A00512216 /* AudioRooms-UIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		84A9B2B3298434C000F96E01 /* Project object */ = {
+		407AFF352A79105A00512216 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					84A9B2BA298434C000F96E01 = {
-						CreatedOnToolsVersion = 14.2;
+					407AFF3C2A79105A00512216 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					407AFF672A79139A00512216 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = 84A9B2B6298434C000F96E01 /* Build configuration list for PBXProject "AudioRooms" */;
+			buildConfigurationList = 407AFF382A79105A00512216 /* Build configuration list for PBXProject "AudioRooms" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -259,66 +266,98 @@
 				en,
 				Base,
 			);
-			mainGroup = 84A9B2B2298434C000F96E01;
+			mainGroup = 407AFF342A79105A00512216;
 			packageReferences = (
-				84A9B2CC298435AD00F96E01 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+				407AFF4E2A79109900512216 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
 			);
-			productRefGroup = 84A9B2BC298434C000F96E01 /* Products */;
+			productRefGroup = 407AFF3E2A79105A00512216 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84A9B2BA298434C000F96E01 /* AudioRooms */,
+				407AFF3C2A79105A00512216 /* AudioRooms-SwiftUI */,
+				407AFF672A79139A00512216 /* AudioRooms-UIKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		84A9B2B9298434C000F96E01 /* Resources */ = {
+		407AFF3B2A79105A00512216 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A9B2C6298434C200F96E01 /* Preview Assets.xcassets in Resources */,
-				84A9B2C3298434C200F96E01 /* Assets.xcassets in Resources */,
+				407AFF482A79105D00512216 /* Preview Assets.xcassets in Resources */,
+				407AFF452A79105D00512216 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407AFF662A79139A00512216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407AFF772A79139D00512216 /* LaunchScreen.storyboard in Resources */,
+				407AFF742A79139D00512216 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		84A9B2B7298434C000F96E01 /* Sources */ = {
+		407AFF392A79105A00512216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC42EB0729FBC3CB004E712F /* User+Dictionary.swift in Sources */,
-				AC791BAB2993EB2A0072AD3C /* ImageFromUrl.swift in Sources */,
-				84AA6EBD2988256F005732EF /* LocalStorage.swift in Sources */,
-				AC791BA62993A6B60072AD3C /* IconView.swift in Sources */,
-				84A9B2D2298438A000F96E01 /* AudioRoomsView.swift in Sources */,
-				AC42EB0329FBBA5A004E712F /* CreateRoomForm.swift in Sources */,
-				84AA6EBB2988254E005732EF /* AppState.swift in Sources */,
-				84A9B2D02984360C00F96E01 /* AudioRoom.swift in Sources */,
-				AC791B9C2993A13F0072AD3C /* AudioRoomCell.swift in Sources */,
-				84A9B2D4298438AF00F96E01 /* AudioRoomsViewModel.swift in Sources */,
-				84AA6EB129881D17005732EF /* AudioRoomView.swift in Sources */,
-				AC791B9F2993A1750072AD3C /* Color+BackgroundColor.swift in Sources */,
-				844CF22A29B5DA6C00389DBD /* HTTPClient.swift in Sources */,
-				AC791BA42993A5FD0072AD3C /* ParticipantsView.swift in Sources */,
-				844CF22B29B5DA6C00389DBD /* TokenService.swift in Sources */,
-				84AA6EB329881DDE005732EF /* AudioRoomViewModel.swift in Sources */,
-				84AA6EB929882534005732EF /* UserCredentials.swift in Sources */,
-				AC42EB0529FBBDE7004E712F /* CreateRoomViewModel.swift in Sources */,
-				84A9B2BF298434C000F96E01 /* AudioRoomsApp.swift in Sources */,
-				84AA6EB829882534005732EF /* LoginView.swift in Sources */,
+				407AFF5D2A79120900512216 /* MicButtonView.swift in Sources */,
+				407AFF592A79115200512216 /* ControlsView.swift in Sources */,
+				407AFF612A79125100512216 /* ParticipantView.swift in Sources */,
+				407AFF5B2A79116F00512216 /* ContentView.swift in Sources */,
+				407AFF412A79105A00512216 /* AudioRoomsApp.swift in Sources */,
+				407AFF632A79127200512216 /* PermissionRequestsView.swift in Sources */,
+				407AFF542A79110500512216 /* DescriptionView.swift in Sources */,
+				407AFF5F2A79122100512216 /* LiveButtonView.swift in Sources */,
+				407AFF572A79112B00512216 /* ParticipantsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407AFF642A79139A00512216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407AFF6F2A79139A00512216 /* ContentViewController.swift in Sources */,
+				407AFF8D2A7925B200512216 /* ControlsView.swift in Sources */,
+				407AFF992A7967EE00512216 /* ParticipantsListHeader.swift in Sources */,
+				407AFF852A791F3600512216 /* ContentView.swift in Sources */,
+				407AFF892A79239B00512216 /* UIStackView+Convenience.swift in Sources */,
+				407AFF832A791CDD00512216 /* UIView+Autolayout.swift in Sources */,
+				407AFF872A7922A500512216 /* DescriptionView.swift in Sources */,
+				407AFF932A7947D200512216 /* ParticipantView.swift in Sources */,
+				407AFF6B2A79139A00512216 /* AppDelegate.swift in Sources */,
+				407AFF8B2A7924CE00512216 /* ParticipantsView.swift in Sources */,
+				407AFF912A793CB500512216 /* LiveButtonView.swift in Sources */,
+				407AFF972A795F9700512216 /* PermissionRequestsView.swift in Sources */,
+				407AFF8F2A793C1D00512216 /* MicButtonView.swift in Sources */,
+				407AFF6D2A79139A00512216 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		407AFF752A79139D00512216 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				407AFF762A79139D00512216 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		84A9B2C7298434C200F96E01 /* Debug */ = {
+		407AFF492A79105D00512216 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -351,7 +390,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -365,20 +405,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		84A9B2C8298434C200F96E01 /* Release */ = {
+		407AFF4A2A79105D00512216 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -411,7 +453,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -419,40 +462,39 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		84A9B2CA298434C200F96E01 /* Debug */ = {
+		407AFF4C2A79105D00512216 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AudioRooms/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone needed for interacting in audio rooms.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AudioRooms requires microphone access in order to capture and transmit audio";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.AudioRooms;
+				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.tutorial.audioroom.audiorooms.swiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -460,35 +502,88 @@
 			};
 			name = Debug;
 		};
-		84A9B2CB298434C200F96E01 /* Release */ = {
+		407AFF4D2A79105D00512216 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EHV7XZLAHA;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AudioRooms-SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AudioRooms/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone needed for interacting in audio rooms.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AudioRooms requires microphone access in order to capture and transmit audio";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.AudioRooms;
+				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.tutorial.audioroom.audiorooms.swiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AudioRooms AppStore";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		407AFF7A2A79139D00512216 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AudioRooms-UIKit/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AudioRooms requires microphone access in order to capture and transmit audio";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.getstream.tutorial.audiorooms.uikit.AudioRooms-UIKit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		407AFF7B2A79139D00512216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AudioRooms-UIKit/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AudioRooms requires microphone access in order to capture and transmit audio";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.getstream.tutorial.audiorooms.uikit.AudioRooms-UIKit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,20 +593,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84A9B2B6298434C000F96E01 /* Build configuration list for PBXProject "AudioRooms" */ = {
+		407AFF382A79105A00512216 /* Build configuration list for PBXProject "AudioRooms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84A9B2C7298434C200F96E01 /* Debug */,
-				84A9B2C8298434C200F96E01 /* Release */,
+				407AFF492A79105D00512216 /* Debug */,
+				407AFF4A2A79105D00512216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84A9B2C9298434C200F96E01 /* Build configuration list for PBXNativeTarget "AudioRooms" */ = {
+		407AFF4B2A79105D00512216 /* Build configuration list for PBXNativeTarget "AudioRooms-SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84A9B2CA298434C200F96E01 /* Debug */,
-				84A9B2CB298434C200F96E01 /* Release */,
+				407AFF4C2A79105D00512216 /* Debug */,
+				407AFF4D2A79105D00512216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407AFF792A79139D00512216 /* Build configuration list for PBXNativeTarget "AudioRooms-UIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407AFF7A2A79139D00512216 /* Debug */,
+				407AFF7B2A79139D00512216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -519,9 +623,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		84A9B2CC298435AD00F96E01 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+		407AFF4E2A79109900512216 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			repositoryURL = "https://github.com/GetStream/stream-video-swift";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -530,12 +634,27 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		84A9B2CD298435AD00F96E01 /* StreamVideo */ = {
+		407AFF4F2A79109A00512216 /* StreamVideo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 84A9B2CC298435AD00F96E01 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			package = 407AFF4E2A79109900512216 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideo;
+		};
+		407AFF512A79109A00512216 /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 407AFF4E2A79109900512216 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
+		};
+		407AFF7E2A7914A400512216 /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 407AFF4E2A79109900512216 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		407AFF942A794AAD00512216 /* StreamVideoUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 407AFF4E2A79109900512216 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 84A9B2B3298434C000F96E01 /* Project object */;
+	rootObject = 407AFF352A79105A00512216 /* Project object */;
 }
