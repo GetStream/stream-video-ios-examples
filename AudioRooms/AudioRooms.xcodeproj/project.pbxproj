@@ -48,7 +48,7 @@
 		407AFF532A79110500512216 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		407AFF562A79112B00512216 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
 		407AFF582A79115200512216 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
-		407AFF5A2A79116F00512216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		407AFF5A2A79116F00512216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = Components/ContentView.swift; sourceTree = "<group>"; };
 		407AFF5C2A79120900512216 /* MicButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicButtonView.swift; sourceTree = "<group>"; };
 		407AFF5E2A79122100512216 /* LiveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveButtonView.swift; sourceTree = "<group>"; };
 		407AFF602A79125100512216 /* ParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
@@ -117,9 +117,16 @@
 		407AFF3F2A79105A00512216 /* AudioRooms-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				407AFF552A79111E00512216 /* Components */,
-				407AFF402A79105A00512216 /* AudioRoomsApp.swift */,
 				407AFF442A79105D00512216 /* Assets.xcassets */,
+				407AFF402A79105A00512216 /* AudioRoomsApp.swift */,
+				407AFF5A2A79116F00512216 /* ContentView.swift */,
+				407AFF582A79115200512216 /* ControlsView.swift */,
+				407AFF532A79110500512216 /* DescriptionView.swift */,
+				407AFF5E2A79122100512216 /* LiveButtonView.swift */,
+				407AFF5C2A79120900512216 /* MicButtonView.swift */,
+				407AFF562A79112B00512216 /* ParticipantsView.swift */,
+				407AFF602A79125100512216 /* ParticipantView.swift */,
+				407AFF622A79127200512216 /* PermissionRequestsView.swift */,
 				407AFF462A79105D00512216 /* Preview Content */,
 			);
 			path = "AudioRooms-SwiftUI";
@@ -133,50 +140,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		407AFF552A79111E00512216 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				407AFF5A2A79116F00512216 /* ContentView.swift */,
-				407AFF582A79115200512216 /* ControlsView.swift */,
-				407AFF532A79110500512216 /* DescriptionView.swift */,
-				407AFF5E2A79122100512216 /* LiveButtonView.swift */,
-				407AFF5C2A79120900512216 /* MicButtonView.swift */,
-				407AFF562A79112B00512216 /* ParticipantsView.swift */,
-				407AFF602A79125100512216 /* ParticipantView.swift */,
-				407AFF622A79127200512216 /* PermissionRequestsView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		407AFF692A79139A00512216 /* AudioRooms-UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				407AFF802A791C1300512216 /* Utilities */,
-				407AFF7C2A79143E00512216 /* Components */,
-				407AFF6A2A79139A00512216 /* AppDelegate.swift */,
-				407AFF6C2A79139A00512216 /* SceneDelegate.swift */,
-				407AFF732A79139D00512216 /* Assets.xcassets */,
-				407AFF752A79139D00512216 /* LaunchScreen.storyboard */,
 				407AFF782A79139D00512216 /* Info.plist */,
-			);
-			path = "AudioRooms-UIKit";
-			sourceTree = "<group>";
-		};
-		407AFF7C2A79143E00512216 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				407AFF6E2A79139A00512216 /* ContentViewController.swift */,
+				407AFF6A2A79139A00512216 /* AppDelegate.swift */,
 				407AFF842A791F3600512216 /* ContentView.swift */,
-				407AFF862A7922A500512216 /* DescriptionView.swift */,
-				407AFF8A2A7924CE00512216 /* ParticipantsView.swift */,
+				407AFF6E2A79139A00512216 /* ContentViewController.swift */,
 				407AFF8C2A7925B200512216 /* ControlsView.swift */,
-				407AFF8E2A793C1D00512216 /* MicButtonView.swift */,
+				407AFF862A7922A500512216 /* DescriptionView.swift */,
 				407AFF902A793CB500512216 /* LiveButtonView.swift */,
+				407AFF8E2A793C1D00512216 /* MicButtonView.swift */,
+				407AFF982A7967EE00512216 /* ParticipantsListHeader.swift */,
+				407AFF8A2A7924CE00512216 /* ParticipantsView.swift */,
 				407AFF922A7947D200512216 /* ParticipantView.swift */,
 				407AFF962A795F9700512216 /* PermissionRequestsView.swift */,
-				407AFF982A7967EE00512216 /* ParticipantsListHeader.swift */,
+				407AFF6C2A79139A00512216 /* SceneDelegate.swift */,
+				407AFF882A79239B00512216 /* UIStackView+Convenience.swift */,
+				407AFF812A791C1F00512216 /* UIView+Autolayout.swift */,
+				407AFF732A79139D00512216 /* Assets.xcassets */,
+				407AFF752A79139D00512216 /* LaunchScreen.storyboard */,
 			);
-			path = Components;
+			path = "AudioRooms-UIKit";
 			sourceTree = "<group>";
 		};
 		407AFF7D2A7914A400512216 /* Frameworks */ = {
@@ -184,15 +169,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		407AFF802A791C1300512216 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				407AFF812A791C1F00512216 /* UIView+Autolayout.swift */,
-				407AFF882A79239B00512216 /* UIStackView+Convenience.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
