@@ -61,7 +61,7 @@ struct LivestreamHostView: View {
                         Button {
                             Task {
                                 isLoading = true
-                                try await call.stopBroadcasting()
+                                try await call.stopHLS()
                             }
                         } label: {
                             Text("Stop stream")
@@ -74,7 +74,7 @@ struct LivestreamHostView: View {
                         Button {
                             Task {
                                 isLoading = true
-                                try await call.startBroadcasting()
+                                try await call.startHLS()
                             }
                         } label: {
                             Text("Start stream")

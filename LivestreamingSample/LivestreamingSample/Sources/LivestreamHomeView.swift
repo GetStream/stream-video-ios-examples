@@ -88,7 +88,7 @@ struct LivestreamHomeView: View {
                     LivestreamHostView(call: call) {
                         call.leave()
                         Task {
-                            try? await call.stopBroadcasting()
+                            try? await call.stopHLS()
                         }
                         viewModel.call = nil
                     }
