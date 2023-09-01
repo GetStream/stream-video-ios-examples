@@ -29,12 +29,9 @@ struct CallView: View {
                             participant: dominantSpeaker,
                             availableSize: reader.size,
                             contentMode: .scaleAspectFit,
-                            customData: [:]
-                        ) { participant, view in
-                            if let track = dominantSpeaker.track {
-                                view.add(track: track)
-                            }
-                        }
+                            customData: [:],
+                            call: viewModel.call
+                        )
                     }
                     
                     VStack {

@@ -45,10 +45,9 @@ struct LivestreamHostView: View {
                         availableSize: reader.size,
                         contentMode: .scaleAspectFit,
                         edgesIgnoringSafeArea: .bottom,
-                        customData: [:]
-                    ) { participant, view in
-                            view.handleViewRendering(for: participant) { size, participant in }
-                        }
+                        customData: [:],
+                        call: call
+                    )
                 } else {
                     Color(UIColor.secondarySystemBackground)
                 }
