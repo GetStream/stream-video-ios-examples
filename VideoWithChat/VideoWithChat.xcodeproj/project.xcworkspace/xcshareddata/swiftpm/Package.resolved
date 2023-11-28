@@ -1,48 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "difference",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Difference.git",
-      "state" : {
-        "revision" : "02fe1111edc8318c4f8a0da96336fcbcc201f38b",
-        "version" : "1.0.1"
-      }
-    },
-    {
-      "identity" : "nuke",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kean/Nuke.git",
-      "state" : {
-        "revision" : "93c8dc78fbc0aa3538a0db460eb389d4180af242",
-        "version" : "11.3.1"
-      }
-    },
-    {
-      "identity" : "specs",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/webrtc-sdk/Specs.git",
-      "state" : {
-        "revision" : "6fee6cd2e79d5605272207e224c9f3f5ec7010a7",
-        "version" : "104.5112.11"
-      }
-    },
-    {
       "identity" : "stream-chat-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-chat-swift.git",
       "state" : {
-        "revision" : "980bab5f7c160197d69b36b229441f85f708f9a1",
-        "version" : "4.33.0"
-      }
-    },
-    {
-      "identity" : "stream-chat-swift-test-helpers",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/GetStream/stream-chat-swift-test-helpers.git",
-      "state" : {
-        "revision" : "237da98e4946ed8e2dac51d9e82e713b0d47a298",
-        "version" : "0.2.5"
+        "revision" : "ec8c625bf6963fbc49e63deba7e5915cc8e624a4",
+        "version" : "4.43.0"
       }
     },
     {
@@ -51,7 +15,7 @@
       "location" : "https://github.com/GetStream/stream-chat-swiftui.git",
       "state" : {
         "branch" : "main",
-        "revision" : "aad69eef86c5b19cbb555cca446457ce3eed7033"
+        "revision" : "b326fe6408b90737ddf0c0b8c84e4ce04d054bb7"
       }
     },
     {
@@ -60,7 +24,16 @@
       "location" : "https://github.com/GetStream/stream-video-swift",
       "state" : {
         "branch" : "main",
-        "revision" : "c337cd4e530ed8c850e345388d2e035f776d6c74"
+        "revision" : "618f02614e6e0452def3ec215e9550e62c04638a"
+      }
+    },
+    {
+      "identity" : "stream-video-swift-webrtc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GetStream/stream-video-swift-webrtc.git",
+      "state" : {
+        "revision" : "2f7e07b4de39aeb65f3fdc83e4fdbefe5d7d5292",
+        "version" : "114.5735.8"
       }
     },
     {
@@ -70,15 +43,6 @@
       "state" : {
         "revision" : "f25867a208f459d3c5a06935dceb9083b11cd539",
         "version" : "1.22.0"
-      }
-    },
-    {
-      "identity" : "swifter",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/httpswift/swifter",
-      "state" : {
-        "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
-        "version" : "1.5.0"
       }
     }
   ],

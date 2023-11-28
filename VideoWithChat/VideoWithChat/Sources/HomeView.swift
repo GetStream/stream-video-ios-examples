@@ -3,7 +3,6 @@
 //
 
 import Intents
-import NukeUI
 import SwiftUI
 import StreamVideo
 import StreamVideoSwiftUI
@@ -38,7 +37,7 @@ struct HomeView: View {
                     Button {
                         logoutAlertShown = true
                     } label: {
-                        LazyImage(url: streamVideo.user.imageURL)
+                        StreamLazyImage(imageURL: streamVideo.user.imageURL)
                             .frame(width: imageSize, height: imageSize)
                             .clipShape(Circle())
                     }
@@ -127,7 +126,7 @@ struct HomeView: View {
                     }
                 } label: {
                     HStack {
-                        LazyImage(url: participant.imageURL)
+                        StreamLazyImage(imageURL: participant.imageURL)
                             .frame(width: imageSize, height: imageSize)
                             .clipShape(Circle())
                         Text(participant.name)
