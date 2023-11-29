@@ -5,7 +5,6 @@
 //  Created by Martin Mitrevski on 15.11.22.
 //
 
-import NukeUI
 import class StreamVideoSwiftUI.CallViewModel
 import struct StreamVideo.User
 import StreamChat
@@ -116,8 +115,7 @@ public struct CustomChannelHeader: ToolbarContent {
             Button {
                 logoutAlertShown = true
             } label: {
-                LazyImage(url: currentUserController.currentUser?.imageURL)
-                    .onDisappear(.cancel)
+                StreamLazyImage(url: currentUserController.currentUser?.imageURL)
                     .clipShape(Circle())
                     .frame(
                         width: 30,
