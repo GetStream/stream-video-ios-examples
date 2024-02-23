@@ -41,7 +41,8 @@ class ChatWithVideoViewController: ChatChannelVC {
         callViewModel.startCall(
             callType: .default,
             callId: UUID().uuidString,
-            members: participants.map { .init(custom: $0.customData, role: $0.role, userId: $0.id) }
+            members: participants.map { .init(custom: $0.customData, role: $0.role, userId: $0.id) },
+            ring: true
         )
 
         let next = CallViewController.make(with: self.callViewModel)
