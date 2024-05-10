@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		409CA7872BECD0A40045F7AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409CA7852BECD0A40045F7AA /* Preview Assets.xcassets */; };
+		409CA78B2BECDB150045F7AA /* CustomOutgoingCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA78A2BECDB150045F7AA /* CustomOutgoingCallView.swift */; };
+		409CA78D2BECDD0A0045F7AA /* CustomViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA78C2BECDD0A0045F7AA /* CustomViewFactory.swift */; };
+		409CA78F2BECDFB20045F7AA /* CallAgainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA78E2BECDFB20045F7AA /* CallAgainView.swift */; };
+		409CA7962BED025C0045F7AA /* CustomCallKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA7952BED025C0045F7AA /* CustomCallKitService.swift */; };
+		409CA79C2BEE445D0045F7AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA79B2BEE445D0045F7AA /* AppDelegate.swift */; };
+		409CA79F2BEE44930045F7AA /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA79E2BEE44930045F7AA /* Configuration.swift */; };
+		409CA7A12BEE44F30045F7AA /* CustomEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409CA7A02BEE44F30045F7AA /* CustomEvent.swift */; };
+		40F18B9F2BECCE9700ADF76E /* RingingFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F18B9E2BECCE9700ADF76E /* RingingFlowApp.swift */; };
+		40F18BA12BECCE9700ADF76E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F18BA02BECCE9700ADF76E /* ContentView.swift */; };
+		40F18BA32BECCE9800ADF76E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40F18BA22BECCE9800ADF76E /* Assets.xcassets */; };
+		40F18BAE2BECD05400ADF76E /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 40F18BAD2BECD05400ADF76E /* StreamVideo */; };
+		40F18BB02BECD05400ADF76E /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 40F18BAF2BECD05400ADF76E /* StreamVideoSwiftUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		409CA7852BECD0A40045F7AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		409CA78A2BECDB150045F7AA /* CustomOutgoingCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOutgoingCallView.swift; sourceTree = "<group>"; };
+		409CA78C2BECDD0A0045F7AA /* CustomViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewFactory.swift; sourceTree = "<group>"; };
+		409CA78E2BECDFB20045F7AA /* CallAgainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAgainView.swift; sourceTree = "<group>"; };
+		409CA7902BECF9970045F7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		409CA7932BECFD1A0045F7AA /* RingingFlow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RingingFlow.entitlements; sourceTree = "<group>"; };
+		409CA7952BED025C0045F7AA /* CustomCallKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallKitService.swift; sourceTree = "<group>"; };
+		409CA79B2BEE445D0045F7AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		409CA79E2BEE44930045F7AA /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		409CA7A02BEE44F30045F7AA /* CustomEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEvent.swift; sourceTree = "<group>"; };
+		40F18B9B2BECCE9700ADF76E /* RingingFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingingFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40F18B9E2BECCE9700ADF76E /* RingingFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingingFlowApp.swift; sourceTree = "<group>"; };
+		40F18BA02BECCE9700ADF76E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		40F18BA22BECCE9800ADF76E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40F18B982BECCE9700ADF76E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40F18BB02BECD05400ADF76E /* StreamVideoSwiftUI in Frameworks */,
+				40F18BAE2BECD05400ADF76E /* StreamVideo in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		409CA7862BECD0A40045F7AA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				409CA7852BECD0A40045F7AA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		409CA7882BECD1490045F7AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40F18BA02BECCE9700ADF76E /* ContentView.swift */,
+				409CA78A2BECDB150045F7AA /* CustomOutgoingCallView.swift */,
+				409CA78E2BECDFB20045F7AA /* CallAgainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		409CA7892BECDAFD0045F7AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				409CA78C2BECDD0A0045F7AA /* CustomViewFactory.swift */,
+				409CA7952BED025C0045F7AA /* CustomCallKitService.swift */,
+				409CA7A02BEE44F30045F7AA /* CustomEvent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		40F18B922BECCE9700ADF76E = {
+			isa = PBXGroup;
+			children = (
+				40F18B9D2BECCE9700ADF76E /* RingingFlow */,
+				40F18B9C2BECCE9700ADF76E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40F18B9C2BECCE9700ADF76E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40F18B9B2BECCE9700ADF76E /* RingingFlow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40F18B9D2BECCE9700ADF76E /* RingingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				409CA7932BECFD1A0045F7AA /* RingingFlow.entitlements */,
+				409CA7902BECF9970045F7AA /* Info.plist */,
+				40F18BB22BECD06500ADF76E /* Resources */,
+				40F18BB12BECD06000ADF76E /* Sources */,
+			);
+			path = RingingFlow;
+			sourceTree = "<group>";
+		};
+		40F18BB12BECD06000ADF76E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				409CA7892BECDAFD0045F7AA /* Components */,
+				409CA7882BECD1490045F7AA /* Views */,
+				40F18B9E2BECCE9700ADF76E /* RingingFlowApp.swift */,
+				409CA79B2BEE445D0045F7AA /* AppDelegate.swift */,
+				409CA79E2BEE44930045F7AA /* Configuration.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		40F18BB22BECD06500ADF76E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				409CA7862BECD0A40045F7AA /* Preview Content */,
+				40F18BA22BECCE9800ADF76E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40F18B9A2BECCE9700ADF76E /* RingingFlow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40F18BA92BECCE9800ADF76E /* Build configuration list for PBXNativeTarget "RingingFlow" */;
+			buildPhases = (
+				40F18B972BECCE9700ADF76E /* Sources */,
+				40F18B982BECCE9700ADF76E /* Frameworks */,
+				40F18B992BECCE9700ADF76E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RingingFlow;
+			packageProductDependencies = (
+				40F18BAD2BECD05400ADF76E /* StreamVideo */,
+				40F18BAF2BECD05400ADF76E /* StreamVideoSwiftUI */,
+			);
+			productName = RingingFlow;
+			productReference = 40F18B9B2BECCE9700ADF76E /* RingingFlow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40F18B932BECCE9700ADF76E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					40F18B9A2BECCE9700ADF76E = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 40F18B962BECCE9700ADF76E /* Build configuration list for PBXProject "RingingFlow" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40F18B922BECCE9700ADF76E;
+			packageReferences = (
+				40F18BAC2BECD05400ADF76E /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+			);
+			productRefGroup = 40F18B9C2BECCE9700ADF76E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40F18B9A2BECCE9700ADF76E /* RingingFlow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40F18B992BECCE9700ADF76E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409CA7872BECD0A40045F7AA /* Preview Assets.xcassets in Resources */,
+				40F18BA32BECCE9800ADF76E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40F18B972BECCE9700ADF76E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409CA78D2BECDD0A0045F7AA /* CustomViewFactory.swift in Sources */,
+				409CA7962BED025C0045F7AA /* CustomCallKitService.swift in Sources */,
+				40F18BA12BECCE9700ADF76E /* ContentView.swift in Sources */,
+				409CA7A12BEE44F30045F7AA /* CustomEvent.swift in Sources */,
+				409CA78B2BECDB150045F7AA /* CustomOutgoingCallView.swift in Sources */,
+				409CA79C2BEE445D0045F7AA /* AppDelegate.swift in Sources */,
+				409CA78F2BECDFB20045F7AA /* CallAgainView.swift in Sources */,
+				409CA79F2BEE44930045F7AA /* Configuration.swift in Sources */,
+				40F18B9F2BECCE9700ADF76E /* RingingFlowApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		40F18BA72BECCE9800ADF76E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		40F18BA82BECCE9800ADF76E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40F18BAA2BECCE9800ADF76E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RingingFlow/RingingFlow.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "RingingFlow/Resources/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RingingFlow/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(TARGET_NAME) requires access to camera to allow you to send your video during a call.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(TARGET_NAME) requires access to microphone to allow you to speak during a call.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.VideoDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40F18BAB2BECCE9800ADF76E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RingingFlow/RingingFlow.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "RingingFlow/Resources/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_TEAM = EHV7XZLAHA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RingingFlow/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(TARGET_NAME) requires access to camera to allow you to send your video during a call.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(TARGET_NAME) requires access to microphone to allow you to speak during a call.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.getstream.iOS.VideoDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40F18B962BECCE9700ADF76E /* Build configuration list for PBXProject "RingingFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40F18BA72BECCE9800ADF76E /* Debug */,
+				40F18BA82BECCE9800ADF76E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40F18BA92BECCE9800ADF76E /* Build configuration list for PBXNativeTarget "RingingFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40F18BAA2BECCE9800ADF76E /* Debug */,
+				40F18BAB2BECCE9800ADF76E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		40F18BAC2BECD05400ADF76E /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			requirement = {
+				branch = release/1.0.1;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		40F18BAD2BECD05400ADF76E /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40F18BAC2BECD05400ADF76E /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		40F18BAF2BECD05400ADF76E /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40F18BAC2BECD05400ADF76E /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 40F18B932BECCE9700ADF76E /* Project object */;
+}
