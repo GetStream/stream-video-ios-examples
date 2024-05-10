@@ -71,7 +71,13 @@ struct RingingFlowApp: App {
     }
 
     @StateObject private var viewModel = ViewModel()
-    @StateObject private var callViewModel = CallViewModel()
+    @StateObject private var callViewModel = CallViewModel(
+        callSettings: .init(
+            audioOn: true,
+            videoOn: false,
+            speakerOn: false
+        )
+    )
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {

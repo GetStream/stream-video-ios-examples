@@ -20,6 +20,7 @@ All fields have been prefilled for you but you can change any of them to match y
 Before pressing the call button, cross check that both the simulator and the device are connected as the right user and tha the simulator is set to call the user on the physical device.
 
 The sample app extends and demonstrates the following use cases:
+- Audio-only call
 - Text change on the outgoing call once callee's device is connected (but not joined the call yet).
 - Call again: The caller will be prompted to call again once the previous call ends.
 - Callee is busy: If the callee is busy when the caller calls them, the callee will immediately reject the call and the caller will be presented with a screen, informing them that the callee was busy.
@@ -31,6 +32,20 @@ Now, let's go through the code and the bits that you will need to pay attention 
 This sample app is using the components that the StreamVideoSDK ships with. That allow us to easily handle CallKit integration (by using the CallKit related objects) and state management (by using the CallViewModel).
 
 Let's take the use cases we mentioned above and analyze the code that it's required for each of them:
+
+### Audio-only call
+
+As we are using the provided `CallViewModel` we can easily set the call to be audio-only by providing the right `CallSettings` like we do in `RingingFlowApp.swift`
+
+```swift
+@StateObject private var callViewModel = CallViewModel(
+    callSettings: .init(
+        audioOn: true,
+        videoOn: false,
+        speakerOn: false
+    )
+)
+```
 
 ### Text change on the outgoing call once callee's device is connected
 
