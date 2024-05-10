@@ -7,5 +7,6 @@ There are several use-cases supported:
 - chat integration (both SwiftUI and UIKit)
 - livestreaming
 - custom UI sample for video calling
+- ringing flow sample
 
 The sample apps are explained in more details in our [docs](https://getstream.io/video/docs/ios/). 
