@@ -32,6 +32,29 @@ final class CustomCallKitService: CallKitService {
             }
     }
 
+    override func reportIncomingCall(
+        _ cid: String,
+        localizedCallerName: String,
+        callerId: String,
+        completion: @escaping ((any Error)?) -> Void
+    ) {
+        if streamVideo?.state.activeCall != nil {
+            callProvider.reportCall(
+                with: .init(),
+                endedAt: .distantPast,
+                reason: .declinedElsewhere
+            )
+            completion(nil)
+        } else {
+            super.reportIncomingCall(
+                cid,
+                localizedCallerName: localizedCallerName,
+                callerId: callerId,
+                completion: completion
+            )
+        }
+    }
+
     // MARK: - Private helpers
 
     @MainActor

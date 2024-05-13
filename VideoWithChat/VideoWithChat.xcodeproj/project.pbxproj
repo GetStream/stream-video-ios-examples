@@ -440,8 +440,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GetStream/stream-video-swift";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
 			};
 		};
 		84CBBDFE29223A6D00D0DA61 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */ = {
