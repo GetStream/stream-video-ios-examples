@@ -12,6 +12,9 @@ import Combine
 final class CustomCallKitService: CallKitService {
 
     private var ringingCallObservationCancellable: AnyCancellable?
+    private var shouldReportIncomingCall: Bool {
+        Configuration.allowCallRingingWhileInCall || (!Configuration.allowCallRingingWhileInCall && streamVideo?.state.activeCall == nil)
+    }
 
     override func didUpdate(_ streamVideo: StreamVideo?) {
         super.didUpdate(streamVideo)
@@ -38,15 +41,8 @@ final class CustomCallKitService: CallKitService {
         callerId: String,
         completion: @escaping ((any Error)?) -> Void
     ) {
-        if streamVideo?.state.activeCall != nil {
-            callProvider.reportCall(
-                with: .init(),
-                endedAt: .distantPast,
-                reason: .declinedElsewhere
-            )
-            completion(nil)
-        } else {
-            super.reportIncomingCall(
+        Task { @MainActor in
+            execute(
                 cid,
                 localizedCallerName: localizedCallerName,
                 callerId: callerId,
@@ -69,7 +65,7 @@ final class CustomCallKitService: CallKitService {
             return
         }
 
-        guard streamVideo.state.activeCall == nil else {
+        guard shouldReportIncomingCall else {
             Task {
                 do {
                     try await ringingCall.sendCustomEvent([
@@ -94,6 +90,30 @@ final class CustomCallKitService: CallKitService {
             } catch {
                 log.error(error)
             }
+        }
+    }
+
+    @MainActor
+    private func execute(
+        _ cid: String,
+        localizedCallerName: String,
+        callerId: String,
+        completion: @escaping ((any Error)?) -> Void
+    ) {
+        if shouldReportIncomingCall {
+            super.reportIncomingCall(
+                cid,
+                localizedCallerName: localizedCallerName,
+                callerId: callerId,
+                completion: completion
+            )
+        } else {
+            callProvider.reportCall(
+                with: .init(),
+                endedAt: .distantPast,
+                reason: .declinedElsewhere
+            )
+            completion(nil)
         }
     }
 }

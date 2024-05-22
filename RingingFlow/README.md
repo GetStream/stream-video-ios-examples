@@ -179,6 +179,16 @@ To do that, we update the `ContentView.swift` with the following code:
 
 ### Callee is busy
 
+For this scenario we have 2 options:
+- The new incoming call will be reported and the user will have the option to accept (and join the new call) or decline(will remain in the current one).
+- Decline the call without prompting the user, while sending a busy event to the caller.
+
+#### Reporting incoming calls while inCall
+
+You can configure that by changing the `Configuration.allowCallRingingWhileInCall` property to `true`. 
+
+#### Decline incoming calls while inCall and report busy
+
 Handling the busy use case, we are going to reuse most of the stuff we did for the isAlive case. 
 
 First we are going to update the CustomEvent to contain a new one that represents the `isBusy` event:
@@ -205,7 +215,7 @@ private func didUpdateRingingCall(_ ringingCall: Call?) {
         return
     }
 
-    guard streamVideo.state.activeCall == nil else {
+    guard shouldReportIncomingCall else {
         Task {
             do {
                 try await ringingCall.sendCustomEvent([
