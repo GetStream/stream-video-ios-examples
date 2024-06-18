@@ -9,10 +9,8 @@ import Combine
 @MainActor
 class AppState: ObservableObject {
     
-    let tokenService = TokenService.shared
-    
     @Published var userState: UserState = .notLoggedIn
-    
+
     var currentUser: User?
     
     var streamVideo: StreamVideo?
@@ -23,7 +21,7 @@ class AppState: ObservableObject {
 /* Login-related functionality */
 extension AppState {
     func login(_ user: User) async throws {
-        let token = try await self.tokenService.fetchToken(for: user.id)
+        let (apiKey, token) = try await AuthenticationProvider.fetchToken(for: user.id)
         let credentials = UserCredentials(userInfo: user, token: token)
         // save the selected user
         UnsecureUserRepository.shared.save(user: credentials)
@@ -31,14 +29,14 @@ extension AppState {
         
         // initialize StreamVideo
         let streamVideo = StreamVideo(
-            apiKey: Config.apiKey,
+            apiKey: apiKey,
             user: user,
             token: token,
             videoConfig: VideoConfig(),
             tokenProvider: { result in
                 Task {
                     do {
-                        let token = try await TokenService.shared.fetchToken(for: user.id)
+                        let (_, token) = try await AuthenticationProvider.fetchToken(for: user.id)
                         result(.success(token))
                     } catch {
                         result(.failure(error))
