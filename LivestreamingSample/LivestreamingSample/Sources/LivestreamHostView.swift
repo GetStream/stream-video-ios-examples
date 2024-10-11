@@ -22,7 +22,16 @@ struct LivestreamHostView: View {
     
     @MainActor
     private var participants: [CallParticipant] {
-        return call.state.participants.sorted(using: defaultComparators)
+        return call.state.participants.sorted { (first, second) -> Bool in
+            for comparator in defaultComparators {
+                let result = comparator(first, second)
+                if result != .orderedSame {
+                    return result == .orderedAscending
+                }
+            }
+            return false
+        }
+        //return call.state.participants.sorted(using: defaultComparators)
     }
     
     var body: some View {
@@ -42,7 +51,7 @@ struct LivestreamHostView: View {
                 if let first = participants.first {
                     VideoCallParticipantView(
                         participant: first,
-                        availableSize: reader.size,
+                        availableFrame: CGRect(origin: .zero, size: reader.size),
                         contentMode: .scaleAspectFit,
                         edgesIgnoringSafeArea: .bottom,
                         customData: [:],
@@ -106,10 +115,10 @@ struct LivestreamHostView: View {
         .task {
             for await videoEvent in call.subscribe() {
                 switch videoEvent {
-                case .typeCallBroadcastingStartedEvent:
+                case .typeCallHLSBroadcastingStartedEvent:
                     self.isBroadcasting = true
                     self.isLoading = false
-                case .typeCallBroadcastingStoppedEvent:
+                case .typeCallHLSBroadcastingStoppedEvent:
                     self.isBroadcasting = false
                     self.isLoading = false
                 default:

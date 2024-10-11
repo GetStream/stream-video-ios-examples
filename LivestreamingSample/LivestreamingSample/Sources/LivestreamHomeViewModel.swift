@@ -81,10 +81,10 @@ class LivestreamHomeViewModel: ObservableObject {
         broadcastEventsTask = Task {
             for await videoEvent in streamVideo.subscribe() {
                 switch videoEvent {
-                case .typeCallBroadcastingStartedEvent(let event) where event.callCid == watchedCallId:
+                case .typeCallHLSBroadcastingStartedEvent(let event) where event.callCid == watchedCallId:
                     let url = event.hlsPlaylistUrl.replacingOccurrences(of: "\\u0026", with: "&")
                     self.hlsURL = URL(string: url)
-                case .typeCallBroadcastingStoppedEvent:
+                case .typeCallHLSBroadcastingStoppedEvent:
                     self.hlsURL = nil
                 default:
                     break
