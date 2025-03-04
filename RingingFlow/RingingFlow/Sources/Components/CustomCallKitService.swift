@@ -39,6 +39,7 @@ final class CustomCallKitService: CallKitService {
         _ cid: String,
         localizedCallerName: String,
         callerId: String,
+        hasVideo: Bool = false,
         completion: @escaping ((any Error)?) -> Void
     ) {
         Task { @MainActor in

@@ -443,7 +443,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
 			requirement = {
-				branch = release/1.0.3;
+				branch = main;
 				kind = branch;
 			};
 		};
