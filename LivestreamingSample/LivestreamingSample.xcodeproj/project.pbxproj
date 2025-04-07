@@ -23,8 +23,8 @@
 		841693412A08EDDB0032A4AF /* LivestreamHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841693402A08EDDB0032A4AF /* LivestreamHomeViewModel.swift */; };
 		841693432A090C850032A4AF /* LivestreamHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841693422A090C850032A4AF /* LivestreamHostView.swift */; };
 		841693462A0926D80032A4AF /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841693452A0926D80032A4AF /* PlayerView.swift */; };
-		8439425A2979929800531972 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 843942592979929800531972 /* StreamVideo */; };
-		8439425C2979929800531972 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8439425B2979929800531972 /* StreamVideoSwiftUI */; };
+		84C9834A2D9EE10000C42A6E /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 84C983492D9EE10000C42A6E /* StreamVideo */; };
+		84C9834C2D9EE10000C42A6E /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 84C9834B2D9EE10000C42A6E /* StreamVideoSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8439425C2979929800531972 /* StreamVideoSwiftUI in Frameworks */,
-				8439425A2979929800531972 /* StreamVideo in Frameworks */,
+				84C9834C2D9EE10000C42A6E /* StreamVideoSwiftUI in Frameworks */,
+				84C9834A2D9EE10000C42A6E /* StreamVideo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +142,8 @@
 			);
 			name = LivestreamingSample;
 			packageProductDependencies = (
-				843942592979929800531972 /* StreamVideo */,
-				8439425B2979929800531972 /* StreamVideoSwiftUI */,
+				84C983492D9EE10000C42A6E /* StreamVideo */,
+				84C9834B2D9EE10000C42A6E /* StreamVideoSwiftUI */,
 			);
 			productName = VideoWithChat;
 			productReference = 84CBBDD4292237D900D0DA61 /* LivestreamingSample.app */;
@@ -174,7 +174,7 @@
 			);
 			mainGroup = 84CBBDCB292237D900D0DA61;
 			packageReferences = (
-				843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+				84C983482D9EE10000C42A6E /* XCRemoteSwiftPackageReference "stream-video-swift" */,
 			);
 			productRefGroup = 84CBBDD5292237D900D0DA61 /* Products */;
 			projectDirPath = "";
@@ -426,25 +426,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+		84C983482D9EE10000C42A6E /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			repositoryURL = "https://github.com/GetStream/stream-video-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.19.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		843942592979929800531972 /* StreamVideo */ = {
+		84C983492D9EE10000C42A6E /* StreamVideo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			package = 84C983482D9EE10000C42A6E /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideo;
 		};
-		8439425B2979929800531972 /* StreamVideoSwiftUI */ = {
+		84C9834B2D9EE10000C42A6E /* StreamVideoSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 843942582979929800531972 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			package = 84C983482D9EE10000C42A6E /* XCRemoteSwiftPackageReference "stream-video-swift" */;
 			productName = StreamVideoSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
