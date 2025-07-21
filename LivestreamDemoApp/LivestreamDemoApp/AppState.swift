@@ -52,9 +52,9 @@ class AppState {
     
     private func token(for userId: String) -> String {
         if userId == "Han_Solo" {
-            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiSGFuX1NvbG8iLCJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0hhbl9Tb2xvIiwiaWF0IjoxNzIzMjAzMzI1LCJleHAiOjE3MjM4MDgxMzB9.pgvj7BaR47f4mIvaZnrOUxccDgZZQB3CPbZ90e5HUsY"
+            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiSGFuX1NvbG8ifQ.ZcRRH9xA6IpxGJmBTLv4cM341cQI_vwhNqcPnq3X5eA"
         } else if userId == "Kir_Kanos" {
-            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiS2lyX0thbm9zIiwiaXNzIjoiaHR0cHM6Ly9wcm9udG8uZ2V0c3RyZWFtLmlvIiwic3ViIjoidXNlci9LaXJfS2Fub3MiLCJpYXQiOjE3MjI5NDI2OTgsImV4cCI6MTcyMzU0NzUwM30.Y-B4b_KqgMcUR_OGUyylEJA_pKlWvwr9H4sI1uy7PJk"
+            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiS2lyX0thbm9zIn0.g8lXbYnzGxNwteQbxoEOOjcEofOIa3Xgt3IT4S-TBg4"
         } else {
             return ""
         }

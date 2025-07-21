@@ -7,7 +7,7 @@
 
 import SwiftUI
 import class StreamVideo.Call
-import struct StreamVideo.CallSessionParticipantJoinedEvent
+import class StreamVideo.CallSessionParticipantJoinedEvent
 import StreamChat
 
 @MainActor
