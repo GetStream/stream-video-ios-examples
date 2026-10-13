@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-chat-swift.git",
       "state" : {
-        "revision" : "ec8c625bf6963fbc49e63deba7e5915cc8e624a4",
-        "version" : "4.43.0"
+        "revision" : "cb9dff85cac4c3d7c58ed966f8f9c94e273b02d3",
+        "version" : "4.102.1"
       }
     },
     {
@@ -14,8 +14,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-chat-swiftui.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "b326fe6408b90737ddf0c0b8c84e4ce04d054bb7"
+        "revision" : "55090fffc56aacc373de7d4236179a22979c496d",
+        "version" : "4.102.0"
+      }
+    },
+    {
+      "identity" : "stream-core-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GetStream/stream-core-swift.git",
+      "state" : {
+        "revision" : "b850c68c1a18d8dabd3e05db0d0223e5a9902a7f",
+        "version" : "0.13.0"
       }
     },
     {
@@ -23,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-video-swift",
       "state" : {
-        "branch" : "main",
-        "revision" : "618f02614e6e0452def3ec215e9550e62c04638a"
+        "revision" : "83f215d4c687525746746d01bab37aac4841c618",
+        "version" : "1.55.0"
       }
     },
     {
@@ -32,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GetStream/stream-video-swift-webrtc.git",
       "state" : {
-        "revision" : "2f7e07b4de39aeb65f3fdc83e4fdbefe5d7d5292",
-        "version" : "114.5735.8"
+        "revision" : "b794b7c9b44b3dfedc2b122e904b1ddb4cca6a25",
+        "version" : "145.25.0"
       }
     },
     {
@@ -41,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "f25867a208f459d3c5a06935dceb9083b11cd539",
-        "version" : "1.22.0"
+        "revision" : "3d537cb81aef272a03cb3be815439e9bf0eb3bd3",
+        "version" : "1.39.0"
       }
     }
   ],
