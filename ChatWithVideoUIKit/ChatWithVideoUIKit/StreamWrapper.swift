@@ -20,6 +20,7 @@ class StreamWrapper {
     let streamVideoUI: StreamVideoUI
     var tokenProvider: StreamTokenProvider
     
+    @MainActor
     init(
         apiKey: String,
         userCredentials: UserCredentials,
@@ -70,6 +71,7 @@ class StreamWrapper {
         }
     }
     
+    @MainActor
     static func applyChatCustomizations() {
         Components.default.channelVC = ChatWithVideoViewController.self
         Components.default.channelListRouter = ChannelListRouter.self

@@ -24,7 +24,8 @@ class FiltersService: ObservableObject {
     }()
     
     static let sepia: VideoFilter = {
-        let sepia = VideoFilter(id: "sepia", name: "Sepia") { image in
+        let sepia = VideoFilter(id: "sepia", name: "Sepia") { input in
+            let image = input.originalImage
             let sepiaFilter = CIFilter(name: "CISepiaTone")
             sepiaFilter?.setValue(image, forKey: kCIInputImageKey)
             return sepiaFilter?.outputImage ?? image
@@ -33,7 +34,8 @@ class FiltersService: ObservableObject {
     }()
     
     static let bloom: VideoFilter = {
-        let bloom = VideoFilter(id: "bloom", name: "Bloom") { image in
+        let bloom = VideoFilter(id: "bloom", name: "Bloom") { input in
+            let image = input.originalImage
             let bloomFilter = CIFilter(name: "CIBloom")
             bloomFilter?.setValue(image, forKey: kCIInputImageKey)
             return bloomFilter?.outputImage ?? image
@@ -42,7 +44,8 @@ class FiltersService: ObservableObject {
     }()
     
     static let stream: VideoFilter = {
-        let stream = VideoFilter(id: "stream", name: "Stream") { image in
+        let stream = VideoFilter(id: "stream", name: "Stream") { input in
+            let image = input.originalImage
             guard let faceRect = try? await detectFaces(image: image) else { return image }
             let converted = convert(cmage: image)
             let bounds = image.extent
