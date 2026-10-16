@@ -146,7 +146,7 @@ struct HomeView: View {
                 viewModel.startCall(
                     callType: .default,
                     callId: callId,
-                    members: selectedParticipants.map { MemberRequest(custom: $0.customData, role: $0.role, userId: $0.id) }
+                    members: selectedParticipants.map { Member(user: $0, role: $0.role, customData: $0.customData) }
                 )
             } label: {
                 Text("Start a call")
